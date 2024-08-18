@@ -31,7 +31,9 @@
     "multiformats": "^12.0.1"
   },
   "scripts": {
-    "start": "node helia-wrtc-star.mjs",
+    "start": "node webRtcStar.mjs",
+    "local": "node helia-wrtc-star.mjs",
+    "server": "http-server",
     "build:helia": "esbuild dep-helia.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-helia.js",
     "build:unixfs": "esbuild dep-helia-unixfs.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-helia-unixfs.js",
     "build:multiformats": "esbuild dep-multiformats.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-multiformats.js",
@@ -43,7 +45,6 @@
     "build:websockets": "esbuild dep-websockets.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-websockets.js",
     "build:webrtc-star": "esbuild dep-webrtc-star.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-webrtc-star.js",
     "build:ws-filters": "esbuild dep-ws-filters.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-ws-filters.js",
-    "build": "npm run build:helia && npm run build:unixfs && npm run build:multiformats && npm run build:multiaddr && npm run build:bootstrap && npm run build:circuit && npm run build:webrtc && npm run build:webtransport && npm run build:websockets && npm run build:ws-filters && npm run build:webrtc-star",
-    "server": "http-server"
+    "build": "npm run build:helia && npm run build:unixfs && npm run build:multiformats && npm run build:multiaddr && npm run build:bootstrap && npm run build:circuit && npm run build:webrtc && npm run build:webtransport && npm run build:websockets && npm run build:ws-filters && npm run build:webrtc-star"
   }
 }
