@@ -6,7 +6,7 @@ import process from "process";
 dotenv.config()
 
 const sig = await sigServer({
-  host: "webrtc-star.onrender.com",
+  host:  "0.0.0.0",
   port: process.env.PORT || "9090",
   metrics: false
 });
