@@ -1,19 +1,5 @@
 {
-  "name": "webrtc-star",
-  "version": "1.0.0",
-  "main": "helia-wrtc-star.mjs",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZababurinSergei/webrtc-star.git"
-  },
-  "author": "Zababurin Sergei",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/ZababurinSergei/webrtc-star/issues"
-  },
-  "homepage": "https://github.com/ZababurinSergei/webrtc-star#readme",
-  "description": "",
-  "dependencies": {
+  "devDependencies": {
     "@helia/unixfs": "^1.3.0",
     "@koush/wrtc": "^0.5.3",
     "@libp2p/bootstrap": "^8.0.0",
