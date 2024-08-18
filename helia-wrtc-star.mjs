@@ -45,62 +45,62 @@ const bootstrapConfig = {
 };
 
 
-const star = webRTCStar({wrtc});
-// https://github.com/ipfs/helia/blob/main/packages/helia/src/index.ts
-const node = await helia.createHelia({libp2p: {
-  addresses: {
-    listen: [
-      "/ip4/0.0.0.0/tcp/0",
-      "/ip4/0.0.0.0/tcp/0/ws",
-      //"/ip4/0.0.0.0/tcp/0/wss",
-      sigAddr,
-    ]
-  },
-  transports: [
-    tcp(),
-    webSockets({websocket: {rejectUnauthorized: false}}),
-    circuitRelayTransport({discoverRelays: 1}),
-    star.transport,
-  ],
-  peerDiscovery: [mdns(), bootstrap(bootstrapConfig), star.discovery],
-  // from https://github.com/libp2p/js-libp2p-webtransport/blob/main/examples/fetch-file-from-kubo/src/libp2p.ts
-  connectionGater: {denyDialMultiaddr: async () => false},
-}});
-
-// libp2p dialProtocol examples
-const proto = "/my-echo/0.1";
-const handler = ({connection, stream}) => {
-  stream.sink(async function* () {
-    for await (const bufs of stream.source) {
-      yield bufs.slice().slice();
-    }
-  }());
-};
-await node.libp2p.handle(proto, handler);
-const send = async (ma, msg) => {
-  if (typeof ma === "string") ma = multiaddr(ma);
-  const stream = await node.libp2p.dialProtocol(ma, proto);
-  stream.sink(async function* () {
-    yield (new TextEncoder().encode(msg));
-  }());
-  for await (const bufs of stream.source) {
-    return new TextDecoder().decode(bufs.slice().slice());
-  }
-};
-
-// ipfs examples
-console.log("[multiaddrs]");
-console.log(node.libp2p.getMultiaddrs().map(ma => `${ma}`));
-
-console.log("[serve example data] try to access the CID from other node");
-const nodefs = unixfs(node);
-const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
-const cid = await nodefs.addByteStream(blob.stream());
-console.log(cid);
-const cidStr = cid.toString();
-const cidAlt = CID.parse(cidStr);
-const ret1 = await node.pins.add(cidAlt); //NOTE: pins not accept CID string
-console.log(ret1);
+// const star = webRTCStar({wrtc});
+// // https://github.com/ipfs/helia/blob/main/packages/helia/src/index.ts
+// const node = await helia.createHelia({libp2p: {
+//   addresses: {
+//     listen: [
+//       "/ip4/0.0.0.0/tcp/0",
+//       "/ip4/0.0.0.0/tcp/0/ws",
+//       //"/ip4/0.0.0.0/tcp/0/wss",
+//       sigAddr,
+//     ]
+//   },
+//   transports: [
+//     tcp(),
+//     webSockets({websocket: {rejectUnauthorized: false}}),
+//     circuitRelayTransport({discoverRelays: 1}),
+//     star.transport,
+//   ],
+//   peerDiscovery: [mdns(), bootstrap(bootstrapConfig), star.discovery],
+//   // from https://github.com/libp2p/js-libp2p-webtransport/blob/main/examples/fetch-file-from-kubo/src/libp2p.ts
+//   connectionGater: {denyDialMultiaddr: async () => false},
+// }});
+//
+// // libp2p dialProtocol examples
+// const proto = "/my-echo/0.1";
+// const handler = ({connection, stream}) => {
+//   stream.sink(async function* () {
+//     for await (const bufs of stream.source) {
+//       yield bufs.slice().slice();
+//     }
+//   }());
+// };
+// await node.libp2p.handle(proto, handler);
+// const send = async (ma, msg) => {
+//   if (typeof ma === "string") ma = multiaddr(ma);
+//   const stream = await node.libp2p.dialProtocol(ma, proto);
+//   stream.sink(async function* () {
+//     yield (new TextEncoder().encode(msg));
+//   }());
+//   for await (const bufs of stream.source) {
+//     return new TextDecoder().decode(bufs.slice().slice());
+//   }
+// };
+//
+// // ipfs examples
+// console.log("[multiaddrs]");
+// console.log(node.libp2p.getMultiaddrs().map(ma => `${ma}`));
+//
+// console.log("[serve example data] try to access the CID from other node");
+// const nodefs = unixfs(node);
+// const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
+// const cid = await nodefs.addByteStream(blob.stream());
+// console.log(cid);
+// const cidStr = cid.toString();
+// const cidAlt = CID.parse(cidStr);
+// const ret1 = await node.pins.add(cidAlt); //NOTE: pins not accept CID string
+// console.log(ret1);
 
 // control with repl
 console.log("To stop with Ctrl+D");
@@ -114,7 +114,7 @@ rs.once("exit", () => {
     rs.close();
   }).catch(console.error);
 });
-Object.assign(rs.context, {
-  node, nodefs, CID, multiaddr, send,
-});
+// Object.assign(rs.context, {
+//   node, nodefs, CID, multiaddr, send,
+// });
 //await Promise.all([node.stop(), sig.stop()]);
