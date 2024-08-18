@@ -3,7 +3,7 @@ import * as helia from "helia";
 import {unixfs} from "@helia/unixfs";
 import {CID} from "multiformats/cid";
 import {multiaddr} from "@multiformats/multiaddr";
-
+import dotenv from 'dotenv'
 // modules required for helia creation on nodejs
 // transports
 import {tcp} from "@libp2p/tcp";
@@ -25,13 +25,13 @@ import wrtc from "@koush/wrtc";
 import * as repl from "node:repl";
 import process from "process";
 
-
+dotenv.config()
 // for webrtc-star
 const sig = await sigServer({
   host: "0.0.0.0",
   port: process.env.PORT || "9090",
 });
-const sigAddr = "/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star";
+const sigAddr = `/ip4/127.0.0.1/tcp/${process.env.PORT || "9090"}/ws/p2p-webrtc-star`;
 
 // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/bootstrappers.ts
 const bootstrapConfig = {
