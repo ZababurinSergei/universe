@@ -29,7 +29,7 @@ import process from "process";
 // for webrtc-star
 const sig = await sigServer({
   host: "0.0.0.0",
-  port: process.env.PORT || "9090" ,
+  port: process.env.PORT || "9090",
 });
 const sigAddr = "/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star";
 
