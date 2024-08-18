@@ -104,7 +104,8 @@ const bootstrapConfig = {
 
 // control with repl
 console.log("To stop with Ctrl+D");
-const stop = () => Promise.all([node.stop(), sig.stop()]);
+const stop = () => Promise.all([sig.stop()]);
+// const stop = () => Promise.all([node.stop(), sig.stop()]);
 const rs = repl.start({
   prompt: "> ",
 });
