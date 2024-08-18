@@ -13,14 +13,14 @@ const sig = await sigServer({
 
 console.log('STAR: ',sig.info)
 
-console.log("To stop with Ctrl+D");
-const stop = () => Promise.all([sig.stop()]);
-const rs = repl.start({
-  prompt: "> ",
-});
-rs.once("exit", () => {
-  stop().then(() => {
-    console.log("sig stopped...");
-    rs.close();
-  }).catch(console.error);
-});
+// console.log("To stop with Ctrl+D");
+// const stop = () => Promise.all([sig.stop()]);
+// const rs = repl.start({
+//   prompt: "> ",
+// });
+// rs.once("exit", () => {
+//   stop().then(() => {
+//     console.log("sig stopped...");
+//     rs.close();
+//   }).catch(console.error);
+// });
