@@ -1,31 +1,45 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="icon" href="data:image/x-icon," />
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: ws: wss: http: https: 'self' 'unsafe-inline' 'unsafe-eval';" />
+<head>
+    <link rel="icon" href="data:image/x-icon,"/>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src * data: ws: wss: http: https: 'self' 'unsafe-inline' 'unsafe-eval';"/>
     <script type="importmap">
-      {
-        "imports": {
-          "helia": "./lib-helia.js",
-          "@helia/unixfs": "./lib-helia-unixfs.js",
-          "@libp2p/bootstrap": "./lib-bootstrap.js",
-          "libp2p/circuit-relay": "./lib-circuit.js",
-          "@libp2p/webrtc": "./lib-webrtc.js",
-          "@libp2p/webtransport": "./lib-webtransport.js",
-          "@libp2p/websockets": "./lib-websockets.js",
-          "@libp2p/websockets/filters": "./lib-ws-filters.js",
-          "@libp2p/webrtc-star": "./lib-webrtc-star.js",
-          "multiformats/cid": "./lib-multiformats.js",
-          "@multiformats/multiaddr": "./lib-multiaddr.js"
+        {
+          "imports": {
+            "helia": "./lib-helia.js",
+            "@helia/unixfs": "./lib-helia-unixfs.js",
+            "@libp2p/bootstrap": "./lib-bootstrap.js",
+            "libp2p/circuit-relay": "./lib-circuit.js",
+            "@libp2p/webrtc": "./lib-webrtc.js",
+            "@libp2p/webtransport": "./lib-webtransport.js",
+            "@libp2p/websockets": "./lib-websockets.js",
+            "@libp2p/websockets/filters": "./lib-ws-filters.js",
+            "@libp2p/webrtc-star": "./lib-webrtc-star.js",
+            "multiformats/cid": "./lib-multiformats.js",
+            "@multiformats/multiaddr": "./lib-multiaddr.js"
+          }
         }
-      }
     </script>
+    <script src="./PixelPlanets/out.js"></script>
     <script type="module" src="./helia-on-browser.js"></script>
-  </head>
-  <body>
-    Open JavaScript console to check result
-  </body>
-  <script type="module">
+    <style>
+        @import url('./style.css');
+        @import url('./index.css');
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<div class="container">
+    <div class="peerInfo">
+        <div class="item">
+            <p>Planet</p>
+            <span>0</span>
+        </div>
+    </div>
+</div>
+</body>
+<script type="module">
 
-  </script>
+</script>
 </html>

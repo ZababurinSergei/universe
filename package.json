@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "node webRtcStar.mjs",
-    "local": "node helia-wrtc-star.mjs",
+    "node_0": "node helia-wrtc-star.mjs",
     "server": "http-server",
     "build:helia": "esbuild dep-helia.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-helia.js",
     "build:unixfs": "esbuild dep-helia-unixfs.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-helia-unixfs.js",

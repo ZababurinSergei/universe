@@ -1,5 +1,3 @@
-// npm i helia @helia/unixfs
-// const helia = Helia, {unixfs} = HeliaUnixfs, {CID} = Multiformats; // from CDN
 import * as helia from "helia";
 import {unixfs} from "@helia/unixfs";
 import {CID} from "multiformats/cid";
@@ -12,160 +10,173 @@ import {webSockets} from "@libp2p/websockets";
 import {webRTCStar} from "@libp2p/webrtc-star";
 import * as filters from "@libp2p/websockets/filters";
 
-const rtcStar = "/dns4/js-libp2p-webrtc-star-yeub.onrender.com/tcp/443/wss/p2p-webrtc-star"
-//NOTE: not implement rs[Symbol.asyncIterator] in browser impls
-const rsWithAi = rs => {
-  if (!(Symbol.asyncIterator in rs)) rs[Symbol.asyncIterator] = async function *() {
-    const reader = rs.getReader();
-    try {
-      while (true) {
-        const {value, done} = await reader.read();
-        if (done) return;
-        yield value;
+const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if(urlParams.has('planet')) {
+  switch (urlParams.get('planet')) {
+    case 'star':
+      break
+    default:
+      break
+  }
+  const rsWithAi = rs => {
+    if (!(Symbol.asyncIterator in rs)) rs[Symbol.asyncIterator] = async function *() {
+      const reader = rs.getReader();
+      try {
+        while (true) {
+          const {value, done} = await reader.read();
+          if (done) return;
+          yield value;
+        }
+      } finally {
+        reader.releaseLock();
       }
-    } finally {
-      reader.releaseLock();
-    }
+    };
+    return rs;
   };
-  return rs;
-};
 
 // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/bootstrappers.ts
-const bootstrapConfig = {
-  list: [
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa',
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb',
-    '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
-    '/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ',
-  ]
-};
+  const bootstrapConfig = {
+    list: [
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa',
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb',
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
+      '/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ',
+    ]
+  };
 
-const star = webRTCStar();
-const node1 = await helia.createHelia({
-  libp2p: {
-    // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/libp2p-defaults.browser.ts#L27
-    addresses: {
-      listen: [
-        "/webrtc",
-        "/wss",
-        "/ws",
-        rtcStar // see
+  const star = webRTCStar();
+
+  const node = await helia.createHelia({
+    libp2p: {
+      // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/libp2p-defaults.browser.ts#L27
+      addresses: {
+        listen: [
+          "/webrtc",
+          "/wss",
+          "/ws",
+          rtcStar // see
+        ],
+      },
+      transports: [
+        // webRTC(),
+        // webRTCDirect(),
+        // webTransport(),
+        // https://github.com/libp2p/js-libp2p-websockets#libp2p-usage-example
+        // webSockets({filter: filters.all}),
+        // circuitRelayTransport({discoverRelays: 1}),
+        star.transport,
       ],
+      peerDiscovery: [
+        // bootstrap(bootstrapConfig),
+        star.discovery
+      ],
+      // https://github.com/libp2p/js-libp2p/blob/master/doc/CONFIGURATION.md#configuring-connection-gater
+      connectionGater: {
+        denyDialMultiaddr: async (...args) => false,
+      },
     },
-    transports: [
-      webRTC(), webRTCDirect(),
-      webTransport(),
-      // https://github.com/libp2p/js-libp2p-websockets#libp2p-usage-example
-      webSockets({filter: filters.all}),
-      circuitRelayTransport({discoverRelays: 1}),
-      star.transport,
-    ],
-    peerDiscovery: [bootstrap(bootstrapConfig), star.discovery],
-    // https://github.com/libp2p/js-libp2p/blob/master/doc/CONFIGURATION.md#configuring-connection-gater
-    connectionGater: {
-      denyDialMultiaddr: async (...args) => false,
-    },
-  },
-}); // tcp network, stored on memory (not use files)
-console.log("[createHelia]");
-const node1fs = unixfs(node1);
+  }); // tcp network, stored on memory (not use files)
 
-//IMPORTANT: must await libp2p.getMultiaddrs().length > 0
-while (
-    node1.libp2p.getMultiaddrs().length === 0
-) await new Promise(f => setTimeout(f, 500));
+  const nodeFs = unixfs(node);
 
-console.log("[libp2p.getMultiaddrs]", node1.libp2p.getMultiaddrs().map(ma => `${ma}`));
+  while (
+      node.libp2p.getMultiaddrs().length === 0
+      ) await new Promise(f => setTimeout(f, 500));
 
-// libp2p dialProtocol examples
-const proto = "/my-echo/0.1";
-const handler = ({connection, stream}) => {
-  console.log('###################################################')
-  stream.sink(async function* () {
+
+  console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
+
+  const proto = "/my-echo/0.1";
+  const handler = ({connection, stream}) => {
+    console.log('###################################################')
+    stream.sink(async function* () {
+      for await (const bufs of stream.source) {
+        yield bufs.slice().slice();
+      }
+    }());
+  };
+
+  await node.libp2p.handle(proto, handler);
+
+  const send = async (ma, msg) => {
+    if (typeof ma === "string") ma = multiaddr(ma);
+    const stream = await node.libp2p.dialProtocol(ma, proto);
+    stream.sink(async function* () {
+      yield (new TextEncoder().encode(msg));
+    }());
     for await (const bufs of stream.source) {
-      yield bufs.slice().slice();
+      return new TextDecoder().decode(bufs.slice().slice());
     }
-  }());
-};
-
-await node1.libp2p.handle(proto, handler);
-
-const send = async (ma, msg) => {
-  if (typeof ma === "string") ma = multiaddr(ma);
-  const stream = await node1.libp2p.dialProtocol(ma, proto);
-  stream.sink(async function* () {
-    yield (new TextEncoder().encode(msg));
-  }());
-  for await (const bufs of stream.source) {
-    return new TextDecoder().decode(bufs.slice().slice());
-  }
-};
-
+  };
 
 // for web console
-window.ctx = {
-  helia,
-  CID,
-  multiaddr,
-  node1,
-  node1fs,
-  maStar: localId => multiaddr(`${rtcStar}/p2p/${localId}`),
-  maP2p: localId => multiaddr(`/p2p/${localId}`),
-  cidHw: cid => CID.parse(cid), // served on helia-wrtc-star.mjs
-  send,
-};
+  window.ctx = {
+    helia,
+    CID,
+    multiaddr,
+    node,
+    nodeFs,
+    maStar: localId => multiaddr(`${rtcStar}/p2p/${localId}`),
+    maP2p: localId => multiaddr(`/p2p/${localId}`),
+    cidHw: cid => CID.parse(cid), // served on helia-wrtc-star.mjs
+    send,
+  };
 
-const maPeer = await window.ctx.maStar('12D3KooWH6yCNbjjEeJYEmSc2kpM7Tk4XnymdsDozFeBH5zwunRb')
-console.log('MA PEER', maPeer)
-
-const res = await send('/dns4/js-libp2p-webrtc-star-yeub.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWA2JENeezGZhKD3fwpHUSs5AUf1VjS7qvsHhd7EjAeGG9', 'hello')
-
-console.log('window.ctx: ',  res)
+  console.log('sssssssssss', window.ctx)
+// const maPeer = await window.ctx.maStar('12D3KooWH6yCNbjjEeJYEmSc2kpM7Tk4XnymdsDozFeBH5zwunRb')
+// console.log('MA PEER', maPeer)
+// const res = await send('/dns4/js-libp2p-webrtc-star-yeub.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWA2JENeezGZhKD3fwpHUSs5AUf1VjS7qvsHhd7EjAeGG9', 'hello')
+// console.log('window.ctx: ',  res)
 
 // example data
 // const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
 // console.log("[Blob]", blob);
 
 // publish blob as CID with addByteStream()
-// const cid = await ctx.node1fs.addByteStream(rsWithAi(blob.stream()));
-//const cid = await ctx.node1fs.addBytes(new Uint8Array(await blob.arrayBuffer()));
+// const cid = await ctx.nodefs.addByteStream(rsWithAi(blob.stream()));
+//const cid = await ctx.nodefs.addBytes(new Uint8Array(await blob.arrayBuffer()));
 // console.log("[unixfs.addByteStream]", cid);
 // const cidStr = cid.toString();
 // const cidAlt = CID.parse(cidStr);
-// const ret1 = await ctx.node1.pins.add(cidAlt); //NOTE: pins not accept CID string
+// const ret1 = await ctx.node.pins.add(cidAlt); //NOTE: pins not accept CID string
 // console.log("[pins.add]", ret1);
 
 
-/*
-// example data
-const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
-console.log("[Blob]", blob);
+  /*
+  // example data
+  const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
+  console.log("[Blob]", blob);
 
-// publish blob as CID with addByteStream()
-const cid = await ctx.node1fs.addByteStream(rsWithAi(blob.stream()));
-//const cid = await ctx.node1fs.addBytes(new Uint8Array(await blob.arrayBuffer()));
-console.log("[unixfs.addByteStream]", cid);
-const cidStr = cid.toString();
-const cidAlt = CID.parse(cidStr);
-const ret1 = await ctx.node1.pins.add(cidAlt); //NOTE: pins not accept CID string
-console.log("[pins.add]", ret1);
+  // publish blob as CID with addByteStream()
+  const cid = await ctx.nodefs.addByteStream(rsWithAi(blob.stream()));
+  //const cid = await ctx.nodefs.addBytes(new Uint8Array(await blob.arrayBuffer()));
+  console.log("[unixfs.addByteStream]", cid);
+  const cidStr = cid.toString();
+  const cidAlt = CID.parse(cidStr);
+  const ret1 = await ctx.node.pins.add(cidAlt); //NOTE: pins not accept CID string
+  console.log("[pins.add]", ret1);
 
-// NOTE: helia's pins needs stored blocks in blockstore (e.g. cannnot pin before stat()/ls()/cat())
-const stat = await ctx.node1fs.stat(cidStr);
-console.log("[unixfs.stat]", stat);
+  // NOTE: helia's pins needs stored blocks in blockstore (e.g. cannnot pin before stat()/ls()/cat())
+  const stat = await ctx.nodefs.stat(cidStr);
+  console.log("[unixfs.stat]", stat);
 
-// get CID object from CID string with ls() from @helia/unixfs
-for await (const entry of ctx.node1fs.ls(cidStr)) console.log("[unixfs.ls]", entry.cid);
+  // get CID object from CID string with ls() from @helia/unixfs
+  for await (const entry of ctx.nodefs.ls(cidStr)) console.log("[unixfs.ls]", entry.cid);
 
-// retrieve data with cat(cid or cid-string)
-const u8as = [];
-for await (const u8a of ctx.node1fs.cat(cidStr)) {
-  console.log("[unixfs.cat]", u8a);
-  u8as.push(u8a.slice());
-}
-console.log("[Blob.text]", await (new Blob(u8as).text()));
-*/
+  // retrieve data with cat(cid or cid-string)
+  const u8as = [];
+  for await (const u8a of ctx.nodefs.cat(cidStr)) {
+    console.log("[unixfs.cat]", u8a);
+    u8as.push(u8a.slice());
+  }
+  console.log("[Blob.text]", await (new Blob(u8as).text()));
+  */
 
 // stop only helia nodes; unixfs is just a wrapper
-//console.log("[helia.stop]", await node1.stop());
+//console.log("[helia.stop]", await node.stop());
+}
