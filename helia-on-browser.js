@@ -15,9 +15,24 @@ const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
+
+const DOM = {
+  planet: () => {
+    const root = document.querySelector('.planet')
+    return root.querySelector('span')
+  }
+}
+
+const COLORS = {
+  active: '#357edd',
+  success: '#0cb892',
+  error: '#ea5037'
+}
+
 if(urlParams.has('planet')) {
   switch (urlParams.get('planet')) {
     case 'star':
+      DOM.planet().textContent = 'Солнце'
       break
     default:
       break
@@ -179,4 +194,6 @@ if(urlParams.has('planet')) {
 
 // stop only helia nodes; unixfs is just a wrapper
 //console.log("[helia.stop]", await node.stop());
+} else {
+  DOM.planet().textContent = 'Солнце'
 }
