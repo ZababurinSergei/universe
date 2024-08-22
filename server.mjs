@@ -22,7 +22,8 @@ import {createEd25519PeerId, exportToProtobuf, createFromProtobuf} from '@libp2p
 import { autoNAT } from '@libp2p/autonat';
 
 const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
-const fileNamePeerId = '/peerId_star.proto'
+const fileNamePeerId = '/peerId_station_sun.proto'
+
 let pathNode = ''
 const __dirname = process.cwd();
 const isRead = true
