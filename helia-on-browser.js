@@ -19,6 +19,10 @@ const urlParams = new URLSearchParams(queryString);
 const options = init()
 
 const DOM = {
+    discovery: () => {
+        const root = document.querySelector('.discovery')
+        return root.querySelector('ul')
+    },
     planet: () => {
         const root = document.querySelector('.planet')
         return root.querySelector('span')
@@ -160,6 +164,19 @@ if (peerId.status === 200) {
     }
 
     console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
+
+
+    node.libp2p.addEventListener('peer:connect', (evt) => {
+        const peerId = evt.detail
+        DOM.discovery().insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
+        console.log('Connection established to:', peerId.toString()) // Emitted when a peer has been found
+    })
+
+    node.libp2p.addEventListener('peer:discovery', (evt) => {
+        const peerInfo = evt.detail
+
+        console.log('Discovered:', peerInfo.id.toString())
+    })
 
     const proto = "/my-echo/0.1";
     const handler = ({connection, stream}) => {

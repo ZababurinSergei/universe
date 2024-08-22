@@ -29,12 +29,15 @@
     "@libp2p/webrtc-star-signalling-server": "^4.0.0",
     "@libp2p/websockets": "^8.2.0",
     "@multiformats/multiaddr": "^12.3.0",
+    "autoprefixer": "^10.4.20",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "esbuild": "^0.23.1",
     "express": "^4.19.2",
     "express-enqueue": "^1.0.0",
+    "gulp": "^5.0.0",
+    "gulp-postcss": "^10.0.0",
     "helia": "^4.2.5",
     "http-server": "^14.1.1",
     "libp2p": "^1.9.2",
@@ -55,6 +58,16 @@
     "build:websockets": "esbuild dep-websockets.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-websockets.js",
     "build:webrtc-star": "esbuild dep-webrtc-star.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-webrtc-star.js",
     "build:ws-filters": "esbuild dep-ws-filters.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-ws-filters.js",
-    "build": "npm run build:helia && npm run build:unixfs && npm run build:multiformats && npm run build:multiaddr && npm run build:bootstrap && npm run build:circuit && npm run build:webrtc && npm run build:webtransport && npm run build:websockets && npm run build:ws-filters && npm run build:webrtc-star"
+    "build": "npm run build:helia && npm run build:unixfs && npm run build:multiformats && npm run build:multiaddr && npm run build:bootstrap && npm run build:circuit && npm run build:webrtc && npm run build:webtransport && npm run build:websockets && npm run build:ws-filters && npm run build:webrtc-star",
+    "=== mobile ===": "",
+    "px2vw:320": "gulp px2vw --dir ./docs/css --rootWidthDesktop 320 --viewportHeigth 767 --media mobile",
+    "vw2px:320": "gulp vw2px  --dir ./docs/css --rootWidthDesktop 320 --viewportHeigth 767 --media mobile",
+    "=== tablet ===": "",
+    "px2vw:768": "gulp px2vw --dir ./docs/css --rootWidthDesktop 768 --viewportHeigth 899 --media tablet",
+    "vw2px:768": "gulp vw2px  --dir ./docs/css --rootWidthDesktop 768 --viewportHeigth 899 --media tablet",
+    "=== desktop ===": "",
+    "px2vw:1920": "gulp px2vw --dir ./docs/css --rootWidthDesktop 1920 --viewportHeigth 1080 --media desktop",
+    "vw2px:1920": "gulp vw2px  --dir ./docs/css --rootWidthDesktop 1920 --viewportHeigth 1080 --media desktop",
+    "=== end ===": ""
   }
 }
