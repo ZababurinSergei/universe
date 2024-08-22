@@ -17,9 +17,11 @@ import { mplex } from '@libp2p/mplex';
 import { tcp } from '@libp2p/tcp';
 import { createLibp2p } from 'libp2p';
 import { bootstrappers } from './bootstrappers.mjs';
+import {webRTCStar} from "@libp2p/webrtc-star";
 import {createEd25519PeerId, exportToProtobuf, createFromProtobuf} from '@libp2p/peer-id-factory';
 import { autoNAT } from '@libp2p/autonat';
 
+const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 const fileNamePeerId = '/peerId_star.proto'
 let pathNode = ''
 const __dirname = process.cwd();
@@ -70,17 +72,29 @@ app.use(await cors({credentials: true}));
 app.use(queue.getMiddleware());
 
 const createNode = async () => {
-    console.log('ddddddddddddd', `/ip4/127.0.0.1/tcp/${process.env.PORT? '443': port + 1}`)
+    // console.log('ddddddddddddd', `/ip4/127.0.0.1/tcp/${process.env.PORT? '443': port + 1}`)
+    const star = webRTCStar();
+
     const node = await createLibp2p({
         peerId,
         addresses: {
-            listen: [`/ip4/127.0.0.1/tcp/${process.env.PORT? '443': port + 1}`],
+            listen: [
+                `/ip4/127.0.0.1/tcp/${process.env.PORT? '443': port + 1}`,
+                "/webrtc",
+                "/wss",
+                "/ws",
+                rtcStar // see
+            ],
             // announce: [`/dns4/discovery-biq5.onrender.com/tcp/443`]
         },
-        transports: [tcp()],
+        transports: [
+            tcp(),
+            // star.transport,
+        ],
         streamMuxers: [yamux(), mplex()],
         connectionEncryption: [noise()],
         peerDiscovery: [
+            star.discovery,
             bootstrap({
                 list: bootstrappers
             })
@@ -92,7 +106,10 @@ const createNode = async () => {
             }),
             identify: identify(),
             autoNAT: autoNAT()
-        }
+        },
+        connectionGater: {
+            denyDialMultiaddr: async (...args) => false,
+        },
     })
 
     const peerConfig = {

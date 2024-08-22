@@ -1,4 +1,4 @@
-import { flip } from "./src/utils"
+import { flip } from "./src/utils.js"
 
 export const settings = {
     seedValue: 1.0,

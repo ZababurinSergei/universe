@@ -45,6 +45,7 @@
     "server": "nodemon ./server.mjs",
     "build:helia": "esbuild dep-helia.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-helia.js",
     "build:unixfs": "esbuild dep-helia-unixfs.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-helia-unixfs.js",
+    "build:peer-factory": "esbuild dep-peer-factory.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-peerId-factory.js",
     "build:multiformats": "esbuild dep-multiformats.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-multiformats.js",
     "build:multiaddr": "esbuild dep-multiaddr.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-multiaddr.js",
     "build:bootstrap": "esbuild dep-bootstrap.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-bootstrap.js",

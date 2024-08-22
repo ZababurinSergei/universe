@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild index.js --minify  --bundle --outfile=out.js",
+    "build": "esbuild index.js --sourcemap --minify  --bundle --outfile=out.js",
+    "watch": "nodemon --watch src --watch index.js --watch settings.js --exec 'npm run build'",
     "generate:server-side": "node server-side-example.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
     "esbuild": "^0.23.1",
     "get-pixels": "^3.3.3",
     "gl": "^8.0.2",
+    "nodemon": "^3.1.4",
     "three": "^0.167.1"
   }
 }

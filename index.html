@@ -17,7 +17,8 @@
             "@libp2p/websockets/filters": "./lib-ws-filters.js",
             "@libp2p/webrtc-star": "./lib-webrtc-star.js",
             "multiformats/cid": "./lib-multiformats.js",
-            "@multiformats/multiaddr": "./lib-multiaddr.js"
+            "@multiformats/multiaddr": "./lib-multiaddr.js",
+            "@libp2p/peer-id-factory":"./lib-peerId-factory.js"
           }
         }
     </script>
@@ -34,7 +35,15 @@
     <div class="peerInfo">
         <div class="item planet">
             <p>Планета</p>
-            <span>0</span>
+            <span></span>
+        </div>
+        <div class="item peerId">
+            <p>ID Планеты</p>
+            <span></span>
+        </div>
+        <div class="item ma">
+            <p>Связь с планетой</p>
+            <ul></ul>
         </div>
     </div>
 </div>
