@@ -1,25 +1,24 @@
 import path from 'path';
-import os from "os";
-import fs from 'node:fs'
+import fs from 'node:fs';
 import process from "node:process";
 import cors from 'cors';
 import Enqueue from 'express-enqueue';
 import compression from 'compression';
 import * as dotenv from 'dotenv';
 import express from 'express';
-import { peerIdFromString } from '@libp2p/peer-id'
+import { peerIdFromString } from '@libp2p/peer-id';
 /* eslint-disable no-console */
-import { noise } from '@chainsafe/libp2p-noise'
-import { yamux } from '@chainsafe/libp2p-yamux'
-import { bootstrap } from '@libp2p/bootstrap'
-import { identify } from '@libp2p/identify'
-import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
-import { mplex } from '@libp2p/mplex'
-import { tcp } from '@libp2p/tcp'
-import { createLibp2p } from 'libp2p'
-import bootstrappers from './bootstrappers.js'
-import {createEd25519PeerId, exportToProtobuf, createFromProtobuf} from '@libp2p/peer-id-factory'
-import { autoNAT } from '@libp2p/autonat'
+import { noise } from '@chainsafe/libp2p-noise';
+import { yamux } from '@chainsafe/libp2p-yamux';
+import { bootstrap } from '@libp2p/bootstrap';
+import { identify } from '@libp2p/identify';
+import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht';
+import { mplex } from '@libp2p/mplex';
+import { tcp } from '@libp2p/tcp';
+import { createLibp2p } from 'libp2p';
+import { bootstrappers } from './bootstrappers.mjs';
+import {createEd25519PeerId, exportToProtobuf, createFromProtobuf} from '@libp2p/peer-id-factory';
+import { autoNAT } from '@libp2p/autonat';
 
 const fileNamePeerId = '/peerId_star.proto'
 let pathNode = ''
@@ -42,7 +41,7 @@ dotenv.config();
 
 const port = process.env.PORT
     ? process.env.PORT
-    : 4838;
+    : 7458;
 
 let whitelist = ['*']
 
@@ -71,11 +70,12 @@ app.use(await cors({credentials: true}));
 app.use(queue.getMiddleware());
 
 const createNode = async () => {
+    console.log('ddddddddddddd', `/ip4/127.0.0.1/tcp/${process.env.PORT? '443': port + 1}`)
     const node = await createLibp2p({
         peerId,
         addresses: {
             listen: [`/ip4/127.0.0.1/tcp/${process.env.PORT? '443': port + 1}`],
-            announce: [`/dns4/discovery-biq5.onrender.com/tcp/443`]
+            // announce: [`/dns4/discovery-biq5.onrender.com/tcp/443`]
         },
         transports: [tcp()],
         streamMuxers: [yamux(), mplex()],
@@ -108,12 +108,6 @@ const createNode = async () => {
 
     node.addEventListener('peer:connect', (evt) => {
         const peerId = evt.detail
-        const peerIdRemote = peerIdFromString('12D3KooWJ46sS3Pi84KZpGwCqk7nsUWWAvnftEQsy6xXec2ZitT1')
-        node.peerRouting.findPeer(peerIdRemote).then(peerInfo => {
-            console.info('----------------------------------------------',peerInfo) // peer id, multiaddrs
-        }).catch(e => {
-            console.error(e)
-        })
         console.log('Connection established to:', peerId.toString()) // Emitted when a peer has been found
     })
 
@@ -129,7 +123,8 @@ const createNode = async () => {
 async function main () {
     app.use(express.static('public'))
 
-    // const node = await createNode()
+    const node = await createNode()
+
     app.use(express.static(`${__dirname}`));
 
     app.get(`/env.json`, async (req, res) => {
