@@ -108,6 +108,8 @@ function initScene() {
     animate();
 }
 
-window.onload = () => {
-    initScene()
+export default function () {
+    // window.onload = () => {
+        initScene()
+
 }
