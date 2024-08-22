@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild index.js --sourcemap --minify  --bundle --outfile=out.js",
+    "build": "esbuild index.js --bundle --minify --format=esm --target=chrome114 --define:global=window --keep-names --outfile=out.mjs",
     "watch": "nodemon --watch src --watch index.js --watch settings.js --exec 'npm run build'",
     "generate:server-side": "node server-side-example.js",
     "test": "echo \"Error: no test specified\" && exit 1"

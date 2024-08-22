@@ -2,9 +2,9 @@ import { GUI } from 'dat.gui';
 import { Group, Vector2 } from 'three';
 import { settings } from './settings.js';
 import { createCamera } from './src/camera.js';
-import { createStars } from './src/Layers/stars.js';
-import { createClock, createScene, createWebGlRenderer } from './src/Three.js';
-import { generatePlanetByType } from './src/utils.js';
+import { createStars } from './src/Layers/stars';
+import { createClock, createScene, createWebGlRenderer } from './src/Three';
+import { generatePlanetByType } from './src/utils';
 
 function initScene() {
 
@@ -30,8 +30,9 @@ function initScene() {
     }, false);
 
     const planetGroup = new Group()
+
     // add starting planet
-    planetGroup.add(generatePlanetByType(settings.planetOptions[0]));
+    planetGroup.add(generatePlanetByType(settings.planetOptions[5]));
     scene.add(planetGroup)
 
     // use dat.gui to play around
@@ -81,7 +82,8 @@ function initScene() {
         // animate planets
         planetGroup.children.forEach(planet => {
             planet.children.forEach(layer => {
-                if(layer.material.uniforms["time"]) {
+                if(layer.material.uniforms["time"])
+                {
                     layer.material.uniforms["time"].value = clock.getElapsedTime();
                     if(layer.material.uniforms["time_speed"]) {
                         layer.material.uniforms["time_speed"].value += holding ? moveX*0.01 : 0;

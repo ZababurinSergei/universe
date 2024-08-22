@@ -12,7 +12,7 @@ export function createStars(count) {
     for (let i = 0; i < count; i++) {
         let isSpecial = flip()
         if (isSpecial) {
-            texture = new TextureLoader().load("src/stars/stars-special.png")
+            let texture = new TextureLoader().load("/src/stars/stars-special.png")
 
             texture.magFilter = NearestFilter
             texture.minFilter = NearestFilter
@@ -36,7 +36,7 @@ export function createStars(count) {
             starGroup.add(starObj);
         }
         else {
-            texture = new TextureLoader().load("src/stars/stars.png")
+            texture = new TextureLoader().load("./src/stars/stars.png")
 
             texture.magFilter = NearestFilter
             texture.minFilter = NearestFilter

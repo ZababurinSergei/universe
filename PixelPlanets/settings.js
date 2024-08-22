@@ -2,7 +2,7 @@ import { flip } from "./src/utils.js"
 
 export const settings = {
     seedValue: 1.0,
-    planetTypes:"No atmosphere",
+    planetTypes:"Star",
     planetOptions: [
         "No atmosphere",
         "Ice Planet",
