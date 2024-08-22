@@ -36,7 +36,7 @@ const COLORS = {
     success: '#0cb892',
     error: '#ea5037'
 }
-// console.log('---------------------', peerId)
+
 // console.log('========== createFromProtobuf ===========', createFromProtobuf)
 // debugger
 if (urlParams.has('planet')) {
@@ -44,6 +44,8 @@ if (urlParams.has('planet')) {
     if (peerId.status === 200) {
         peerId = await peerId.blob()
         peerId = await createFromProtobuf(new Uint8Array(await peerId.arrayBuffer()))
+
+        console.log('---------------------', peerId)
 
         switch (urlParams.get('planet')) {
             case 'star':
@@ -118,7 +120,6 @@ if (urlParams.has('planet')) {
         const nodeFs = unixfs(node);
 
         while (node.libp2p.getMultiaddrs().length === 0) await new Promise(f => setTimeout(f, 500));
-
 
         DOM.planet().textContent = 'Луна'
         DOM.peerId().textContent = node.libp2p.peerId.toString()

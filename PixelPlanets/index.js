@@ -36,25 +36,25 @@ function initScene() {
     scene.add(planetGroup)
 
     // use dat.gui to play around
-    const gui = new GUI({ name: "Pixel planets" })
-    gui.add(settings, 'planetTypes', settings.planetOptions).onChange((v) => {
-        planetGroup.children.pop().remove()
-        planetGroup.add(generatePlanetByType(v));
-    });
-    gui.add(settings, "seed").onChange(() => {
-        planetGroup.children.forEach(planet => {
-            planet.children.forEach(layer => {
-                if(layer.material.uniforms["seed"])
-                {
-                    layer.material.uniforms["seed"].value = settings.seedValue
-                }
-                // for asteroids
-                if (layer.material.uniforms["size"]) {
-                    layer.material.uniforms["size"].value = Math.random() * 10
-                }
-            });
-        });
-    })
+    // const gui = new GUI({ name: "Pixel planets" })
+    // gui.add(settings, 'planetTypes', settings.planetOptions).onChange((v) => {
+    //     planetGroup.children.pop().remove()
+    //     planetGroup.add(generatePlanetByType(v));
+    // });
+    // gui.add(settings, "seed").onChange(() => {
+    //     planetGroup.children.forEach(planet => {
+    //         planet.children.forEach(layer => {
+    //             if(layer.material.uniforms["seed"])
+    //             {
+    //                 layer.material.uniforms["seed"].value = settings.seedValue
+    //             }
+    //             // for asteroids
+    //             if (layer.material.uniforms["size"]) {
+    //                 layer.material.uniforms["size"].value = Math.random() * 10
+    //             }
+    //         });
+    //     });
+    // })
 
     const skySpeed = 0.00001;
 
@@ -106,10 +106,17 @@ function initScene() {
     };
 
     animate();
+
+    return {
+        change: (planet) => {
+            console.log('%%%%%%%%%%%%%%%%%%%%%%%%', planet)
+            planetGroup.children.pop().remove()
+            planetGroup.add(generatePlanetByType(planet));
+        },
+        planet : settings.planetOptions
+    }
 }
 
 export default function () {
-    // window.onload = () => {
-        initScene()
-
+       return  initScene()
 }
