@@ -10,15 +10,15 @@ import {multiaddr} from "@multiformats/multiaddr";
 import {webRTCStar} from "@libp2p/webrtc-star";
 // import * as filters from "@libp2p/websockets/filters";
 import {createFromProtobuf} from '@libp2p/peer-id-factory';
-import init from './PixelPlanets/out.mjs'
 import { noise } from '@chainsafe/libp2p-noise'
-// import { yamux } from '@chainsafe/libp2p-yamux'
+import { yamux } from '@chainsafe/libp2p-yamux'
+import { mplex } from '@libp2p/mplex'
 // import { bootstrap } from '@libp2p/bootstrap'
 // import { identify } from '@libp2p/identify'
 // import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
-// import { mplex } from '@libp2p/mplex'
 // import { autoNAT } from '@libp2p/autonat'
 // import { FaultTolerance } from '@libp2p/interface-transport'
+import init from './PixelPlanets/out.mjs'
 
 const peerList = new Set();
 const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
@@ -151,6 +151,8 @@ if (peerId.status === 200) {
                 // circuitRelayTransport({discoverRelays: 1}),
                 star.transport,
             ],
+            connectionEncryption: [noise()],
+            streamMuxers: [yamux(), mplex()],
             peerDiscovery: [
                 // bootstrap(bootstrapConfig),
                 star.discovery
