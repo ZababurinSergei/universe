@@ -10,14 +10,14 @@ import {multiaddr} from "@multiformats/multiaddr";
 import {webRTCStar} from "@libp2p/webrtc-star";
 // import * as filters from "@libp2p/websockets/filters";
 import {createFromProtobuf} from '@libp2p/peer-id-factory';
-import { noise } from '@chainsafe/libp2p-noise'
-import { yamux } from '@chainsafe/libp2p-yamux'
-import { mplex } from '@libp2p/mplex'
+import {noise} from '@chainsafe/libp2p-noise'
+import {yamux} from '@chainsafe/libp2p-yamux'
+import {mplex} from '@libp2p/mplex'
 // import { bootstrap } from '@libp2p/bootstrap'
 // import { identify } from '@libp2p/identify'
 // import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
 // import { autoNAT } from '@libp2p/autonat'
-// import { FaultTolerance } from '@libp2p/interface-transport'
+import { FaultTolerance } from '@libp2p/interface-transport'
 import init from './PixelPlanets/out.mjs'
 
 const peerList = new Set();
@@ -29,7 +29,7 @@ const options = init()
 
 const DOM = {
     disconnect: () => {
-        return  document.querySelector('.disconnect')
+        return document.querySelector('.disconnect')
     },
     discovery: () => {
         const root = document.querySelector('.discovery')
@@ -151,21 +151,146 @@ if (peerId.status === 200) {
                 // circuitRelayTransport({discoverRelays: 1}),
                 star.transport,
             ],
+            addressManager: {
+                autoDial: true
+            },
+            connectionManager: {
+                autoDial: true,
+                dialTimeout: 60000,
+                maxConnections: 3,
+                minConnections: 1
+            },
             connectionEncryption: [noise()],
             streamMuxers: [yamux(), mplex()],
             peerDiscovery: [
                 // bootstrap(bootstrapConfig),
                 star.discovery
             ],
+            transportManager: {
+                faultTolerance: FaultTolerance.NO_FATAL
+            },
             // https://github.com/libp2p/js-libp2p/blob/master/doc/CONFIGURATION.md#configuring-connection-gater
             connectionGater: {
-                denyDialMultiaddr: async (...args) => false,
+                /**
+                 * denyDialMultiaddr tests whether we're permitted to Dial the
+                 * specified peer.
+                 *
+                 * This is called by the dialer.connectToPeer implementation before
+                 * dialling a peer.
+                 *
+                 * Return true to prevent dialing the passed peer.
+                 */
+                denyDialPeer: (peerId) => {
+                    console.log('ddddddddddd denyDialPeer dddddddddddddddd', peerId)
+                    return false
+                },
+                /**
+                 * denyDialMultiaddr tests whether we're permitted to dial the specified
+                 * multiaddr for the given peer.
+                 *
+                 * This is called by the dialer.connectToPeer implementation after it has
+                 * resolved the peer's addrs, and prior to dialling each.
+                 *
+                 * Return true to prevent dialing the passed peer on the passed multiaddr.
+                 */
+                denyDialMultiaddr: async (peerId) => {
+
+                    return false
+                },
+                /**
+                 * denyInboundConnection tests whether an incipient inbound connection is allowed.
+                 *
+                 * This is called by the upgrader, or by the transport directly (e.g. QUIC,
+                 * Bluetooth), straight after it has accepted a connection from its socket.
+                 *
+                 * Return true to deny the incoming passed connection.
+                 */
+                denyInboundConnection: (maConn) => {
+                    console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', maConn)
+                    return false
+                },
+                /**
+                 * denyOutboundConnection tests whether an incipient outbound connection is allowed.
+                 *
+                 * This is called by the upgrader, or by the transport directly (e.g. QUIC,
+                 * Bluetooth), straight after it has created a connection with its socket.
+                 *
+                 * Return true to deny the incoming passed connection.
+                 */
+                denyOutboundConnection: (peerId, maConn) => {
+                    console.log('------------------------ denyOutboundConnection --------------------------------', peerId)
+                    return false
+                },
+
+                /**
+                 * denyInboundEncryptedConnection tests whether a given connection, now encrypted,
+                 * is allowed.
+                 *
+                 * This is called by the upgrader, after it has performed the security
+                 * handshake, and before it negotiates the muxer, or by the directly by the
+                 * transport, at the exact same checkpoint.
+                 *
+                 * Return true to deny the passed secured connection.
+                 */
+                denyInboundEncryptedConnection: (peerId, maConn) => {
+                    console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@', peerId)
+                    return false
+                },
+
+                /**
+                 * denyOutboundEncryptedConnection tests whether a given connection, now encrypted,
+                 * is allowed.
+                 *
+                 * This is called by the upgrader, after it has performed the security
+                 * handshake, and before it negotiates the muxer, or by the directly by the
+                 * transport, at the exact same checkpoint.
+                 *
+                 * Return true to deny the passed secured connection.
+                 */
+                denyOutboundEncryptedConnection: (peerId, maConn) => {
+                    console.log('############## denyOutboundEncryptedConnection #######################', peerId)
+                    return false
+                },
+
+                /**
+                 * denyInboundUpgradedConnection tests whether a fully capable connection is allowed.
+                 *
+                 * This is called after encryption has been negotiated and the connection has been
+                 * multiplexed, if a multiplexer is configured.
+                 *
+                 * Return true to deny the passed upgraded connection.
+                 */
+                denyInboundUpgradedConnection: (peerId, maConn) => {
+                    console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId)
+                    return false
+                },
+
+                /**
+                 * denyOutboundUpgradedConnection tests whether a fully capable connection is allowed.
+                 *
+                 * This is called after encryption has been negotiated and the connection has been
+                 * multiplexed, if a multiplexer is configured.
+                 *
+                 * Return true to deny the passed upgraded connection.
+                 */
+                denyOutboundUpgradedConnection: (peerId, maConn) => {
+                    console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId)
+                    return false
+                },
+
+                /**
+                 * Used by the address book to filter passed addresses.
+                 *
+                 * Return true to allow storing the passed multiaddr for the passed peer.
+                 */
+                filterMultiaddrForPeer: (peerId, multiaddr) => {
+                    console.log('#################### filterMultiaddrForPeer #####################', peerId)
+                    return true
+                }
             },
-        },
+        }
     }); // tcp network, stored on memory (not use files)
 
-    // console.log('--------- node -----------', node.libp2p.peerId.toString())
-    // debugger
     const nodeFs = unixfs(node);
 
     while (node.libp2p.getMultiaddrs().length === 0) await new Promise(f => setTimeout(f, 500));
@@ -248,35 +373,35 @@ if (peerId.status === 200) {
 
     const discovery = DOM.discovery()
 
-    globalThis.node = node
+    // globalThis.node = node
 
-    let timerId = setInterval(() => {
-        discovery.innerHTML = ''
-        const peers = node.libp2p.getPeers()
-        const connections = node.libp2p.getConnections()
-        let count = 0
-        console.log('-------------------------------------', connections)
-
-
-        for(let connect of connections) {
-            peerList.add(connect.remotePeer.toString())
-            count ++
-        }
-
-        for (const item of peerList) {
-            discovery.insertAdjacentHTML('beforeend', `<li>
-                <p>${item}</p>
-                <button class="delete" data-peer-id="${item}" onclick="((button) => {
-                    const connections = globalThis.node.libp2p.getConnections()
-                    const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
-                    connect.close()
-                })(this)">
-                R
-                </button>
-            </li>`)
-        }
-        count = 0
-    }, 5000);
+    // let timerId = setInterval(() => {
+    //     discovery.innerHTML = ''
+    //     const peers = node.libp2p.getPeers()
+    //     const connections = node.libp2p.getConnections()
+    //     let count = 0
+    //     console.log('-------------------------------------', connections)
+    //
+    //
+    //     for(let connect of connections) {
+    //         peerList.add(connect.remotePeer.toString())
+    //         count ++
+    //     }
+    //
+    //     for (const item of peerList) {
+    //         discovery.insertAdjacentHTML('beforeend', `<li>
+    //             <p>${item}</p>
+    //             <button class="delete" data-peer-id="${item}" onclick="((button) => {
+    //                 const connections = globalThis.node.libp2p.getConnections()
+    //                 const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+    //                 connect.close()
+    //             })(this)">
+    //             R
+    //             </button>
+    //         </li>`)
+    //     }
+    //     count = 0
+    // }, 5000);
 
 // for web console
     window.ctx = {
