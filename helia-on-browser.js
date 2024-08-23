@@ -2,23 +2,35 @@ import * as helia from "helia";
 import {unixfs} from "@helia/unixfs";
 import {CID} from "multiformats/cid";
 import {multiaddr} from "@multiformats/multiaddr";
-import {bootstrap} from "@libp2p/bootstrap";
-import {circuitRelayTransport} from "libp2p/circuit-relay";
-import {webRTC, webRTCDirect} from "@libp2p/webrtc";
-import {webTransport} from "@libp2p/webtransport";
-import {webSockets} from "@libp2p/websockets";
+// import { createLibp2p } from 'libp2p'
+// import {circuitRelayTransport} from "@libp2p/circuit-relay-v2";
+// import {webRTC, webRTCDirect} from "@libp2p/webrtc";
+// import {webTransport} from "@libp2p/webtransport";
+// import {webSockets} from "@libp2p/websockets";
 import {webRTCStar} from "@libp2p/webrtc-star";
-import * as filters from "@libp2p/websockets/filters";
+// import * as filters from "@libp2p/websockets/filters";
 import {createFromProtobuf} from '@libp2p/peer-id-factory';
 import init from './PixelPlanets/out.mjs'
+// import { noise } from '@chainsafe/libp2p-noise'
+// import { yamux } from '@chainsafe/libp2p-yamux'
+// import { bootstrap } from '@libp2p/bootstrap'
+// import { identify } from '@libp2p/identify'
+// import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
+// import { mplex } from '@libp2p/mplex'
+// import { autoNAT } from '@libp2p/autonat'
+// import { FaultTolerance } from '@libp2p/interface-transport'
 
+const peerList = new Set();
 const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
-
+// const rtcStar =  '/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star/'
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const options = init()
 
 const DOM = {
+    disconnect: () => {
+        return  document.querySelector('.disconnect')
+    },
     discovery: () => {
         const root = document.querySelector('.discovery')
         return root.querySelector('ul')
@@ -85,7 +97,9 @@ switch (obectName) {
         DOM.planet().textContent = 'Солнце'
         break
 }
+
 let peerId = await fetch(namespace.PeerId)
+
 if (peerId.status === 200) {
     peerId = await peerId.blob()
     peerId = await createFromProtobuf(new Uint8Array(await peerId.arrayBuffer()))
@@ -156,21 +170,27 @@ if (peerId.status === 200) {
 
     while (node.libp2p.getMultiaddrs().length === 0) await new Promise(f => setTimeout(f, 500));
 
+    // DOM.disconnect().addEventListener('click', (event) => {
+    //         console.log(event.currentTarget)
+    //         const peers = node.libp2p.getPeers()
+    //         const connections = node.libp2p.getConnections()
+    //         for(let connect of connections) {
+    //             console.log('-------------------------------------', connect.remotePeer.toString())
+    //         }
+    //         console.log('################################', {
+    //             peers: peers,
+    //             connections: connections
+    //         })
+    // })
+
     DOM.peerId().textContent = node.libp2p.peerId.toString()
     let ma = DOM.ma()
 
     for (let item of node.libp2p.getMultiaddrs()) {
         ma.insertAdjacentHTML('beforeend', `<li>${item}</li>`)
     }
-
+    // console.log('--------------------------------', node.libp2p)
     console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
-
-
-    node.libp2p.addEventListener('peer:connect', (evt) => {
-        const peerId = evt.detail
-        DOM.discovery().insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
-        console.log('Connection established to:', peerId.toString()) // Emitted when a peer has been found
-    })
 
     node.libp2p.addEventListener('peer:discovery', (evt) => {
         const peerInfo = evt.detail
@@ -178,9 +198,34 @@ if (peerId.status === 200) {
         console.log('Discovered:', peerInfo.id.toString())
     })
 
+    node.libp2p.addEventListener('peer:connect', (evt) => {
+        // const peerId = evt.detail
+        // peerList.add(peerId.toString())
+
+        // for (const item of peerList) {
+        //     const discovery = DOM.discovery()
+        //     discovery.innerHTML = ''
+        //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
+        // }
+        console.log('Connection established to:', peerId.toString()) // Emitted when a peer has been found
+    })
+
+    node.libp2p.addEventListener('peer:disconnect', (event) => {
+        // const peerId = event.detail?.toString()
+        // if(peerList.has(peerId)) {
+        //     peerList.delete(peerId);
+        // }
+        // for (const item of peerList) {
+        //     const discovery = DOM.discovery()
+        //     discovery.innerHTML = ''
+        //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
+        // }
+        // const peerInfo = event.detail
+        console.log('Disconnected:', event.detail.toString())
+    })
+
     const proto = "/my-echo/0.1";
     const handler = ({connection, stream}) => {
-        console.log('###################################################')
         stream.sink(async function* () {
             for await (const bufs of stream.source) {
                 yield bufs.slice().slice();
@@ -201,6 +246,38 @@ if (peerId.status === 200) {
         }
     };
 
+    const discovery = DOM.discovery()
+
+    globalThis.node = node
+
+    let timerId = setInterval(() => {
+        discovery.innerHTML = ''
+        const peers = node.libp2p.getPeers()
+        const connections = node.libp2p.getConnections()
+        let count = 0
+        console.log('-------------------------------------', connections)
+
+
+        for(let connect of connections) {
+            peerList.add(connect.remotePeer.toString())
+            count ++
+        }
+
+        for (const item of peerList) {
+            discovery.insertAdjacentHTML('beforeend', `<li>
+                <p>${item}</p>
+                <button class="delete" data-peer-id="${item}" onclick="((button) => {
+                    const connections = globalThis.node.libp2p.getConnections()
+                    const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+                    connect.close()
+                })(this)">
+                R
+                </button>
+            </li>`)
+        }
+        count = 0
+    }, 5000);
+
 // for web console
     window.ctx = {
         helia,
@@ -214,7 +291,7 @@ if (peerId.status === 200) {
         send,
     };
 
-    console.log('sssssssssss', window.ctx)
+
 // const maPeer = await window.ctx.maStar('12D3KooWH6yCNbjjEeJYEmSc2kpM7Tk4XnymdsDozFeBH5zwunRb')
 // console.log('MA PEER', maPeer)
 // const res = await send('/dns4/js-libp2p-webrtc-star-yeub.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWA2JENeezGZhKD3fwpHUSs5AUf1VjS7qvsHhd7EjAeGG9', 'hello')

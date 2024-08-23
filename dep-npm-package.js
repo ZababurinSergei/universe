@@ -1,0 +1,11 @@
+export { noise } from '@chainsafe/libp2p-noise'
+export { yamux } from '@chainsafe/libp2p-yamux'
+export { bootstrap } from '@libp2p/bootstrap'
+export { identify } from '@libp2p/identify'
+export { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
+export { mplex } from '@libp2p/mplex'
+export { autoNAT } from '@libp2p/autonat'
+export { FaultTolerance } from '@libp2p/interface-transport'
+export { logger } from '@libp2p/logger'
+export { createEd25519PeerId, exportToProtobuf, createFromProtobuf } from '@libp2p/peer-id-factory';
+export { circuitRelayServer, circuitRelayTransport } from '@libp2p/circuit-relay-v2'
