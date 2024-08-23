@@ -109,7 +109,6 @@ function initScene() {
 
     return {
         change: (planet) => {
-            console.log('%%%%%%%%%%%%%%%%%%%%%%%%', planet)
             planetGroup.children.pop().remove()
             planetGroup.add(generatePlanetByType(planet));
         },

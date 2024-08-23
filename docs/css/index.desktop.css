@@ -26,35 +26,42 @@ p {
         "bb bb bb bb aa aa aa aa aa aa aa aa aa"
         "bb bb bb bb aa aa aa aa aa aa aa aa aa"
         "bb bb bb bb aa aa aa aa aa aa aa aa aa"
-        "cc cc cc cc cc cc cc cc cc cc cc cc cc"
-        "cc cc cc cc cc cc cc cc cc cc cc cc cc"
-        "dd dd dd dd ee ee ee ee ee ee ee ee ee"
-        "dd dd dd dd ee ee ee ee ee ee ee ee ee"
-        "dd dd dd dd ee ee ee ee ee ee ee ee ee"
+        "cc cc cc cc cc cc cc cc cc d1 d1 d1 d1"
+        "cc cc cc cc cc cc cc cc cc d1 d1 d1 d1"
+        "dd dd dd dd ee ee ee ee ee d1 d1 d1 d1"
+        "dd dd dd dd ee ee ee ee ee d1 d1 d1 d1"
+        "dd dd dd dd ee ee ee ee ee d1 d1 d1 d1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
 }
 
-.peerInfo, .discovery {
+.peerInfo, .discovery, .chat {
     display: flex;
     flex-direction: column;
     color: white;
     box-sizing: border-box;
     padding: 0.63vw;
     background: #8e7bb36b;
-    border-bottom-right-radius: 1.56vw;
     gap: 0.83vw;
 }
 
 .peerInfo {
+    border-bottom-right-radius: 1vw;
     grid-area: bb;
 }
 
 .discovery {
-    border-top-right-radius: 1.56vw;
+    border-bottom-right-radius: 1vw;
+    border-top-right-radius: 1vw;
     grid-area: dd;
+}
+
+.chat {
+    border-top-left-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    grid-area: d1;
 }
 
 .item {
@@ -75,6 +82,9 @@ p {
 }
 
 ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     padding-left: 0.83vw;
     box-sizing: border-box;
     margin: 0;
@@ -88,8 +98,73 @@ h2 {
 
 li {
     word-break: break-all;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
 li, span, p {
     font-size: 0.83vw;
+}
+
+li p {
+    min-width: 480px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    gap: 8px;
+}
+
+.header select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.51);
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.51);
+    padding: 0;
+    margin: 0;
+    border-radius: 0.5vw;
+}
+
+textarea.input, textarea.output {
+    background: rgba(255, 255, 255, 0.51);
+    padding: 0;
+    margin: 0;
+}
+
+textarea.input {
+    border-top-left-radius: 0.5vw;
+    border-top-right-radius: 0.5vw;
+    height: 100%;
+    border-bottom: 0.5vw black;
+}
+
+textarea.output {
+    border-bottom-left-radius: 0.5vw;
+    border-bottom-right-radius: 0.5vw;
+}
+
+.chat-container textarea {
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+button.refresh {
+    border-radius: 50%;
+    background: rgba(90, 212, 90, 0.55);
+    color: rgba(217, 106, 106, 0.85);
 }

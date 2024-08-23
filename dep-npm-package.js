@@ -1,3 +1,4 @@
+export { createLibp2p } from 'libp2p'
 export { noise } from '@chainsafe/libp2p-noise'
 export { yamux } from '@chainsafe/libp2p-yamux'
 export { bootstrap } from '@libp2p/bootstrap'
@@ -9,3 +10,4 @@ export { FaultTolerance } from '@libp2p/interface-transport'
 export { logger } from '@libp2p/logger'
 export { createEd25519PeerId, exportToProtobuf, createFromProtobuf } from '@libp2p/peer-id-factory';
 export { circuitRelayServer, circuitRelayTransport } from '@libp2p/circuit-relay-v2'
+export { ping } from '@libp2p/ping'

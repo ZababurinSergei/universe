@@ -17,7 +17,7 @@ import {mplex} from '@libp2p/mplex'
 // import { identify } from '@libp2p/identify'
 // import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
 // import { autoNAT } from '@libp2p/autonat'
-import { FaultTolerance } from '@libp2p/interface-transport'
+import {FaultTolerance} from '@libp2p/interface-transport'
 import init from './PixelPlanets/out.mjs'
 
 const peerList = new Set();
@@ -28,6 +28,21 @@ const urlParams = new URLSearchParams(queryString);
 const options = init()
 
 const DOM = {
+    chat: (type) => {
+        const root = document.querySelector('.chat')
+        switch (type) {
+            case 'refresh':
+                return root.querySelector('.refresh')
+            case 'button':
+                return root.querySelector('button')
+            case 'text':
+                return root.querySelector('textarea')
+            case 'select':
+            default:
+                return root.querySelector('select')
+
+        }
+    },
     disconnect: () => {
         return document.querySelector('.disconnect')
     },
@@ -151,17 +166,6 @@ if (peerId.status === 200) {
                 // circuitRelayTransport({discoverRelays: 1}),
                 star.transport,
             ],
-            addressManager: {
-                autoDial: true
-            },
-            connectionManager: {
-                autoDial: true,
-                dialTimeout: 60000,
-                maxConnections: 3,
-                minConnections: 1
-            },
-            connectionEncryption: [noise()],
-            streamMuxers: [yamux(), mplex()],
             peerDiscovery: [
                 // bootstrap(bootstrapConfig),
                 star.discovery
@@ -169,6 +173,20 @@ if (peerId.status === 200) {
             transportManager: {
                 faultTolerance: FaultTolerance.NO_FATAL
             },
+            connectionManager: {
+                autoDialInterval: 1000 //(default: 5000)
+            },
+            // addressManager: {
+            //     autoDial: true
+            // },
+            // connectionManager: {
+            // autoDial: true,
+            // dialTimeout: 1000,
+            // maxConnections: 20,
+            // minConnections: 0
+            // },
+            // connectionEncryption: [noise()],
+            // streamMuxers: [yamux(), mplex()],
             // https://github.com/libp2p/js-libp2p/blob/master/doc/CONFIGURATION.md#configuring-connection-gater
             connectionGater: {
                 /**
@@ -181,7 +199,7 @@ if (peerId.status === 200) {
                  * Return true to prevent dialing the passed peer.
                  */
                 denyDialPeer: (peerId) => {
-                    console.log('ddddddddddd denyDialPeer dddddddddddddddd', peerId)
+                    // console.log('ddddddddddd denyDialPeer dddddddddddddddd', peerId)
                     return false
                 },
                 /**
@@ -206,7 +224,7 @@ if (peerId.status === 200) {
                  * Return true to deny the incoming passed connection.
                  */
                 denyInboundConnection: (maConn) => {
-                    console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', maConn)
+                    // console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', maConn)
                     return false
                 },
                 /**
@@ -218,7 +236,7 @@ if (peerId.status === 200) {
                  * Return true to deny the incoming passed connection.
                  */
                 denyOutboundConnection: (peerId, maConn) => {
-                    console.log('------------------------ denyOutboundConnection --------------------------------', peerId)
+                    // console.log('------------------------ denyOutboundConnection --------------------------------', peerId)
                     return false
                 },
 
@@ -233,7 +251,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed secured connection.
                  */
                 denyInboundEncryptedConnection: (peerId, maConn) => {
-                    console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@', peerId)
+                    // console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@', peerId)
                     return false
                 },
 
@@ -248,7 +266,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed secured connection.
                  */
                 denyOutboundEncryptedConnection: (peerId, maConn) => {
-                    console.log('############## denyOutboundEncryptedConnection #######################', peerId)
+                    // console.log('############## denyOutboundEncryptedConnection #######################', peerId)
                     return false
                 },
 
@@ -261,7 +279,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed upgraded connection.
                  */
                 denyInboundUpgradedConnection: (peerId, maConn) => {
-                    console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId)
+                    // console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId)
                     return false
                 },
 
@@ -274,7 +292,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed upgraded connection.
                  */
                 denyOutboundUpgradedConnection: (peerId, maConn) => {
-                    console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId)
+                    // console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId)
                     return false
                 },
 
@@ -284,32 +302,22 @@ if (peerId.status === 200) {
                  * Return true to allow storing the passed multiaddr for the passed peer.
                  */
                 filterMultiaddrForPeer: (peerId, multiaddr) => {
-                    console.log('#################### filterMultiaddrForPeer #####################', peerId)
+                    // console.log('#################### filterMultiaddrForPeer #####################', peerId)
                     return true
                 }
-            },
+            }
         }
     }); // tcp network, stored on memory (not use files)
 
+    console.log('dddddddddddddddddddddddddddddddddddddddd', node.libp2p.transportManager)
     const nodeFs = unixfs(node);
 
     while (node.libp2p.getMultiaddrs().length === 0) await new Promise(f => setTimeout(f, 500));
 
-    // DOM.disconnect().addEventListener('click', (event) => {
-    //         console.log(event.currentTarget)
-    //         const peers = node.libp2p.getPeers()
-    //         const connections = node.libp2p.getConnections()
-    //         for(let connect of connections) {
-    //             console.log('-------------------------------------', connect.remotePeer.toString())
-    //         }
-    //         console.log('################################', {
-    //             peers: peers,
-    //             connections: connections
-    //         })
-    // })
-
     DOM.peerId().textContent = node.libp2p.peerId.toString()
     let ma = DOM.ma()
+
+    // console.log('ssssssssssssssssssssss', node.libp2p.peerRouting)
 
     for (let item of node.libp2p.getMultiaddrs()) {
         ma.insertAdjacentHTML('beforeend', `<li>${item}</li>`)
@@ -317,22 +325,31 @@ if (peerId.status === 200) {
     // console.log('--------------------------------', node.libp2p)
     console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
 
-    node.libp2p.addEventListener('peer:discovery', (evt) => {
-        const peerInfo = evt.detail
+    //---------------------------------------------------------------------------
+    node.libp2p.addEventListener('connection:open', (event) => {
+        // const peerInfo = evt.detail
 
-        console.log('Discovered:', peerInfo.id.toString())
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', event.detail)
     })
 
-    node.libp2p.addEventListener('peer:connect', (evt) => {
-        // const peerId = evt.detail
-        // peerList.add(peerId.toString())
+    node.libp2p.addEventListener('connection:close', (event) => {
+        // const peerInfo = evt.detail
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:close', event.detail)
+    })
 
+    node.libp2p.addEventListener('connection:prune', (event) => {
+        // const peerInfo = evt.detail
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:prune', event.detail)
+    })
+
+    node.libp2p.addEventListener('peer:connect', (event) => {
+        // peerList.add(peerId.toString())
         // for (const item of peerList) {
         //     const discovery = DOM.discovery()
         //     discovery.innerHTML = ''
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
-        console.log('Connection established to:', peerId.toString()) // Emitted when a peer has been found
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:disconnect', (event) => {
@@ -346,8 +363,43 @@ if (peerId.status === 200) {
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         // const peerInfo = event.detail
-        console.log('Disconnected:', event.detail.toString())
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', event.detail.toString())
     })
+
+    node.libp2p.addEventListener('peer:discovery', (evt) => {
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:discovery', event.detail.toString())
+    })
+
+    node.libp2p.addEventListener('peer:identify', (evt) => {
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:identify', event.detail)
+    })
+
+    node.libp2p.addEventListener('peer:update', (evt) => {
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:update', event.detail)
+    })
+
+    node.libp2p.addEventListener('self:peer:update', (evt) => {
+        console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update', event.detail)
+    })
+
+    node.libp2p.addEventListener('start', (evt) => {
+        console.log('[[[[[[[ LISTENER ]]]]]]] start', event.detail)
+    })
+
+    node.libp2p.addEventListener('stop', (evt) => {
+        console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
+    })
+
+    node.libp2p.addEventListener('transport:close', (event) => {
+        // const peerInfo = evt.detail
+        console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
+    })
+
+    node.libp2p.addEventListener('transport:listening', (event) => {
+        // const peerInfo = evt.detail
+        console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
+    })
+
 
     const proto = "/my-echo/0.1";
     const handler = ({connection, stream}) => {
@@ -372,36 +424,57 @@ if (peerId.status === 200) {
     };
 
     const discovery = DOM.discovery()
+    const select  = DOM.chat('select')
+    const refresh  = DOM.chat('refresh')
 
-    // globalThis.node = node
+    globalThis.node = node
 
-    // let timerId = setInterval(() => {
-    //     discovery.innerHTML = ''
-    //     const peers = node.libp2p.getPeers()
-    //     const connections = node.libp2p.getConnections()
-    //     let count = 0
-    //     console.log('-------------------------------------', connections)
-    //
-    //
-    //     for(let connect of connections) {
-    //         peerList.add(connect.remotePeer.toString())
-    //         count ++
-    //     }
+    refresh.addEventListener('click', (event) => {
+        // console.log('##############################')
+        select.innerHTML = ''
+
+        for (const item of peerList) {
+            select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
+        }
+    })
+
+    // select.addEventListener('click', (event) => {
+    //     console.log('##############################')
+    //     select.innerHTML = ''
     //
     //     for (const item of peerList) {
-    //         discovery.insertAdjacentHTML('beforeend', `<li>
-    //             <p>${item}</p>
-    //             <button class="delete" data-peer-id="${item}" onclick="((button) => {
-    //                 const connections = globalThis.node.libp2p.getConnections()
-    //                 const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
-    //                 connect.close()
-    //             })(this)">
-    //             R
-    //             </button>
-    //         </li>`)
+    //         select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
     //     }
-    //     count = 0
-    // }, 5000);
+    // })
+
+    let timerId = setInterval(() => {
+        discovery.innerHTML = ''
+
+        const peers = node.libp2p.getPeers()
+        const connections = node.libp2p.getConnections()
+        let count = 0
+        console.log('-------------------------------------', connections)
+
+
+        for (let connect of connections) {
+            peerList.add(connect.remotePeer.toString())
+            count++
+        }
+
+        for (const item of peerList) {
+            discovery.insertAdjacentHTML('beforeend', `<li>
+                <p>${item}</p>
+                <button class="delete" data-peer-id="${item}" onclick="((button) => {
+                    const connections = globalThis.node.libp2p.getConnections()
+                    const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+                    connect.close()
+                })(this)">
+                R
+                </button>
+            </li>`)
+        }
+        count = 0
+    }, 5000);
 
 // for web console
     window.ctx = {

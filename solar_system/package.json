@@ -1,0 +1,17 @@
+{
+  "name": "solarsystemjs",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "extend": "^3.0.2",
+    "parcel-bundler": "^1.12.5",
+    "three-text2d": "^0.6.0"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-wrap-umd": "^0.2.1",
+    "sass": "^1.77.8"
+  }
+}

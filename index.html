@@ -26,7 +26,6 @@
           }
         }
     </script>
-<!--    <script src="./PixelPlanets/out.mjs"></script>-->
     <script type="module" src="./helia-on-browser.js"></script>
     <style>
         @import url('./docs/css/index.css');
@@ -52,6 +51,21 @@
     <div class="discovery">
         <h2>Канал связи</h2>
         <ul></ul>
+    </div>
+    <div class="chat">
+        <div class="header">
+            <select class="list-peer">
+                <option value="">Выберите пользователя</option>
+            </select>
+            <button class="refresh">O</button>
+        </div>
+        <div class="chat-container">
+            <textarea class="input" placeholder="Входящее сообщение"></textarea>
+            <textarea class="output" placeholder="введите сообщение"></textarea>
+        </div>
+        <div class="footer">
+            <button>Отправить</button>
+        </div>
     </div>
 </div>
 </body>
