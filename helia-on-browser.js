@@ -11,7 +11,7 @@ import {webRTCStar} from "@libp2p/webrtc-star";
 // import * as filters from "@libp2p/websockets/filters";
 import {createFromProtobuf} from '@libp2p/peer-id-factory';
 import init from './PixelPlanets/out.mjs'
-// import { noise } from '@chainsafe/libp2p-noise'
+import { noise } from '@chainsafe/libp2p-noise'
 // import { yamux } from '@chainsafe/libp2p-yamux'
 // import { bootstrap } from '@libp2p/bootstrap'
 // import { identify } from '@libp2p/identify'
@@ -55,8 +55,6 @@ const COLORS = {
     error: '#ea5037'
 }
 
-// console.log('========== createFromProtobuf ===========', createFromProtobuf)
-// debugger
 let obectName = !urlParams.has('planet') ? 'sun' : urlParams.get('planet')
 let namespace = {}
 

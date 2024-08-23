@@ -29,9 +29,9 @@ var __toESM = (mod2, isNodeMode, target) => (target = mod2 != null ? __create(__
   mod2
 ));
 
-// ../../node_modules/pvtsutils/build/index.js
+// node_modules/pvtsutils/build/index.js
 var require_build = __commonJS({
-  "../../node_modules/pvtsutils/build/index.js"(exports) {
+  "node_modules/pvtsutils/build/index.js"(exports) {
     "use strict";
     var ARRAY_BUFFER_NAME = "[object ArrayBuffer]";
     var BufferSourceConverter2 = class _BufferSourceConverter {
@@ -408,9 +408,9 @@ var require_build = __commonJS({
   }
 });
 
-// ../../node_modules/is-electron/index.js
+// node_modules/is-electron/index.js
 var require_is_electron = __commonJS({
-  "../../node_modules/is-electron/index.js"(exports, module) {
+  "node_modules/is-electron/index.js"(exports, module) {
     function isElectron2() {
       if (typeof window !== "undefined" && typeof window.process === "object" && window.process.type === "renderer") {
         return true;
@@ -428,9 +428,9 @@ var require_is_electron = __commonJS({
   }
 });
 
-// ../../node_modules/netmask/lib/netmask.js
+// node_modules/netmask/lib/netmask.js
 var require_netmask = __commonJS({
-  "../../node_modules/netmask/lib/netmask.js"(exports) {
+  "node_modules/netmask/lib/netmask.js"(exports) {
     (function() {
       var Netmask2, atob2, chr, chr0, chrA, chra, ip2long, long2ip;
       long2ip = /* @__PURE__ */ __name(function(long) {
@@ -624,9 +624,9 @@ var require_netmask = __commonJS({
   }
 });
 
-// ../../node_modules/murmurhash3js-revisited/lib/murmurHash3js.js
+// node_modules/murmurhash3js-revisited/lib/murmurHash3js.js
 var require_murmurHash3js = __commonJS({
-  "../../node_modules/murmurhash3js-revisited/lib/murmurHash3js.js"(exports, module) {
+  "node_modules/murmurhash3js-revisited/lib/murmurHash3js.js"(exports, module) {
     (function(root, undefined2) {
       "use strict";
       var library = {
@@ -1015,16 +1015,16 @@ var require_murmurHash3js = __commonJS({
   }
 });
 
-// ../../node_modules/murmurhash3js-revisited/index.js
+// node_modules/murmurhash3js-revisited/index.js
 var require_murmurhash3js_revisited = __commonJS({
-  "../../node_modules/murmurhash3js-revisited/index.js"(exports, module) {
+  "node_modules/murmurhash3js-revisited/index.js"(exports, module) {
     module.exports = require_murmurHash3js();
   }
 });
 
-// ../../node_modules/hashlru/index.js
+// node_modules/hashlru/index.js
 var require_hashlru = __commonJS({
-  "../../node_modules/hashlru/index.js"(exports, module) {
+  "node_modules/hashlru/index.js"(exports, module) {
     module.exports = function(max) {
       if (!max) throw Error("hashlru must have a max value, of type number, greater than 0");
       var size = 0, cache3 = /* @__PURE__ */ Object.create(null), _cache = /* @__PURE__ */ Object.create(null);
@@ -1069,9 +1069,9 @@ var require_hashlru = __commonJS({
   }
 });
 
-// ../../node_modules/p-queue/node_modules/eventemitter3/index.js
+// node_modules/p-queue/node_modules/eventemitter3/index.js
 var require_eventemitter3 = __commonJS({
-  "../../node_modules/p-queue/node_modules/eventemitter3/index.js"(exports, module) {
+  "node_modules/p-queue/node_modules/eventemitter3/index.js"(exports, module) {
     "use strict";
     var has = Object.prototype.hasOwnProperty;
     var prefix = "~";
@@ -1236,7 +1236,7 @@ var require_eventemitter3 = __commonJS({
   }
 });
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/index.js
+// node_modules/@libp2p/crypto/dist/src/keys/index.js
 var keys_exports2 = {};
 __export(keys_exports2, {
   Ed25519PrivateKey: () => Ed25519PrivateKey,
@@ -1259,23 +1259,23 @@ __export(keys_exports2, {
   unmarshalPublicKey: () => unmarshalPublicKey2
 });
 
-// ../../node_modules/@libp2p/interface/dist/src/content-routing/index.js
+// node_modules/@libp2p/interface/dist/src/content-routing/index.js
 var contentRoutingSymbol = Symbol.for("@libp2p/content-routing");
 
-// ../../node_modules/@libp2p/interface/dist/src/peer-discovery/index.js
+// node_modules/@libp2p/interface/dist/src/peer-discovery/index.js
 var peerDiscoverySymbol = Symbol.for("@libp2p/peer-discovery");
 
-// ../../node_modules/@libp2p/interface/dist/src/peer-id/index.js
+// node_modules/@libp2p/interface/dist/src/peer-id/index.js
 var peerIdSymbol = Symbol.for("@libp2p/peer-id");
 function isPeerId(other) {
   return other != null && Boolean(other[peerIdSymbol]);
 }
 __name(isPeerId, "isPeerId");
 
-// ../../node_modules/@libp2p/interface/dist/src/peer-routing/index.js
+// node_modules/@libp2p/interface/dist/src/peer-routing/index.js
 var peerRoutingSymbol = Symbol.for("@libp2p/peer-routing");
 
-// ../../node_modules/@libp2p/interface/dist/src/transport/index.js
+// node_modules/@libp2p/interface/dist/src/transport/index.js
 var transportSymbol = Symbol.for("@libp2p/transport");
 var FaultTolerance;
 (function(FaultTolerance3) {
@@ -1283,7 +1283,7 @@ var FaultTolerance;
   FaultTolerance3[FaultTolerance3["NO_FATAL"] = 1] = "NO_FATAL";
 })(FaultTolerance || (FaultTolerance = {}));
 
-// ../../node_modules/@libp2p/interface/dist/src/errors.js
+// node_modules/@libp2p/interface/dist/src/errors.js
 var AbortError = class _AbortError extends Error {
   static {
     __name(this, "AbortError");
@@ -1314,12 +1314,12 @@ var CodeError = class extends Error {
 };
 var ERR_TIMEOUT = "ERR_TIMEOUT";
 
-// ../../node_modules/@libp2p/interface/dist/src/events.browser.js
+// node_modules/@libp2p/interface/dist/src/events.browser.js
 function setMaxListeners() {
 }
 __name(setMaxListeners, "setMaxListeners");
 
-// ../../node_modules/@libp2p/interface/dist/src/events.js
+// node_modules/@libp2p/interface/dist/src/events.js
 var setMaxListeners2 = /* @__PURE__ */ __name((n, ...eventTargets) => {
   try {
     setMaxListeners(n, ...eventTargets);
@@ -1327,7 +1327,7 @@ var setMaxListeners2 = /* @__PURE__ */ __name((n, ...eventTargets) => {
   }
 }, "setMaxListeners");
 
-// ../../node_modules/@libp2p/interface/dist/src/event-target.js
+// node_modules/@libp2p/interface/dist/src/event-target.js
 var TypedEventEmitter = class extends EventTarget {
   static {
     __name(this, "TypedEventEmitter");
@@ -1381,7 +1381,7 @@ var TypedEventEmitter = class extends EventTarget {
 };
 var CustomEvent = globalThis.CustomEvent;
 
-// ../../node_modules/@libp2p/interface/dist/src/startable.js
+// node_modules/@libp2p/interface/dist/src/startable.js
 function isStartable(obj) {
   return obj != null && typeof obj.start === "function" && typeof obj.stop === "function";
 }
@@ -1431,11 +1431,11 @@ async function stop(...objs) {
 }
 __name(stop, "stop");
 
-// ../../node_modules/@libp2p/interface/dist/src/index.js
+// node_modules/@libp2p/interface/dist/src/index.js
 var serviceCapabilities = Symbol.for("@libp2p/service-capabilities");
 var serviceDependencies = Symbol.for("@libp2p/service-dependencies");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/ed25519-class.js
+// node_modules/@libp2p/crypto/dist/src/keys/ed25519-class.js
 var ed25519_class_exports = {};
 __export(ed25519_class_exports, {
   Ed25519PrivateKey: () => Ed25519PrivateKey,
@@ -1446,14 +1446,14 @@ __export(ed25519_class_exports, {
   unmarshalEd25519PublicKey: () => unmarshalEd25519PublicKey
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base58.js
+// node_modules/multiformats/dist/src/bases/base58.js
 var base58_exports = {};
 __export(base58_exports, {
   base58btc: () => base58btc,
   base58flickr: () => base58flickr
 });
 
-// ../../node_modules/multiformats/dist/src/bytes.js
+// node_modules/multiformats/dist/src/bytes.js
 var empty = new Uint8Array(0);
 function equals(aa, bb) {
   if (aa === bb)
@@ -1489,7 +1489,7 @@ function toString(b) {
 }
 __name(toString, "toString");
 
-// ../../node_modules/multiformats/dist/src/vendor/base-x.js
+// node_modules/multiformats/dist/src/vendor/base-x.js
 function base(ALPHABET, name2) {
   if (ALPHABET.length >= 255) {
     throw new TypeError("Alphabet too long");
@@ -1610,8 +1610,8 @@ function base(ALPHABET, name2) {
     return vch;
   }
   __name(decodeUnsafe, "decodeUnsafe");
-  function decode8(string14) {
-    var buffer = decodeUnsafe(string14);
+  function decode8(string3) {
+    var buffer = decodeUnsafe(string3);
     if (buffer) {
       return buffer;
     }
@@ -1629,7 +1629,7 @@ var src = base;
 var _brrp__multiformats_scope_baseX = src;
 var base_x_default = _brrp__multiformats_scope_baseX;
 
-// ../../node_modules/multiformats/dist/src/bases/base.js
+// node_modules/multiformats/dist/src/bases/base.js
 var Encoder = class {
   static {
     __name(this, "Encoder");
@@ -1748,13 +1748,13 @@ function baseX({ name: name2, prefix, alphabet: alphabet2 }) {
   });
 }
 __name(baseX, "baseX");
-function decode(string14, alphabet2, bitsPerChar, name2) {
+function decode(string3, alphabet2, bitsPerChar, name2) {
   const codes3 = {};
   for (let i = 0; i < alphabet2.length; ++i) {
     codes3[alphabet2[i]] = i;
   }
-  let end = string14.length;
-  while (string14[end - 1] === "=") {
+  let end = string3.length;
+  while (string3[end - 1] === "=") {
     --end;
   }
   const out = new Uint8Array(end * bitsPerChar / 8 | 0);
@@ -1762,7 +1762,7 @@ function decode(string14, alphabet2, bitsPerChar, name2) {
   let buffer = 0;
   let written = 0;
   for (let i = 0; i < end; ++i) {
-    const value = codes3[string14[i]];
+    const value = codes3[string3[i]];
     if (value === void 0) {
       throw new SyntaxError(`Non-${name2} character`);
     }
@@ -1818,7 +1818,7 @@ function rfc4648({ name: name2, prefix, bitsPerChar, alphabet: alphabet2 }) {
 }
 __name(rfc4648, "rfc4648");
 
-// ../../node_modules/multiformats/dist/src/bases/base58.js
+// node_modules/multiformats/dist/src/bases/base58.js
 var base58btc = baseX({
   name: "base58btc",
   prefix: "z",
@@ -1830,13 +1830,13 @@ var base58flickr = baseX({
   alphabet: "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 });
 
-// ../../node_modules/multiformats/dist/src/hashes/identity.js
+// node_modules/multiformats/dist/src/hashes/identity.js
 var identity_exports = {};
 __export(identity_exports, {
   identity: () => identity
 });
 
-// ../../node_modules/multiformats/dist/src/vendor/varint.js
+// node_modules/multiformats/dist/src/vendor/varint.js
 var encode_1 = encode2;
 var MSB = 128;
 var REST = 127;
@@ -1897,7 +1897,7 @@ var varint = {
 var _brrp_varint = varint;
 var varint_default = _brrp_varint;
 
-// ../../node_modules/multiformats/dist/src/varint.js
+// node_modules/multiformats/dist/src/varint.js
 function decode3(data, offset = 0) {
   const code2 = varint_default.decode(data, offset);
   return [code2, varint_default.decode.bytes];
@@ -1913,7 +1913,7 @@ function encodingLength(int) {
 }
 __name(encodingLength, "encodingLength");
 
-// ../../node_modules/multiformats/dist/src/hashes/digest.js
+// node_modules/multiformats/dist/src/hashes/digest.js
 function create(code2, digest2) {
   const size = digest2.byteLength;
   const sizeOffset = encodingLength(code2);
@@ -1964,7 +1964,7 @@ var Digest = class {
   }
 };
 
-// ../../node_modules/multiformats/dist/src/hashes/identity.js
+// node_modules/multiformats/dist/src/hashes/identity.js
 var code = 0;
 var name = "identity";
 var encode3 = coerce;
@@ -1974,14 +1974,14 @@ function digest(input) {
 __name(digest, "digest");
 var identity = { code, name, encode: encode3, digest };
 
-// ../../node_modules/multiformats/dist/src/hashes/sha2-browser.js
+// node_modules/multiformats/dist/src/hashes/sha2-browser.js
 var sha2_browser_exports = {};
 __export(sha2_browser_exports, {
   sha256: () => sha256,
   sha512: () => sha512
 });
 
-// ../../node_modules/multiformats/dist/src/hashes/hasher.js
+// node_modules/multiformats/dist/src/hashes/hasher.js
 function from2({ name: name2, code: code2, encode: encode8 }) {
   return new Hasher(name2, code2, encode8);
 }
@@ -2008,7 +2008,7 @@ var Hasher = class {
   }
 };
 
-// ../../node_modules/multiformats/dist/src/hashes/sha2-browser.js
+// node_modules/multiformats/dist/src/hashes/sha2-browser.js
 function sha(name2) {
   return async (data) => new Uint8Array(await crypto.subtle.digest(name2, data));
 }
@@ -2024,7 +2024,7 @@ var sha512 = from2({
   encode: sha("SHA-512")
 });
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/equals.js
+// node_modules/uint8arrays/dist/src/equals.js
 function equals3(a, b) {
   if (a === b) {
     return true;
@@ -2041,19 +2041,23 @@ function equals3(a, b) {
 }
 __name(equals3, "equals");
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/alloc.js
+// node_modules/uint8arrays/dist/src/alloc.js
+function alloc(size = 0) {
+  return new Uint8Array(size);
+}
+__name(alloc, "alloc");
 function allocUnsafe(size = 0) {
   return new Uint8Array(size);
 }
 __name(allocUnsafe, "allocUnsafe");
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/util/as-uint8array.js
+// node_modules/uint8arrays/dist/src/util/as-uint8array.js
 function asUint8Array(buf) {
   return buf;
 }
 __name(asUint8Array, "asUint8Array");
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/concat.js
+// node_modules/uint8arrays/dist/src/concat.js
 function concat(arrays, length4) {
   if (length4 == null) {
     length4 = arrays.reduce((acc, curr) => acc + curr.length, 0);
@@ -2068,7 +2072,7 @@ function concat(arrays, length4) {
 }
 __name(concat, "concat");
 
-// ../../node_modules/multiformats/dist/src/bases/base10.js
+// node_modules/multiformats/dist/src/bases/base10.js
 var base10_exports = {};
 __export(base10_exports, {
   base10: () => base10
@@ -2079,7 +2083,7 @@ var base10 = baseX({
   alphabet: "0123456789"
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base16.js
+// node_modules/multiformats/dist/src/bases/base16.js
 var base16_exports = {};
 __export(base16_exports, {
   base16: () => base16,
@@ -2098,7 +2102,7 @@ var base16upper = rfc4648({
   bitsPerChar: 4
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base2.js
+// node_modules/multiformats/dist/src/bases/base2.js
 var base2_exports = {};
 __export(base2_exports, {
   base2: () => base2
@@ -2110,7 +2114,7 @@ var base2 = rfc4648({
   bitsPerChar: 1
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base256emoji.js
+// node_modules/multiformats/dist/src/bases/base256emoji.js
 var base256emoji_exports = {};
 __export(base256emoji_exports, {
   base256emoji: () => base256emoji
@@ -2150,7 +2154,7 @@ var base256emoji = from({
   decode: decode5
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base32.js
+// node_modules/multiformats/dist/src/bases/base32.js
 var base32_exports = {};
 __export(base32_exports, {
   base32: () => base32,
@@ -2218,7 +2222,7 @@ var base32z = rfc4648({
   bitsPerChar: 5
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base36.js
+// node_modules/multiformats/dist/src/bases/base36.js
 var base36_exports = {};
 __export(base36_exports, {
   base36: () => base36,
@@ -2235,7 +2239,7 @@ var base36upper = baseX({
   alphabet: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base64.js
+// node_modules/multiformats/dist/src/bases/base64.js
 var base64_exports = {};
 __export(base64_exports, {
   base64: () => base64,
@@ -2268,7 +2272,7 @@ var base64urlpad = rfc4648({
   bitsPerChar: 6
 });
 
-// ../../node_modules/multiformats/dist/src/bases/base8.js
+// node_modules/multiformats/dist/src/bases/base8.js
 var base8_exports = {};
 __export(base8_exports, {
   base8: () => base8
@@ -2280,7 +2284,7 @@ var base8 = rfc4648({
   bitsPerChar: 3
 });
 
-// ../../node_modules/multiformats/dist/src/bases/identity.js
+// node_modules/multiformats/dist/src/bases/identity.js
 var identity_exports2 = {};
 __export(identity_exports2, {
   identity: () => identity2
@@ -2292,11 +2296,11 @@ var identity2 = from({
   decode: /* @__PURE__ */ __name((str) => fromString(str), "decode")
 });
 
-// ../../node_modules/multiformats/dist/src/codecs/json.js
+// node_modules/multiformats/dist/src/codecs/json.js
 var textEncoder = new TextEncoder();
 var textDecoder = new TextDecoder();
 
-// ../../node_modules/multiformats/dist/src/cid.js
+// node_modules/multiformats/dist/src/cid.js
 function format(link, base4) {
   const { bytes: bytes3, version } = link;
   switch (version) {
@@ -2637,11 +2641,11 @@ function encodeCID(version, code2, multihash) {
 __name(encodeCID, "encodeCID");
 var cidSymbol = Symbol.for("@ipld/js-cid/CID");
 
-// ../../node_modules/multiformats/dist/src/basics.js
+// node_modules/multiformats/dist/src/basics.js
 var bases = { ...identity_exports2, ...base2_exports, ...base8_exports, ...base10_exports, ...base16_exports, ...base32_exports, ...base36_exports, ...base58_exports, ...base64_exports, ...base256emoji_exports };
 var hashes = { ...sha2_browser_exports, ...identity_exports };
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/util/bases.js
+// node_modules/uint8arrays/dist/src/util/bases.js
 function createCodec(name2, prefix, encode8, decode8) {
   return {
     name: name2,
@@ -2665,11 +2669,11 @@ var string = createCodec("utf8", "u", (buf) => {
   return encoder2.encode(str.substring(1));
 });
 var ascii = createCodec("ascii", "a", (buf) => {
-  let string14 = "a";
+  let string3 = "a";
   for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
+    string3 += String.fromCharCode(buf[i]);
   }
-  return string14;
+  return string3;
 }, (str) => {
   str = str.substring(1);
   const buf = allocUnsafe(str.length);
@@ -2689,17 +2693,17 @@ var BASES = {
 };
 var bases_default = BASES;
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/from-string.js
-function fromString2(string14, encoding = "utf8") {
+// node_modules/uint8arrays/dist/src/from-string.js
+function fromString2(string3, encoding = "utf8") {
   const base4 = bases_default[encoding];
   if (base4 == null) {
     throw new Error(`Unsupported encoding "${encoding}"`);
   }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
+  return base4.decoder.decode(`${base4.prefix}${string3}`);
 }
 __name(fromString2, "fromString");
 
-// ../../node_modules/@libp2p/crypto/dist/src/util.js
+// node_modules/@libp2p/crypto/dist/src/util.js
 function base64urlToBuffer(str, len) {
   let buf = fromString2(str, "base64urlpad");
   if (len != null) {
@@ -2718,7 +2722,7 @@ function isPromise(thing) {
 }
 __name(isPromise, "isPromise");
 
-// ../../node_modules/@noble/hashes/esm/_assert.js
+// node_modules/@noble/hashes/esm/_assert.js
 function number(n) {
   if (!Number.isSafeInteger(n) || n < 0)
     throw new Error(`positive integer expected, not ${n}`);
@@ -2758,10 +2762,10 @@ function output(out, instance) {
 }
 __name(output, "output");
 
-// ../../node_modules/@noble/hashes/esm/crypto.js
+// node_modules/@noble/hashes/esm/crypto.js
 var crypto2 = typeof globalThis === "object" && "crypto" in globalThis ? globalThis.crypto : void 0;
 
-// ../../node_modules/@noble/hashes/esm/utils.js
+// node_modules/@noble/hashes/esm/utils.js
 var createView = /* @__PURE__ */ __name((arr) => new DataView(arr.buffer, arr.byteOffset, arr.byteLength), "createView");
 var rotr = /* @__PURE__ */ __name((word, shift) => word << 32 - shift | word >>> shift, "rotr");
 var isLE = new Uint8Array(new Uint32Array([287454020]).buffer)[0] === 68;
@@ -2842,7 +2846,7 @@ function randomBytes(bytesLength = 32) {
 }
 __name(randomBytes, "randomBytes");
 
-// ../../node_modules/@noble/hashes/esm/_md.js
+// node_modules/@noble/hashes/esm/_md.js
 function setBigUint64(view, byteOffset, value, isLE3) {
   if (typeof view.setBigUint64 === "function")
     return view.setBigUint64(byteOffset, value, isLE3);
@@ -2948,7 +2952,7 @@ var HashMD = class extends Hash {
   }
 };
 
-// ../../node_modules/@noble/hashes/esm/_u64.js
+// node_modules/@noble/hashes/esm/_u64.js
 var U32_MASK64 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
 var _32n = /* @__PURE__ */ BigInt(32);
 function fromBig(n, le = false) {
@@ -3017,7 +3021,7 @@ var u64 = {
 };
 var u64_default = u64;
 
-// ../../node_modules/@noble/hashes/esm/sha512.js
+// node_modules/@noble/hashes/esm/sha512.js
 var [SHA512_Kh, SHA512_Kl] = /* @__PURE__ */ (() => u64_default.split([
   "0x428a2f98d728ae22",
   "0x7137449123ef65cd",
@@ -3219,7 +3223,7 @@ var SHA512 = class extends HashMD {
 };
 var sha5122 = /* @__PURE__ */ wrapConstructor(() => new SHA512());
 
-// ../../node_modules/@noble/curves/esm/abstract/utils.js
+// node_modules/@noble/curves/esm/abstract/utils.js
 var utils_exports = {};
 __export(utils_exports, {
   aInRange: () => aInRange,
@@ -3512,7 +3516,7 @@ function memoized(fn) {
 }
 __name(memoized, "memoized");
 
-// ../../node_modules/@noble/curves/esm/abstract/modular.js
+// node_modules/@noble/curves/esm/abstract/modular.js
 var _0n2 = BigInt(0);
 var _1n2 = BigInt(1);
 var _2n2 = BigInt(2);
@@ -3793,7 +3797,7 @@ function mapHashToField(key, fieldOrder, isLE3 = false) {
 }
 __name(mapHashToField, "mapHashToField");
 
-// ../../node_modules/@noble/curves/esm/abstract/curve.js
+// node_modules/@noble/curves/esm/abstract/curve.js
 var _0n3 = BigInt(0);
 var _1n3 = BigInt(1);
 var pointPrecomputes = /* @__PURE__ */ new WeakMap();
@@ -3927,7 +3931,7 @@ function validateBasic(curve) {
 }
 __name(validateBasic, "validateBasic");
 
-// ../../node_modules/@noble/curves/esm/abstract/edwards.js
+// node_modules/@noble/curves/esm/abstract/edwards.js
 var _0n4 = BigInt(0);
 var _1n4 = BigInt(1);
 var _2n3 = BigInt(2);
@@ -4322,7 +4326,7 @@ function twistedEdwards(curveDef) {
 }
 __name(twistedEdwards, "twistedEdwards");
 
-// ../../node_modules/@noble/curves/esm/abstract/montgomery.js
+// node_modules/@noble/curves/esm/abstract/montgomery.js
 var _0n5 = BigInt(0);
 var _1n5 = BigInt(1);
 function validateOpts2(curve) {
@@ -4447,7 +4451,7 @@ function montgomery(curveDef) {
 }
 __name(montgomery, "montgomery");
 
-// ../../node_modules/@noble/curves/esm/ed25519.js
+// node_modules/@noble/curves/esm/ed25519.js
 var ED25519_P = BigInt("57896044618658097711785492504343953926634992332820282019728792003956564819949");
 var ED25519_SQRT_M1 = /* @__PURE__ */ BigInt("19681161376707505956807079304988542015446066515923890162744021073123829784752");
 var _0n6 = BigInt(0);
@@ -4545,7 +4549,7 @@ var x25519 = /* @__PURE__ */ (() => montgomery({
   randomBytes
 }))();
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/ed25519-browser.js
+// node_modules/@libp2p/crypto/dist/src/keys/ed25519-browser.js
 var PUBLIC_KEY_BYTE_LENGTH = 32;
 var PRIVATE_KEY_BYTE_LENGTH = 64;
 var KEYS_BYTE_LENGTH = 32;
@@ -4593,7 +4597,7 @@ function concatKeys(privateKeyRaw, publicKey) {
 }
 __name(concatKeys, "concatKeys");
 
-// ../../node_modules/@libp2p/crypto/dist/src/webcrypto-browser.js
+// node_modules/@libp2p/crypto/dist/src/webcrypto-browser.js
 var webcrypto_browser_default = {
   get(win = globalThis) {
     const nativeCrypto = win.crypto;
@@ -4604,7 +4608,7 @@ var webcrypto_browser_default = {
   }
 };
 
-// ../../node_modules/@libp2p/crypto/dist/src/ciphers/aes-gcm.browser.js
+// node_modules/@libp2p/crypto/dist/src/ciphers/aes-gcm.browser.js
 var derivedEmptyPasswordKey = { alg: "A128GCM", ext: true, k: "scm9jmO_4BJAgdwWGVulLg", key_ops: ["encrypt", "decrypt"], kty: "oct" };
 function create2(opts) {
   const algorithm = opts?.algorithm ?? "AES-GCM";
@@ -4675,7 +4679,7 @@ function create2(opts) {
 }
 __name(create2, "create");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/exporter.js
+// node_modules/@libp2p/crypto/dist/src/keys/exporter.js
 async function exporter(privateKey, password) {
   const cipher = create2();
   const encryptedKey = await cipher.encrypt(privateKey, password);
@@ -4683,7 +4687,7 @@ async function exporter(privateKey, password) {
 }
 __name(exporter, "exporter");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/keys.js
+// node_modules/@libp2p/crypto/dist/src/keys/keys.js
 var keys_exports = {};
 __export(keys_exports, {
   KeyType: () => KeyType,
@@ -4691,13 +4695,7 @@ __export(keys_exports, {
   PublicKey: () => PublicKey
 });
 
-// ../../node_modules/uint8-varint/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe2(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe2, "allocUnsafe");
-
-// ../../node_modules/uint8-varint/dist/src/index.js
+// node_modules/uint8-varint/dist/src/index.js
 var N12 = Math.pow(2, 7);
 var N22 = Math.pow(2, 14);
 var N32 = Math.pow(2, 21);
@@ -4909,7 +4907,7 @@ function decodeUint8ArrayList(buf, offset) {
 __name(decodeUint8ArrayList, "decodeUint8ArrayList");
 function encode5(value, buf, offset = 0) {
   if (buf == null) {
-    buf = allocUnsafe2(encodingLength2(value));
+    buf = allocUnsafe(encodingLength2(value));
   }
   if (buf instanceof Uint8Array) {
     return encodeUint8Array(value, buf, offset);
@@ -4927,7 +4925,7 @@ function decode6(buf, offset = 0) {
 }
 __name(decode6, "decode");
 
-// ../../node_modules/protons-runtime/dist/src/utils/float.js
+// node_modules/protons-runtime/dist/src/utils/float.js
 var f32 = new Float32Array([-0]);
 var f8b = new Uint8Array(f32.buffer);
 function writeFloatLE(val, buf, pos) {
@@ -4973,7 +4971,7 @@ function readDoubleLE(buf, pos) {
 }
 __name(readDoubleLE, "readDoubleLE");
 
-// ../../node_modules/protons-runtime/dist/src/utils/longbits.js
+// node_modules/protons-runtime/dist/src/utils/longbits.js
 var MAX_SAFE_NUMBER_INTEGER = BigInt(Number.MAX_SAFE_INTEGER);
 var MIN_SAFE_NUMBER_INTEGER = BigInt(Number.MIN_SAFE_INTEGER);
 var LongBits = class _LongBits {
@@ -5131,17 +5129,17 @@ zero.length = function() {
 };
 var TWO_32 = 4294967296n;
 
-// ../../node_modules/protons-runtime/dist/src/utils/utf8.js
-function length2(string14) {
+// node_modules/protons-runtime/dist/src/utils/utf8.js
+function length2(string3) {
   let len = 0;
   let c = 0;
-  for (let i = 0; i < string14.length; ++i) {
-    c = string14.charCodeAt(i);
+  for (let i = 0; i < string3.length; ++i) {
+    c = string3.charCodeAt(i);
     if (c < 128) {
       len += 1;
     } else if (c < 2048) {
       len += 2;
-    } else if ((c & 64512) === 55296 && (string14.charCodeAt(i + 1) & 64512) === 56320) {
+    } else if ((c & 64512) === 55296 && (string3.charCodeAt(i + 1) & 64512) === 56320) {
       ++i;
       len += 4;
     } else {
@@ -5187,18 +5185,18 @@ function read2(buffer, start2, end) {
   return String.fromCharCode.apply(String, chunk.slice(0, i));
 }
 __name(read2, "read");
-function write(string14, buffer, offset) {
+function write(string3, buffer, offset) {
   const start2 = offset;
   let c1;
   let c2;
-  for (let i = 0; i < string14.length; ++i) {
-    c1 = string14.charCodeAt(i);
+  for (let i = 0; i < string3.length; ++i) {
+    c1 = string3.charCodeAt(i);
     if (c1 < 128) {
       buffer[offset++] = c1;
     } else if (c1 < 2048) {
       buffer[offset++] = c1 >> 6 | 192;
       buffer[offset++] = c1 & 63 | 128;
-    } else if ((c1 & 64512) === 55296 && ((c2 = string14.charCodeAt(i + 1)) & 64512) === 56320) {
+    } else if ((c1 & 64512) === 55296 && ((c2 = string3.charCodeAt(i + 1)) & 64512) === 56320) {
       c1 = 65536 + ((c1 & 1023) << 10) + (c2 & 1023);
       ++i;
       buffer[offset++] = c1 >> 18 | 240;
@@ -5215,7 +5213,7 @@ function write(string14, buffer, offset) {
 }
 __name(write, "write");
 
-// ../../node_modules/protons-runtime/dist/src/utils/reader.js
+// node_modules/protons-runtime/dist/src/utils/reader.js
 function indexOutOfRange(reader, writeLength) {
   return RangeError(`index out of range: ${reader.pos} + ${writeLength ?? 1} > ${reader.len}`);
 }
@@ -5550,78 +5548,14 @@ function createReader(buf) {
 }
 __name(createReader, "createReader");
 
-// ../../node_modules/protons-runtime/dist/src/decode.js
+// node_modules/protons-runtime/dist/src/decode.js
 function decodeMessage(buf, codec, opts) {
   const reader = createReader(buf);
   return codec.decode(reader, void 0, opts);
 }
 __name(decodeMessage, "decodeMessage");
 
-// ../../node_modules/protons-runtime/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe3(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe3, "allocUnsafe");
-
-// ../../node_modules/protons-runtime/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec2(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec2, "createCodec");
-var string2 = createCodec2("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii2 = createCodec2("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe3(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES2 = {
-  utf8: string2,
-  "utf-8": string2,
-  hex: bases.base16,
-  latin1: ascii2,
-  ascii: ascii2,
-  binary: ascii2,
-  ...bases
-};
-var bases_default2 = BASES2;
-
-// ../../node_modules/protons-runtime/node_modules/uint8arrays/dist/src/from-string.js
-function fromString3(string14, encoding = "utf8") {
-  const base4 = bases_default2[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString3, "fromString");
-
-// ../../node_modules/protons-runtime/dist/src/utils/pool.js
+// node_modules/protons-runtime/dist/src/utils/pool.js
 function pool(size) {
   const SIZE = size ?? 8192;
   const MAX = SIZE >>> 1;
@@ -5629,10 +5563,10 @@ function pool(size) {
   let offset = SIZE;
   return /* @__PURE__ */ __name(function poolAlloc(size2) {
     if (size2 < 1 || size2 > MAX) {
-      return allocUnsafe3(size2);
+      return allocUnsafe(size2);
     }
     if (offset + size2 > SIZE) {
-      slab = allocUnsafe3(SIZE);
+      slab = allocUnsafe(SIZE);
       offset = 0;
     }
     const buf = slab.subarray(offset, offset += size2);
@@ -5644,7 +5578,7 @@ function pool(size) {
 }
 __name(pool, "pool");
 
-// ../../node_modules/protons-runtime/dist/src/utils/writer.js
+// node_modules/protons-runtime/dist/src/utils/writer.js
 var Op = class {
   static {
     __name(this, "Op");
@@ -5703,13 +5637,13 @@ var State = class {
   }
 };
 var bufferPool = pool();
-function alloc(size) {
+function alloc2(size) {
   if (globalThis.Buffer != null) {
-    return allocUnsafe3(size);
+    return allocUnsafe(size);
   }
   return bufferPool(size);
 }
-__name(alloc, "alloc");
+__name(alloc2, "alloc");
 var Uint8ArrayWriter = class {
   static {
     __name(this, "Uint8ArrayWriter");
@@ -5954,7 +5888,7 @@ var Uint8ArrayWriter = class {
    */
   finish() {
     let head = this.head.next;
-    const buf = alloc(this.len);
+    const buf = alloc2(this.len);
     let pos = 0;
     while (head != null) {
       head.fn(head.val, buf, pos);
@@ -6038,7 +5972,7 @@ function writeStringBuffer(val, buf, pos) {
   } else if (buf.utf8Write != null) {
     buf.utf8Write(val, pos);
   } else {
-    buf.set(fromString3(val), pos);
+    buf.set(fromString2(val), pos);
   }
 }
 __name(writeStringBuffer, "writeStringBuffer");
@@ -6047,7 +5981,7 @@ function createWriter() {
 }
 __name(createWriter, "createWriter");
 
-// ../../node_modules/protons-runtime/dist/src/encode.js
+// node_modules/protons-runtime/dist/src/encode.js
 function encodeMessage(message2, codec) {
   const w2 = createWriter();
   codec.encode(message2, w2, {
@@ -6057,7 +5991,7 @@ function encodeMessage(message2, codec) {
 }
 __name(encodeMessage, "encodeMessage");
 
-// ../../node_modules/protons-runtime/dist/src/codec.js
+// node_modules/protons-runtime/dist/src/codec.js
 var CODEC_TYPES;
 (function(CODEC_TYPES2) {
   CODEC_TYPES2[CODEC_TYPES2["VARINT"] = 0] = "VARINT";
@@ -6067,7 +6001,7 @@ var CODEC_TYPES;
   CODEC_TYPES2[CODEC_TYPES2["END_GROUP"] = 4] = "END_GROUP";
   CODEC_TYPES2[CODEC_TYPES2["BIT32"] = 5] = "BIT32";
 })(CODEC_TYPES || (CODEC_TYPES = {}));
-function createCodec3(name2, type, encode8, decode8) {
+function createCodec2(name2, type, encode8, decode8) {
   return {
     name: name2,
     type,
@@ -6075,9 +6009,9 @@ function createCodec3(name2, type, encode8, decode8) {
     decode: decode8
   };
 }
-__name(createCodec3, "createCodec");
+__name(createCodec2, "createCodec");
 
-// ../../node_modules/protons-runtime/dist/src/codecs/enum.js
+// node_modules/protons-runtime/dist/src/codecs/enum.js
 function enumeration(v) {
   function findValue(val) {
     if (v[val.toString()] == null) {
@@ -6094,17 +6028,17 @@ function enumeration(v) {
     const val = reader.int32();
     return findValue(val);
   }, "enumDecode");
-  return createCodec3("enum", CODEC_TYPES.VARINT, encode8, decode8);
+  return createCodec2("enum", CODEC_TYPES.VARINT, encode8, decode8);
 }
 __name(enumeration, "enumeration");
 
-// ../../node_modules/protons-runtime/dist/src/codecs/message.js
+// node_modules/protons-runtime/dist/src/codecs/message.js
 function message(encode8, decode8) {
-  return createCodec3("message", CODEC_TYPES.LENGTH_DELIMITED, encode8, decode8);
+  return createCodec2("message", CODEC_TYPES.LENGTH_DELIMITED, encode8, decode8);
 }
 __name(message, "message");
 
-// ../../node_modules/protons-runtime/dist/src/index.js
+// node_modules/protons-runtime/dist/src/index.js
 var CodeError2 = class extends Error {
   static {
     __name(this, "CodeError");
@@ -6116,7 +6050,7 @@ var CodeError2 = class extends Error {
   }
 };
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/keys.js
+// node_modules/@libp2p/crypto/dist/src/keys/keys.js
 var KeyType;
 (function(KeyType2) {
   KeyType2["RSA"] = "RSA";
@@ -6233,7 +6167,7 @@ var PrivateKey;
   };
 })(PrivateKey || (PrivateKey = {}));
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/ed25519-class.js
+// node_modules/@libp2p/crypto/dist/src/keys/ed25519-class.js
 var Ed25519PublicKey = class {
   static {
     __name(this, "Ed25519PublicKey");
@@ -6366,7 +6300,7 @@ function ensureKey(key, length4) {
 }
 __name(ensureKey, "ensureKey");
 
-// ../../node_modules/@libp2p/crypto/node_modules/uint8arrays/dist/src/to-string.js
+// node_modules/uint8arrays/dist/src/to-string.js
 function toString2(array, encoding = "utf8") {
   const base4 = bases_default[encoding];
   if (base4 == null) {
@@ -6376,7 +6310,7 @@ function toString2(array, encoding = "utf8") {
 }
 __name(toString2, "toString");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/ecdh-browser.js
+// node_modules/@libp2p/crypto/dist/src/keys/ecdh-browser.js
 var bits = {
   "P-256": 256,
   "P-384": 384,
@@ -6465,10 +6399,10 @@ var unmarshalPrivateKey = /* @__PURE__ */ __name((curve, key) => ({
   d: toString2(key.private, "base64url")
 }), "unmarshalPrivateKey");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/ephemeral-keys.js
+// node_modules/@libp2p/crypto/dist/src/keys/ephemeral-keys.js
 var ephemeral_keys_default = generateEphmeralKeyPair;
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/importer.js
+// node_modules/@libp2p/crypto/dist/src/keys/importer.js
 async function importer(privateKey, password) {
   const encryptedKey = base64.decode(privateKey);
   const cipher = create2();
@@ -6476,14 +6410,14 @@ async function importer(privateKey, password) {
 }
 __name(importer, "importer");
 
-// ../../node_modules/@libp2p/crypto/dist/src/hmac/lengths.js
+// node_modules/@libp2p/crypto/dist/src/hmac/lengths.js
 var lengths_default = {
   SHA1: 20,
   SHA256: 32,
   SHA512: 64
 };
 
-// ../../node_modules/@libp2p/crypto/dist/src/hmac/index-browser.js
+// node_modules/@libp2p/crypto/dist/src/hmac/index-browser.js
 var hashTypes = {
   SHA1: "SHA-1",
   SHA256: "SHA-256",
@@ -6508,7 +6442,7 @@ async function create3(hashType, secret) {
 }
 __name(create3, "create");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/key-stretcher.js
+// node_modules/@libp2p/crypto/dist/src/keys/key-stretcher.js
 var cipherMap = {
   "AES-128": {
     ivSize: 16,
@@ -6567,7 +6501,7 @@ async function keyStretcher(cipherType, hash2, secret) {
 }
 __name(keyStretcher, "keyStretcher");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/rsa-class.js
+// node_modules/@libp2p/crypto/dist/src/keys/rsa-class.js
 var rsa_class_exports = {};
 __export(rsa_class_exports, {
   MAX_RSA_KEY_SIZE: () => MAX_RSA_KEY_SIZE,
@@ -6579,7 +6513,7 @@ __export(rsa_class_exports, {
   unmarshalRsaPublicKey: () => unmarshalRsaPublicKey
 });
 
-// ../../node_modules/@libp2p/crypto/dist/src/random-bytes.js
+// node_modules/@libp2p/crypto/dist/src/random-bytes.js
 function randomBytes2(length4) {
   if (isNaN(length4) || length4 <= 0) {
     throw new CodeError("random bytes length must be a Number bigger than 0", "ERR_INVALID_LENGTH");
@@ -6588,7 +6522,7 @@ function randomBytes2(length4) {
 }
 __name(randomBytes2, "randomBytes");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/rsa-utils.js
+// node_modules/@libp2p/crypto/dist/src/keys/rsa-utils.js
 var rsa_utils_exports = {};
 __export(rsa_utils_exports, {
   exportToPem: () => exportToPem,
@@ -6599,7 +6533,7 @@ __export(rsa_utils_exports, {
   pkixToJwk: () => pkixToJwk
 });
 
-// ../../node_modules/@noble/hashes/esm/hmac.js
+// node_modules/@noble/hashes/esm/hmac.js
 var HMAC = class extends Hash {
   static {
     __name(this, "HMAC");
@@ -6667,7 +6601,7 @@ var HMAC = class extends Hash {
 var hmac = /* @__PURE__ */ __name((hash2, key, message2) => new HMAC(hash2, key).update(message2).digest(), "hmac");
 hmac.create = (hash2, key) => new HMAC(hash2, key);
 
-// ../../node_modules/@noble/hashes/esm/pbkdf2.js
+// node_modules/@noble/hashes/esm/pbkdf2.js
 function pbkdf2Init(hash2, _password, _salt, _opts) {
   hash(hash2);
   const opts = checkOpts({ dkLen: 32, asyncTick: 10 }, _opts);
@@ -6715,10 +6649,10 @@ async function pbkdf2Async(hash2, password, salt, opts) {
 }
 __name(pbkdf2Async, "pbkdf2Async");
 
-// ../../node_modules/asn1js/build/index.es.js
+// node_modules/asn1js/build/index.es.js
 var pvtsutils = __toESM(require_build());
 
-// ../../node_modules/pvutils/build/utils.es.js
+// node_modules/pvutils/build/utils.es.js
 function utilFromBase(inputBuffer, inputBase) {
   let result = 0;
   if (inputBuffer.length === 1) {
@@ -6863,7 +6797,7 @@ function padNumber(inputNumber, fullLength) {
 __name(padNumber, "padNumber");
 var log2 = Math.log(2);
 
-// ../../node_modules/asn1js/build/index.es.js
+// node_modules/asn1js/build/index.es.js
 function assertBigInt() {
   if (typeof BigInt === "undefined") {
     throw new Error("BigInt is not defined. Your environment doesn't implement BigInt.");
@@ -8651,18 +8585,18 @@ var LocalObjectIdentifierValueBlock = class extends ValueBlock {
     }
     return concat2(retBuffers);
   }
-  fromString(string14) {
+  fromString(string3) {
     this.value = [];
     let pos1 = 0;
     let pos2 = 0;
     let sid = "";
     let flag = false;
     do {
-      pos2 = string14.indexOf(".", pos1);
+      pos2 = string3.indexOf(".", pos1);
       if (pos2 === -1)
-        sid = string14.substring(pos1);
+        sid = string3.substring(pos1);
       else
-        sid = string14.substring(pos1, pos2);
+        sid = string3.substring(pos1, pos2);
       pos1 = pos2 + 1;
       if (flag) {
         const sidBlock = this.value[0];
@@ -8889,17 +8823,17 @@ var LocalRelativeObjectIdentifierValueBlock = class extends ValueBlock {
     }
     return concat2(retBuffers);
   }
-  fromString(string14) {
+  fromString(string3) {
     this.value = [];
     let pos1 = 0;
     let pos2 = 0;
     let sid = "";
     do {
-      pos2 = string14.indexOf(".", pos1);
+      pos2 = string3.indexOf(".", pos1);
       if (pos2 === -1)
-        sid = string14.substring(pos1);
+        sid = string3.substring(pos1);
       else
-        sid = string14.substring(pos1, pos2);
+        sid = string3.substring(pos1, pos2);
       pos1 = pos2 + 1;
       const sidBlock = new LocalRelativeSidValueBlock();
       sidBlock.valueDec = parseInt(sid, 10);
@@ -9660,7 +9594,7 @@ _a = TIME;
 })();
 TIME.NAME = "TIME";
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/rsa-utils.js
+// node_modules/@libp2p/crypto/dist/src/keys/rsa-utils.js
 function pkcs1ToJwk(bytes3) {
   const { result } = fromBER(bytes3);
   const values = result.valueBlock.value;
@@ -9955,7 +9889,7 @@ function toUint8Array(buf) {
 }
 __name(toUint8Array, "toUint8Array");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/rsa-browser.js
+// node_modules/@libp2p/crypto/dist/src/keys/rsa-browser.js
 async function generateKey2(bits2) {
   const pair2 = await webcrypto_browser_default.get().subtle.generateKey({
     name: "RSASSA-PKCS1-v1_5",
@@ -10038,7 +9972,7 @@ function keySize(jwk) {
 }
 __name(keySize, "keySize");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/rsa-class.js
+// node_modules/@libp2p/crypto/dist/src/keys/rsa-class.js
 var MAX_RSA_KEY_SIZE = 8192;
 var RsaPublicKey = class {
   static {
@@ -10174,7 +10108,7 @@ async function generateKeyPair2(bits2) {
 }
 __name(generateKeyPair2, "generateKeyPair");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/secp256k1-class.js
+// node_modules/@libp2p/crypto/dist/src/keys/secp256k1-class.js
 var secp256k1_class_exports = {};
 __export(secp256k1_class_exports, {
   Secp256k1PrivateKey: () => Secp256k1PrivateKey,
@@ -10184,7 +10118,7 @@ __export(secp256k1_class_exports, {
   unmarshalSecp256k1PublicKey: () => unmarshalSecp256k1PublicKey
 });
 
-// ../../node_modules/@noble/hashes/esm/sha256.js
+// node_modules/@noble/hashes/esm/sha256.js
 var SHA256_K = /* @__PURE__ */ new Uint32Array([
   1116352408,
   1899447441,
@@ -10337,7 +10271,7 @@ var SHA256 = class extends HashMD {
 };
 var sha2562 = /* @__PURE__ */ wrapConstructor(() => new SHA256());
 
-// ../../node_modules/@noble/curves/esm/abstract/weierstrass.js
+// node_modules/@noble/curves/esm/abstract/weierstrass.js
 function validateSigVerOpts(opts) {
   if (opts.lowS !== void 0)
     abool("lowS", opts.lowS);
@@ -11167,7 +11101,7 @@ function weierstrass(curveDef) {
 }
 __name(weierstrass, "weierstrass");
 
-// ../../node_modules/@noble/curves/esm/_shortw_utils.js
+// node_modules/@noble/curves/esm/_shortw_utils.js
 function getHash(hash2) {
   return {
     hash: hash2,
@@ -11182,7 +11116,7 @@ function createCurve(curveDef, defHash) {
 }
 __name(createCurve, "createCurve");
 
-// ../../node_modules/@noble/curves/esm/secp256k1.js
+// node_modules/@noble/curves/esm/secp256k1.js
 var secp256k1P = BigInt("0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f");
 var secp256k1N = BigInt("0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141");
 var _1n8 = BigInt(1);
@@ -11263,7 +11197,7 @@ var secp256k1 = createCurve({
 var _0n8 = BigInt(0);
 var Point = secp256k1.ProjectivePoint;
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/secp256k1-browser.js
+// node_modules/@libp2p/crypto/dist/src/keys/secp256k1-browser.js
 function generateKey3() {
   return secp256k1.utils.randomPrivateKey();
 }
@@ -11326,7 +11260,7 @@ function computePublicKey(privateKey) {
 }
 __name(computePublicKey, "computePublicKey");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/secp256k1-class.js
+// node_modules/@libp2p/crypto/dist/src/keys/secp256k1-class.js
 var Secp256k1PublicKey = class {
   static {
     __name(this, "Secp256k1PublicKey");
@@ -11435,7 +11369,7 @@ async function generateKeyPair3() {
 }
 __name(generateKeyPair3, "generateKeyPair");
 
-// ../../node_modules/@libp2p/crypto/dist/src/keys/index.js
+// node_modules/@libp2p/crypto/dist/src/keys/index.js
 var supportedKeys = {
   rsa: rsa_class_exports,
   ed25519: ed25519_class_exports,
@@ -11520,98 +11454,7 @@ async function importKey(encryptedKey, password) {
 }
 __name(importKey, "importKey");
 
-// ../../node_modules/@libp2p/peer-id/node_modules/uint8arrays/dist/src/equals.js
-function equals4(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals4, "equals");
-
-// ../../node_modules/@libp2p/peer-id/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe4(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe4, "allocUnsafe");
-
-// ../../node_modules/@libp2p/peer-id/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec4(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec4, "createCodec");
-var string3 = createCodec4("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii3 = createCodec4("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe4(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES3 = {
-  utf8: string3,
-  "utf-8": string3,
-  hex: bases.base16,
-  latin1: ascii3,
-  ascii: ascii3,
-  binary: ascii3,
-  ...bases
-};
-var bases_default3 = BASES3;
-
-// ../../node_modules/@libp2p/peer-id/node_modules/uint8arrays/dist/src/from-string.js
-function fromString4(string14, encoding = "utf8") {
-  const base4 = bases_default3[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString4, "fromString");
-
-// ../../node_modules/@libp2p/peer-id/node_modules/uint8arrays/dist/src/to-string.js
-function toString3(array, encoding = "utf8") {
-  const base4 = bases_default3[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.encoder.encode(array).substring(1);
-}
-__name(toString3, "toString");
-
-// ../../node_modules/@libp2p/peer-id/dist/src/index.js
+// node_modules/@libp2p/peer-id/dist/src/index.js
 var inspect = Symbol.for("nodejs.util.inspect.custom");
 var baseDecoder = Object.values(bases).map((codec) => codec.decoder).reduce((acc, curr) => acc.or(curr), bases.identity.decoder);
 var LIBP2P_KEY_CODE = 114;
@@ -11667,11 +11510,11 @@ var PeerIdImpl = class {
       return false;
     }
     if (id instanceof Uint8Array) {
-      return equals4(this.multihash.bytes, id);
+      return equals3(this.multihash.bytes, id);
     } else if (typeof id === "string") {
       return peerIdFromString(id).equals(this);
     } else if (id?.multihash?.bytes != null) {
-      return equals4(this.multihash.bytes, id.multihash.bytes);
+      return equals3(this.multihash.bytes, id.multihash.bytes);
     } else {
       throw new Error("not valid Id");
     }
@@ -11737,7 +11580,7 @@ var URLPeerIdImpl = class {
   url;
   constructor(url) {
     this.url = url.toString();
-    this.multihash = identity.digest(fromString4(this.url));
+    this.multihash = identity.digest(fromString2(this.url));
   }
   [inspect]() {
     return `PeerId(${this.url})`;
@@ -11757,7 +11600,7 @@ var URLPeerIdImpl = class {
       return false;
     }
     if (other instanceof Uint8Array) {
-      other = toString3(other);
+      other = toString2(other);
     }
     return other.toString() === this.toString();
   }
@@ -11801,7 +11644,7 @@ function peerIdFromCID(cid) {
     throw new Error("Supplied PeerID CID is invalid");
   }
   if (cid.code === TRANSPORT_IPFS_GATEWAY_HTTP_CODE) {
-    const url = toString3(cid.multihash.digest);
+    const url = toString2(cid.multihash.digest);
     return new URLPeerIdImpl(new URL(url));
   }
   const multihash = cid.multihash;
@@ -11828,55 +11671,7 @@ async function peerIdFromKeys(publicKey, privateKey) {
 }
 __name(peerIdFromKeys, "peerIdFromKeys");
 
-// ../../node_modules/uint8arraylist/node_modules/uint8arrays/dist/src/alloc.js
-function alloc2(size = 0) {
-  return new Uint8Array(size);
-}
-__name(alloc2, "alloc");
-function allocUnsafe5(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe5, "allocUnsafe");
-
-// ../../node_modules/uint8arraylist/node_modules/uint8arrays/dist/src/util/as-uint8array.js
-function asUint8Array2(buf) {
-  return buf;
-}
-__name(asUint8Array2, "asUint8Array");
-
-// ../../node_modules/uint8arraylist/node_modules/uint8arrays/dist/src/concat.js
-function concat3(arrays, length4) {
-  if (length4 == null) {
-    length4 = arrays.reduce((acc, curr) => acc + curr.length, 0);
-  }
-  const output3 = allocUnsafe5(length4);
-  let offset = 0;
-  for (const arr of arrays) {
-    output3.set(arr, offset);
-    offset += arr.length;
-  }
-  return asUint8Array2(output3);
-}
-__name(concat3, "concat");
-
-// ../../node_modules/uint8arraylist/node_modules/uint8arrays/dist/src/equals.js
-function equals5(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals5, "equals");
-
-// ../../node_modules/uint8arraylist/dist/src/index.js
+// node_modules/uint8arraylist/dist/src/index.js
 var symbol = Symbol.for("@achingbrain/uint8arraylist");
 function findBufAndOffset(bufs, index) {
   if (index == null || index < 0) {
@@ -12031,7 +11826,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
    */
   slice(beginInclusive, endExclusive) {
     const { bufs, length: length4 } = this._subList(beginInclusive, endExclusive);
-    return concat3(bufs, length4);
+    return concat(bufs, length4);
   }
   /**
    * Returns a alloc from the given start and end element index.
@@ -12044,7 +11839,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     if (bufs.length === 1) {
       return bufs[0];
     }
-    return concat3(bufs, length4);
+    return concat(bufs, length4);
   }
   /**
    * Returns a allocList from the given start and end element index.
@@ -12172,7 +11967,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getInt8(0);
   }
   setInt8(byteOffset, value) {
-    const buf = allocUnsafe5(1);
+    const buf = allocUnsafe(1);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setInt8(0, value);
     this.write(buf, byteOffset);
@@ -12183,7 +11978,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getInt16(0, littleEndian);
   }
   setInt16(byteOffset, value, littleEndian) {
-    const buf = alloc2(2);
+    const buf = alloc(2);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setInt16(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12194,7 +11989,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getInt32(0, littleEndian);
   }
   setInt32(byteOffset, value, littleEndian) {
-    const buf = alloc2(4);
+    const buf = alloc(4);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setInt32(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12205,7 +12000,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getBigInt64(0, littleEndian);
   }
   setBigInt64(byteOffset, value, littleEndian) {
-    const buf = alloc2(8);
+    const buf = alloc(8);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setBigInt64(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12216,7 +12011,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getUint8(0);
   }
   setUint8(byteOffset, value) {
-    const buf = allocUnsafe5(1);
+    const buf = allocUnsafe(1);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setUint8(0, value);
     this.write(buf, byteOffset);
@@ -12227,7 +12022,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getUint16(0, littleEndian);
   }
   setUint16(byteOffset, value, littleEndian) {
-    const buf = alloc2(2);
+    const buf = alloc(2);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setUint16(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12238,7 +12033,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getUint32(0, littleEndian);
   }
   setUint32(byteOffset, value, littleEndian) {
-    const buf = alloc2(4);
+    const buf = alloc(4);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setUint32(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12249,7 +12044,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getBigUint64(0, littleEndian);
   }
   setBigUint64(byteOffset, value, littleEndian) {
-    const buf = alloc2(8);
+    const buf = alloc(8);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setBigUint64(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12260,7 +12055,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getFloat32(0, littleEndian);
   }
   setFloat32(byteOffset, value, littleEndian) {
-    const buf = alloc2(4);
+    const buf = alloc(4);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setFloat32(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12271,7 +12066,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
     return view.getFloat64(0, littleEndian);
   }
   setFloat64(byteOffset, value, littleEndian) {
-    const buf = alloc2(8);
+    const buf = alloc(8);
     const view = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
     view.setFloat64(0, value, littleEndian);
     this.write(buf, byteOffset);
@@ -12287,7 +12082,7 @@ var Uint8ArrayList = class _Uint8ArrayList {
       return false;
     }
     for (let i = 0; i < this.bufs.length; i++) {
-      if (!equals5(this.bufs[i], other.bufs[i])) {
+      if (!equals3(this.bufs[i], other.bufs[i])) {
         return false;
       }
     }
@@ -12308,22 +12103,16 @@ var Uint8ArrayList = class _Uint8ArrayList {
   }
 };
 
-// ../../node_modules/it-length-prefixed/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe6(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe6, "allocUnsafe");
-
-// ../../node_modules/it-length-prefixed/dist/src/utils.js
+// node_modules/it-length-prefixed/dist/src/utils.js
 function isAsyncIterable(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
 __name(isAsyncIterable, "isAsyncIterable");
 
-// ../../node_modules/it-length-prefixed/dist/src/encode.js
+// node_modules/it-length-prefixed/dist/src/encode.js
 var defaultEncoder = /* @__PURE__ */ __name((length4) => {
   const lengthLength = encodingLength2(length4);
-  const lengthBuf = allocUnsafe6(lengthLength);
+  const lengthBuf = allocUnsafe(lengthLength);
   encode5(length4, lengthBuf);
   defaultEncoder.bytes = lengthLength;
   return lengthBuf;
@@ -12366,7 +12155,7 @@ encode6.single = (chunk, options) => {
   return new Uint8ArrayList(encodeLength(chunk.byteLength), chunk);
 };
 
-// ../../node_modules/it-length-prefixed/dist/src/errors.js
+// node_modules/it-length-prefixed/dist/src/errors.js
 var InvalidMessageLengthError = class extends Error {
   static {
     __name(this, "InvalidMessageLengthError");
@@ -12396,7 +12185,7 @@ var UnexpectedEOFError = class extends Error {
   code = "ERR_UNEXPECTED_EOF";
 };
 
-// ../../node_modules/it-length-prefixed/dist/src/decode.js
+// node_modules/it-length-prefixed/dist/src/decode.js
 var MAX_LENGTH_LENGTH = 8;
 var MAX_DATA_LENGTH = 1024 * 1024 * 4;
 var ReadMode;
@@ -12512,7 +12301,7 @@ decode7.fromReader = (reader, options) => {
   });
 };
 
-// ../../node_modules/p-defer/index.js
+// node_modules/p-defer/index.js
 function pDefer() {
   const deferred = {};
   deferred.promise = new Promise((resolve, reject) => {
@@ -12523,7 +12312,7 @@ function pDefer() {
 }
 __name(pDefer, "pDefer");
 
-// ../../node_modules/race-signal/dist/src/index.js
+// node_modules/race-signal/dist/src/index.js
 var AbortError2 = class extends Error {
   static {
     __name(this, "AbortError");
@@ -12564,7 +12353,7 @@ async function raceSignal(promise, signal, opts) {
 }
 __name(raceSignal, "raceSignal");
 
-// ../../node_modules/it-queueless-pushable/dist/src/index.js
+// node_modules/it-queueless-pushable/dist/src/index.js
 var QueuelessPushable = class {
   static {
     __name(this, "QueuelessPushable");
@@ -12648,7 +12437,7 @@ function queuelessPushable() {
 }
 __name(queuelessPushable, "queuelessPushable");
 
-// ../../node_modules/it-byte-stream/dist/src/errors.js
+// node_modules/it-byte-stream/dist/src/errors.js
 var UnexpectedEOFError2 = class extends Error {
   static {
     __name(this, "UnexpectedEOFError");
@@ -12657,7 +12446,7 @@ var UnexpectedEOFError2 = class extends Error {
   code = "ERR_UNEXPECTED_EOF";
 };
 
-// ../../node_modules/it-byte-stream/dist/src/index.js
+// node_modules/it-byte-stream/dist/src/index.js
 var CodeError3 = class extends Error {
   static {
     __name(this, "CodeError");
@@ -12764,7 +12553,7 @@ function byteStream(duplex, opts) {
 }
 __name(byteStream, "byteStream");
 
-// ../../node_modules/it-length-prefixed-stream/dist/src/errors.js
+// node_modules/it-length-prefixed-stream/dist/src/errors.js
 var InvalidMessageLengthError2 = class extends Error {
   static {
     __name(this, "InvalidMessageLengthError");
@@ -12787,7 +12576,7 @@ var InvalidDataLengthLengthError2 = class extends Error {
   code = "ERR_MSG_LENGTH_TOO_LONG";
 };
 
-// ../../node_modules/it-length-prefixed-stream/dist/src/index.js
+// node_modules/it-length-prefixed-stream/dist/src/index.js
 function lpStream(duplex, opts = {}) {
   const bytes3 = byteStream(duplex, opts);
   if (opts.maxDataLength != null && opts.maxLengthLength == null) {
@@ -12839,7 +12628,7 @@ function lpStream(duplex, opts = {}) {
 }
 __name(lpStream, "lpStream");
 
-// ../../node_modules/it-pair/dist/src/index.js
+// node_modules/it-pair/dist/src/index.js
 function pair() {
   const deferred = pDefer();
   let piped = false;
@@ -12859,7 +12648,7 @@ function pair() {
 }
 __name(pair, "pair");
 
-// ../../node_modules/it-pair/dist/src/duplex.js
+// node_modules/it-pair/dist/src/duplex.js
 function duplexPair() {
   const a = pair();
   const b = pair();
@@ -12876,7 +12665,7 @@ function duplexPair() {
 }
 __name(duplexPair, "duplexPair");
 
-// ../../node_modules/it-pushable/dist/src/fifo.js
+// node_modules/it-pushable/dist/src/fifo.js
 var FixedFIFO = class {
   static {
     __name(this, "FixedFIFO");
@@ -12965,7 +12754,7 @@ var FIFO = class {
   }
 };
 
-// ../../node_modules/it-pushable/dist/src/index.js
+// node_modules/it-pushable/dist/src/index.js
 var AbortError4 = class extends Error {
   static {
     __name(this, "AbortError");
@@ -13159,7 +12948,7 @@ function _pushable(getNext, options) {
 }
 __name(_pushable, "_pushable");
 
-// ../../node_modules/it-merge/dist/src/index.js
+// node_modules/it-merge/dist/src/index.js
 function isAsyncIterable2(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -13200,7 +12989,7 @@ function merge(...sources) {
 __name(merge, "merge");
 var src_default = merge;
 
-// ../../node_modules/it-pipe/dist/src/index.js
+// node_modules/it-pipe/dist/src/index.js
 function pipe(first2, ...rest) {
   if (first2 == null) {
     throw new Error("Empty pipeline");
@@ -13280,22 +13069,12 @@ var duplexPipelineFn = /* @__PURE__ */ __name((duplex) => {
   };
 }, "duplexPipelineFn");
 
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/alloc.js
-function alloc3(size = 0) {
-  return new Uint8Array(size);
-}
-__name(alloc3, "alloc");
-function allocUnsafe7(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe7, "allocUnsafe");
-
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/constants.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/constants.js
 var NOISE_MSG_MAX_LENGTH_BYTES = 65535;
 var NOISE_MSG_MAX_LENGTH_BYTES_WITHOUT_TAG = NOISE_MSG_MAX_LENGTH_BYTES - 16;
 var DUMP_SESSION_KEYS = Boolean(globalThis.process?.env?.DUMP_SESSION_KEYS);
 
-// ../../node_modules/@noble/ciphers/esm/_assert.js
+// node_modules/@noble/ciphers/esm/_assert.js
 function number2(n) {
   if (!Number.isSafeInteger(n) || n < 0)
     throw new Error(`positive integer expected, not ${n}`);
@@ -13333,7 +13112,7 @@ function output2(out, instance) {
 }
 __name(output2, "output");
 
-// ../../node_modules/@noble/ciphers/esm/utils.js
+// node_modules/@noble/ciphers/esm/utils.js
 var u32 = /* @__PURE__ */ __name((arr) => new Uint32Array(arr.buffer, arr.byteOffset, Math.floor(arr.byteLength / 4)), "u32");
 var createView2 = /* @__PURE__ */ __name((arr) => new DataView(arr.buffer, arr.byteOffset, arr.byteLength), "createView");
 var isLE2 = new Uint8Array(new Uint32Array([287454020]).buffer)[0] === 68;
@@ -13399,7 +13178,7 @@ function clean(...arrays) {
 }
 __name(clean, "clean");
 
-// ../../node_modules/@noble/ciphers/esm/_arx.js
+// node_modules/@noble/ciphers/esm/_arx.js
 var _utf8ToBytes = /* @__PURE__ */ __name((str) => Uint8Array.from(str.split("").map((c) => c.charCodeAt(0))), "_utf8ToBytes");
 var sigma16 = _utf8ToBytes("expand 16-byte k");
 var sigma32 = _utf8ToBytes("expand 32-byte k");
@@ -13510,7 +13289,7 @@ function createCipher(core, opts) {
 }
 __name(createCipher, "createCipher");
 
-// ../../node_modules/@noble/ciphers/esm/_poly1305.js
+// node_modules/@noble/ciphers/esm/_poly1305.js
 var u8to16 = /* @__PURE__ */ __name((a, i) => a[i++] & 255 | (a[i++] & 255) << 8, "u8to16");
 var Poly1305 = class {
   static {
@@ -13768,7 +13547,7 @@ function wrapConstructorWithKey(hashCons) {
 __name(wrapConstructorWithKey, "wrapConstructorWithKey");
 var poly1305 = wrapConstructorWithKey((key) => new Poly1305(key));
 
-// ../../node_modules/@noble/ciphers/esm/chacha.js
+// node_modules/@noble/ciphers/esm/chacha.js
 function chachaCore(s2, k, n, out, cnt, rounds = 20) {
   let y00 = s2[0], y01 = s2[1], y02 = s2[2], y03 = s2[3], y04 = k[0], y05 = k[1], y06 = k[2], y07 = k[3], y08 = k[4], y09 = k[5], y10 = k[6], y11 = k[7], y12 = cnt, y13 = n[0], y14 = n[1], y15 = n[2];
   let x00 = y00, x01 = y01, x02 = y02, x03 = y03, x04 = y04, x05 = y05, x06 = y06, x07 = y07, x08 = y08, x09 = y09, x10 = y10, x11 = y11, x12 = y12, x13 = y13, x14 = y14, x15 = y15;
@@ -14014,7 +13793,7 @@ var _poly1305_aead = /* @__PURE__ */ __name((xorStream) => (key, nonce, AAD) => 
 var chacha20poly1305 = /* @__PURE__ */ wrapCipher({ blockSize: 64, nonceLength: 12, tagLength: 16 }, _poly1305_aead(chacha20));
 var xchacha20poly1305 = /* @__PURE__ */ wrapCipher({ blockSize: 64, nonceLength: 24, tagLength: 16 }, _poly1305_aead(xchacha20));
 
-// ../../node_modules/@noble/hashes/esm/hkdf.js
+// node_modules/@noble/hashes/esm/hkdf.js
 function extract(hash2, ikm, salt) {
   hash(hash2);
   if (salt === void 0)
@@ -14050,7 +13829,7 @@ function expand(hash2, prk, info, length4 = 32) {
 }
 __name(expand, "expand");
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/crypto/js.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/crypto/js.js
 var pureJsCrypto = {
   hashSHA256(data) {
     return sha2562(data.subarray());
@@ -14090,10 +13869,10 @@ var pureJsCrypto = {
   }
 };
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/crypto/index.browser.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/crypto/index.browser.js
 var defaultCrypto = pureJsCrypto;
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/crypto.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/crypto.js
 function wrapCrypto(crypto3) {
   return {
     generateKeypair: crypto3.generateX25519KeyPair,
@@ -14106,9 +13885,9 @@ function wrapCrypto(crypto3) {
 }
 __name(wrapCrypto, "wrapCrypto");
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/encoder.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/encoder.js
 var uint16BEEncode = /* @__PURE__ */ __name((value) => {
-  const target = allocUnsafe7(2);
+  const target = allocUnsafe(2);
   target[0] = value >> 8;
   target[1] = value;
   return target;
@@ -14127,7 +13906,7 @@ var uint16BEDecode = /* @__PURE__ */ __name((data) => {
 }, "uint16BEDecode");
 uint16BEDecode.bytes = 2;
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/metrics.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/metrics.js
 function registerMetrics(metrics) {
   return {
     xxHandshakeSuccesses: metrics.registerCounter("libp2p_noise_xxhandshake_successes_total", {
@@ -14149,72 +13928,14 @@ function registerMetrics(metrics) {
 }
 __name(registerMetrics, "registerMetrics");
 
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec5(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec5, "createCodec");
-var string4 = createCodec5("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii4 = createCodec5("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe7(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES4 = {
-  utf8: string4,
-  "utf-8": string4,
-  hex: bases.base16,
-  latin1: ascii4,
-  ascii: ascii4,
-  binary: ascii4,
-  ...bases
-};
-var bases_default4 = BASES4;
-
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/to-string.js
-function toString4(array, encoding = "utf8") {
-  const base4 = bases_default4[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.encoder.encode(array).substring(1);
-}
-__name(toString4, "toString");
-
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/logger.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/logger.js
 function logLocalStaticKeys(s2, keyLogger) {
   if (!keyLogger.enabled || !DUMP_SESSION_KEYS) {
     return;
   }
   if (s2) {
-    keyLogger(`LOCAL_STATIC_PUBLIC_KEY ${toString4(s2.publicKey, "hex")}`);
-    keyLogger(`LOCAL_STATIC_PRIVATE_KEY ${toString4(s2.privateKey, "hex")}`);
+    keyLogger(`LOCAL_STATIC_PUBLIC_KEY ${toString2(s2.publicKey, "hex")}`);
+    keyLogger(`LOCAL_STATIC_PRIVATE_KEY ${toString2(s2.privateKey, "hex")}`);
   } else {
     keyLogger("Missing local static keys.");
   }
@@ -14225,8 +13946,8 @@ function logLocalEphemeralKeys(e, keyLogger) {
     return;
   }
   if (e) {
-    keyLogger(`LOCAL_PUBLIC_EPHEMERAL_KEY ${toString4(e.publicKey, "hex")}`);
-    keyLogger(`LOCAL_PRIVATE_EPHEMERAL_KEY ${toString4(e.privateKey, "hex")}`);
+    keyLogger(`LOCAL_PUBLIC_EPHEMERAL_KEY ${toString2(e.publicKey, "hex")}`);
+    keyLogger(`LOCAL_PRIVATE_EPHEMERAL_KEY ${toString2(e.privateKey, "hex")}`);
   } else {
     keyLogger("Missing local ephemeral keys.");
   }
@@ -14237,7 +13958,7 @@ function logRemoteStaticKey(rs, keyLogger) {
     return;
   }
   if (rs) {
-    keyLogger(`REMOTE_STATIC_PUBLIC_KEY ${toString4(rs.subarray(), "hex")}`);
+    keyLogger(`REMOTE_STATIC_PUBLIC_KEY ${toString2(rs.subarray(), "hex")}`);
   } else {
     keyLogger("Missing remote static public key.");
   }
@@ -14248,7 +13969,7 @@ function logRemoteEphemeralKey(re, keyLogger) {
     return;
   }
   if (re) {
-    keyLogger(`REMOTE_EPHEMERAL_PUBLIC_KEY ${toString4(re.subarray(), "hex")}`);
+    keyLogger(`REMOTE_EPHEMERAL_PUBLIC_KEY ${toString2(re.subarray(), "hex")}`);
   } else {
     keyLogger("Missing remote ephemeral keys.");
   }
@@ -14258,60 +13979,25 @@ function logCipherState(cs1, cs2, keyLogger) {
   if (!keyLogger.enabled || !DUMP_SESSION_KEYS) {
     return;
   }
-  keyLogger(`CIPHER_STATE_1 ${cs1.n.getUint64()} ${cs1.k && toString4(cs1.k, "hex")}`);
-  keyLogger(`CIPHER_STATE_2 ${cs2.n.getUint64()} ${cs2.k && toString4(cs2.k, "hex")}`);
+  keyLogger(`CIPHER_STATE_1 ${cs1.n.getUint64()} ${cs1.k && toString2(cs1.k, "hex")}`);
+  keyLogger(`CIPHER_STATE_2 ${cs2.n.getUint64()} ${cs2.k && toString2(cs2.k, "hex")}`);
 }
 __name(logCipherState, "logCipherState");
 
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/equals.js
-function equals6(a, b) {
-  if (a === b) {
-    return true;
+// node_modules/uint8arrays/dist/src/xor.js
+function xor(a, b) {
+  if (a.length !== b.length) {
+    throw new Error("Inputs should have the same length");
   }
-  if (a.byteLength !== b.byteLength) {
-    return false;
+  const result = allocUnsafe(a.length);
+  for (let i = 0; i < a.length; i++) {
+    result[i] = a[i] ^ b[i];
   }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
+  return asUint8Array(result);
 }
-__name(equals6, "equals");
+__name(xor, "xor");
 
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/util/as-uint8array.js
-function asUint8Array3(buf) {
-  return buf;
-}
-__name(asUint8Array3, "asUint8Array");
-
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/concat.js
-function concat4(arrays, length4) {
-  if (length4 == null) {
-    length4 = arrays.reduce((acc, curr) => acc + curr.length, 0);
-  }
-  const output3 = allocUnsafe7(length4);
-  let offset = 0;
-  for (const arr of arrays) {
-    output3.set(arr, offset);
-    offset += arr.length;
-  }
-  return asUint8Array3(output3);
-}
-__name(concat4, "concat");
-
-// ../../node_modules/@chainsafe/libp2p-noise/node_modules/uint8arrays/dist/src/from-string.js
-function fromString5(string14, encoding = "utf8") {
-  const base4 = bases_default4[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString5, "fromString");
-
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/errors.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/errors.js
 var UnexpectedPeerError = class _UnexpectedPeerError extends Error {
   static {
     __name(this, "UnexpectedPeerError");
@@ -14335,7 +14021,7 @@ var InvalidCryptoExchangeError = class _InvalidCryptoExchangeError extends Error
   static code = "ERR_INVALID_CRYPTO_EXCHANGE";
 };
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/nonce.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/nonce.js
 var MIN_NONCE = 0;
 var MAX_NONCE = 4294967295;
 var ERR_MAX_NONCE = "Cipherstate has reached maximum n, a new handshake must be performed";
@@ -14348,7 +14034,7 @@ var Nonce = class {
   view;
   constructor(n = MIN_NONCE) {
     this.n = n;
-    this.bytes = alloc3(12);
+    this.bytes = alloc(12);
     this.view = new DataView(this.bytes.buffer, this.bytes.byteOffset, this.bytes.byteLength);
     this.view.setUint32(4, n, true);
   }
@@ -14369,8 +14055,8 @@ var Nonce = class {
   }
 };
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/protocol.js
-var ZEROLEN = alloc3(0);
+// node_modules/@chainsafe/libp2p-noise/dist/src/protocol.js
+var ZEROLEN = alloc(0);
 var CipherState = class {
   static {
     __name(this, "CipherState");
@@ -14415,7 +14101,7 @@ var SymmetricState = class {
   crypto;
   constructor(crypto3, protocolName) {
     this.crypto = crypto3;
-    const protocolNameBytes = fromString5(protocolName, "utf-8");
+    const protocolNameBytes = fromString2(protocolName, "utf-8");
     this.h = hashProtocolName(crypto3, protocolNameBytes);
     this.ck = this.h;
     this.cs = new CipherState(crypto3);
@@ -14615,7 +14301,7 @@ var XXHandshakeState = class extends AbstractHandshakeState {
 };
 function hashProtocolName(crypto3, protocolName) {
   if (protocolName.length <= 32) {
-    const h2 = alloc3(32);
+    const h2 = alloc(32);
     h2.set(protocolName);
     return h2;
   } else {
@@ -14624,7 +14310,7 @@ function hashProtocolName(crypto3, protocolName) {
 }
 __name(hashProtocolName, "hashProtocolName");
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/proto/payload.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/proto/payload.js
 var NoiseExtensions;
 (function(NoiseExtensions2) {
   let _codec;
@@ -14699,8 +14385,8 @@ var NoiseHandshakePayload;
         }
       }, (reader, length4) => {
         const obj = {
-          identityKey: alloc3(0),
-          identitySig: alloc3(0)
+          identityKey: alloc(0),
+          identitySig: alloc(0)
         };
         const end = length4 == null ? reader.len : reader.pos + length4;
         while (reader.pos < end) {
@@ -14737,7 +14423,7 @@ var NoiseHandshakePayload;
   };
 })(NoiseHandshakePayload || (NoiseHandshakePayload = {}));
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/utils.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/utils.js
 async function createHandshakePayload(privateKey, staticPublicKey, extensions) {
   const identitySig = await privateKey.sign(getSignaturePayload(staticPublicKey));
   return NoiseHandshakePayload.encode({
@@ -14752,8 +14438,8 @@ async function decodeHandshakePayload(payloadBytes, remoteStaticKey, remoteIdent
     const payload = NoiseHandshakePayload.decode(payloadBytes);
     if (remoteIdentityKey) {
       const remoteIdentityKeyBytes = remoteIdentityKey.subarray();
-      if (!equals6(remoteIdentityKeyBytes, payload.identityKey)) {
-        throw new Error(`Payload identity key ${toString4(payload.identityKey, "hex")} does not match expected remote identity key ${toString4(remoteIdentityKeyBytes, "hex")}`);
+      if (!equals3(remoteIdentityKeyBytes, payload.identityKey)) {
+        throw new Error(`Payload identity key ${toString2(payload.identityKey, "hex")} does not match expected remote identity key ${toString2(remoteIdentityKeyBytes, "hex")}`);
       }
     }
     if (!remoteStaticKey) {
@@ -14771,16 +14457,16 @@ async function decodeHandshakePayload(payloadBytes, remoteStaticKey, remoteIdent
 }
 __name(decodeHandshakePayload, "decodeHandshakePayload");
 function getSignaturePayload(publicKey) {
-  const prefix = fromString5("noise-libp2p-static-key:");
+  const prefix = fromString2("noise-libp2p-static-key:");
   if (publicKey instanceof Uint8Array) {
-    return concat4([prefix, publicKey], prefix.length + publicKey.length);
+    return concat([prefix, publicKey], prefix.length + publicKey.length);
   }
   publicKey.prepend(prefix);
   return publicKey;
 }
 __name(getSignaturePayload, "getSignaturePayload");
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/performHandshake.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/performHandshake.js
 async function performHandshakeInitiator(init) {
   const { log: log3, connection, crypto: crypto3, privateKey, prologue, s: s2, remoteIdentityKey, extensions } = init;
   const payload = await createHandshakePayload(privateKey, s2.publicKey, extensions);
@@ -14849,7 +14535,7 @@ async function performHandshakeResponder(init) {
 }
 __name(performHandshakeResponder, "performHandshakeResponder");
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/streaming.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/streaming.js
 var CHACHA_TAG_LENGTH = 16;
 function encryptStream(handshake, metrics) {
   return async function* (source) {
@@ -14899,7 +14585,7 @@ function decryptStream(handshake, metrics) {
 }
 __name(decryptStream, "decryptStream");
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/noise.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/noise.js
 var Noise = class {
   static {
     __name(this, "Noise");
@@ -14924,7 +14610,7 @@ var Noise = class {
     } else {
       this.staticKey = _crypto.generateX25519KeyPair();
     }
-    this.prologue = prologueBytes ?? alloc3(0);
+    this.prologue = prologueBytes ?? alloc(0);
   }
   [Symbol.toStringTag] = "@chainsafe/libp2p-noise";
   [serviceCapabilities] = [
@@ -15063,13 +14749,13 @@ var Noise = class {
   }
 };
 
-// ../../node_modules/@chainsafe/libp2p-noise/dist/src/index.js
+// node_modules/@chainsafe/libp2p-noise/dist/src/index.js
 function noise(init = {}) {
   return (components) => new Noise(components, init);
 }
 __name(noise, "noise");
 
-// ../../node_modules/get-iterator/dist/src/index.js
+// node_modules/get-iterator/dist/src/index.js
 function getIterator(obj) {
   if (obj != null) {
     if (typeof obj[Symbol.iterator] === "function") {
@@ -15086,7 +14772,7 @@ function getIterator(obj) {
 }
 __name(getIterator, "getIterator");
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/constants.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/constants.js
 var ERR_INVALID_FRAME = "ERR_INVALID_FRAME";
 var ERR_UNREQUESTED_PING = "ERR_UNREQUESTED_PING";
 var ERR_NOT_MATCHING_PING = "ERR_NOT_MATCHING_PING";
@@ -15112,7 +14798,7 @@ var ERR_DECODE_IN_PROGRESS = "ERR_DECODE_IN_PROGRESS";
 var INITIAL_STREAM_WINDOW = 256 * 1024;
 var MAX_STREAM_WINDOW = 16 * 1024 * 1024;
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/config.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/config.js
 var defaultConfig = {
   enableKeepAlive: true,
   keepAliveInterval: 3e4,
@@ -15147,7 +14833,7 @@ function verifyConfig(config) {
 }
 __name(verifyConfig, "verifyConfig");
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/frame.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/frame.js
 var FrameType;
 (function(FrameType2) {
   FrameType2[FrameType2["Data"] = 0] = "Data";
@@ -15172,7 +14858,7 @@ var GoAwayCode;
 })(GoAwayCode || (GoAwayCode = {}));
 var HEADER_LENGTH = 12;
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/decode.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/decode.js
 var twoPow24 = 2 ** 24;
 function decodeHeader(data) {
   if (data[0] !== YAMUX_VERSION) {
@@ -15276,7 +14962,7 @@ function returnlessSource(source) {
 }
 __name(returnlessSource, "returnlessSource");
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/encode.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/encode.js
 function encodeHeader(header) {
   const frame = new Uint8Array(HEADER_LENGTH);
   frame[1] = header.type;
@@ -15294,7 +14980,7 @@ function encodeHeader(header) {
 }
 __name(encodeHeader, "encodeHeader");
 
-// ../../node_modules/@libp2p/utils/dist/src/is-promise.js
+// node_modules/@libp2p/utils/dist/src/is-promise.js
 function isPromise2(thing) {
   if (thing == null) {
     return false;
@@ -15303,7 +14989,7 @@ function isPromise2(thing) {
 }
 __name(isPromise2, "isPromise");
 
-// ../../node_modules/@libp2p/utils/dist/src/close-source.js
+// node_modules/@libp2p/utils/dist/src/close-source.js
 function closeSource(source, log3) {
   const res = getIterator(source).return?.();
   if (isPromise2(res)) {
@@ -15314,7 +15000,7 @@ function closeSource(source, log3) {
 }
 __name(closeSource, "closeSource");
 
-// ../../node_modules/@libp2p/utils/dist/src/abstract-stream.js
+// node_modules/@libp2p/utils/dist/src/abstract-stream.js
 var ERR_STREAM_RESET = "ERR_STREAM_RESET";
 var ERR_SINK_INVALID_STATE = "ERR_SINK_INVALID_STATE";
 var DEFAULT_SEND_CLOSE_WRITE_TIMEOUT = 5e3;
@@ -15638,7 +15324,7 @@ var AbstractStream = class {
   }
 };
 
-// ../../node_modules/it-peekable/dist/src/index.js
+// node_modules/it-peekable/dist/src/index.js
 function peekable(iterable) {
   const [iterator, symbol4] = iterable[Symbol.asyncIterator] != null ? [iterable[Symbol.asyncIterator](), Symbol.asyncIterator] : [iterable[Symbol.iterator](), Symbol.iterator];
   const queue = [];
@@ -15666,7 +15352,7 @@ function peekable(iterable) {
 __name(peekable, "peekable");
 var src_default2 = peekable;
 
-// ../../node_modules/it-foreach/dist/src/index.js
+// node_modules/it-foreach/dist/src/index.js
 function isAsyncIterable4(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -15719,7 +15405,7 @@ function forEach(source, fn) {
 __name(forEach, "forEach");
 var src_default3 = forEach;
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/stream.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/stream.js
 var StreamState;
 (function(StreamState2) {
   StreamState2[StreamState2["Init"] = 0] = "Init";
@@ -15954,7 +15640,7 @@ var YamuxStream = class extends AbstractStream {
   }
 };
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/muxer.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/muxer.js
 var YAMUX_PROTOCOL_ID = "/yamux/1.0.0";
 var CLOSE_TIMEOUT = 500;
 var Yamux = class {
@@ -16421,115 +16107,13 @@ function isPromise5(thing) {
 }
 __name(isPromise5, "isPromise");
 
-// ../../node_modules/@chainsafe/libp2p-yamux/dist/src/index.js
+// node_modules/@chainsafe/libp2p-yamux/dist/src/index.js
 function yamux(init = {}) {
   return (components) => new Yamux(components, init);
 }
 __name(yamux, "yamux");
 
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/equals.js
-function equals7(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals7, "equals");
-
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe8(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe8, "allocUnsafe");
-
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec6(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec6, "createCodec");
-var string5 = createCodec6("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii5 = createCodec6("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe8(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES5 = {
-  utf8: string5,
-  "utf-8": string5,
-  hex: bases.base16,
-  latin1: ascii5,
-  ascii: ascii5,
-  binary: ascii5,
-  ...bases
-};
-var bases_default5 = BASES5;
-
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/to-string.js
-function toString5(array, encoding = "utf8") {
-  const base4 = bases_default5[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.encoder.encode(array).substring(1);
-}
-__name(toString5, "toString");
-
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/util/as-uint8array.js
-function asUint8Array4(buf) {
-  return buf;
-}
-__name(asUint8Array4, "asUint8Array");
-
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/concat.js
-function concat5(arrays, length4) {
-  if (length4 == null) {
-    length4 = arrays.reduce((acc, curr) => acc + curr.length, 0);
-  }
-  const output3 = allocUnsafe8(length4);
-  let offset = 0;
-  for (const arr of arrays) {
-    output3.set(arr, offset);
-    offset += arr.length;
-  }
-  return asUint8Array4(output3);
-}
-__name(concat5, "concat");
-
-// ../../node_modules/@chainsafe/is-ip/lib/parser.js
+// node_modules/@chainsafe/is-ip/lib/parser.js
 var Parser = class {
   static {
     __name(this, "Parser");
@@ -16715,7 +16299,7 @@ var Parser = class {
   }
 };
 
-// ../../node_modules/@chainsafe/is-ip/lib/parse.js
+// node_modules/@chainsafe/is-ip/lib/parse.js
 var MAX_IPV6_LENGTH = 45;
 var MAX_IPV4_LENGTH = 15;
 var parser = new Parser();
@@ -16747,7 +16331,7 @@ function parseIP(input) {
 }
 __name(parseIP, "parseIP");
 
-// ../../node_modules/@chainsafe/netmask/dist/src/ip.js
+// node_modules/@chainsafe/netmask/dist/src/ip.js
 var maxIPv6Octet = parseInt("0xFFFF", 16);
 var ipv4Prefix = new Uint8Array([
   0,
@@ -16764,17 +16348,7 @@ var ipv4Prefix = new Uint8Array([
   255
 ]);
 
-// ../../node_modules/@multiformats/multiaddr/node_modules/uint8arrays/dist/src/from-string.js
-function fromString6(string14, encoding = "utf8") {
-  const base4 = bases_default5[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString6, "fromString");
-
-// ../../node_modules/@chainsafe/is-ip/lib/is-ip.js
+// node_modules/@chainsafe/is-ip/lib/is-ip.js
 function isIPv4(input) {
   return Boolean(parseIPv4(input));
 }
@@ -16788,7 +16362,7 @@ function isIP(input) {
 }
 __name(isIP, "isIP");
 
-// ../../node_modules/@multiformats/multiaddr/dist/src/ip.js
+// node_modules/@multiformats/multiaddr/dist/src/ip.js
 var isV4 = isIPv4;
 var isV6 = isIPv6;
 var toBytes3 = /* @__PURE__ */ __name(function(ip) {
@@ -16809,10 +16383,10 @@ var toBytes3 = /* @__PURE__ */ __name(function(ip) {
       let v4Buffer;
       if (isv4) {
         v4Buffer = toBytes3(sections[i]);
-        sections[i] = toString5(v4Buffer.slice(0, 2), "base16");
+        sections[i] = toString2(v4Buffer.slice(0, 2), "base16");
       }
       if (v4Buffer != null && ++i < 8) {
-        sections.splice(i, 0, toString5(v4Buffer.slice(2, 4), "base16"));
+        sections.splice(i, 0, toString2(v4Buffer.slice(2, 4), "base16"));
       }
     }
     if (sections[0] === "") {
@@ -16840,7 +16414,7 @@ var toBytes3 = /* @__PURE__ */ __name(function(ip) {
   }
   throw new Error("invalid ip address");
 }, "toBytes");
-var toString6 = /* @__PURE__ */ __name(function(buf, offset = 0, length4) {
+var toString3 = /* @__PURE__ */ __name(function(buf, offset = 0, length4) {
   offset = ~~offset;
   length4 = length4 ?? buf.length - offset;
   const view = new DataView(buf.buffer);
@@ -16861,7 +16435,7 @@ var toString6 = /* @__PURE__ */ __name(function(buf, offset = 0, length4) {
   return "";
 }, "toString");
 
-// ../../node_modules/@multiformats/multiaddr/dist/src/protocols-table.js
+// node_modules/@multiformats/multiaddr/dist/src/protocols-table.js
 var V = -1;
 var names2 = {};
 var codes = {};
@@ -16941,7 +16515,7 @@ function getProtocol(proto) {
 }
 __name(getProtocol, "getProtocol");
 
-// ../../node_modules/@multiformats/multiaddr/dist/src/convert.js
+// node_modules/@multiformats/multiaddr/dist/src/convert.js
 var ip4Protocol = getProtocol("ip4");
 var ip6Protocol = getProtocol("ip6");
 var ipcidrProtocol = getProtocol("ipcidr");
@@ -16987,7 +16561,7 @@ function convertToString(proto, buf) {
     case 481:
       return globalThis.encodeURIComponent(bytes2str(buf));
     default:
-      return toString5(buf, "base16");
+      return toString2(buf, "base16");
   }
 }
 __name(convertToString, "convertToString");
@@ -17033,7 +16607,7 @@ function convertToBytes(proto, str) {
     case 481:
       return str2bytes(globalThis.decodeURIComponent(str));
     default:
-      return fromString6(str, "base16");
+      return fromString2(str, "base16");
   }
 }
 __name(convertToBytes, "convertToBytes");
@@ -17051,7 +16625,7 @@ function ip2bytes(ipString) {
 }
 __name(ip2bytes, "ip2bytes");
 function bytes2ip(ipBuff) {
-  const ipString = toString6(ipBuff, 0, ipBuff.length);
+  const ipString = toString3(ipBuff, 0, ipBuff.length);
   if (ipString == null) {
     throw new Error("ipBuff is required");
   }
@@ -17074,9 +16648,9 @@ function bytes2port(buf) {
 }
 __name(bytes2port, "bytes2port");
 function str2bytes(str) {
-  const buf = fromString6(str);
+  const buf = fromString2(str);
   const size = Uint8Array.from(encode5(buf.length));
-  return concat5([size, buf], size.length + buf.length);
+  return concat([size, buf], size.length + buf.length);
 }
 __name(str2bytes, "str2bytes");
 function bytes2str(buf) {
@@ -17085,7 +16659,7 @@ function bytes2str(buf) {
   if (buf.length !== size) {
     throw new Error("inconsistent lengths");
   }
-  return toString5(buf);
+  return toString2(buf);
 }
 __name(bytes2str, "bytes2str");
 function mh2bytes(hash2) {
@@ -17096,13 +16670,13 @@ function mh2bytes(hash2) {
     mh = CID.parse(hash2).multihash.bytes;
   }
   const size = Uint8Array.from(encode5(mh.length));
-  return concat5([size, mh], size.length + mh.length);
+  return concat([size, mh], size.length + mh.length);
 }
 __name(mh2bytes, "mh2bytes");
 function mb2bytes(mbstr) {
   const mb = anybaseDecoder.decode(mbstr);
   const size = Uint8Array.from(encode5(mb.length));
-  return concat5([size, mb], size.length + mb.length);
+  return concat([size, mb], size.length + mb.length);
 }
 __name(mb2bytes, "mb2bytes");
 function bytes2mb(buf) {
@@ -17111,7 +16685,7 @@ function bytes2mb(buf) {
   if (hash2.length !== size) {
     throw new Error("inconsistent lengths");
   }
-  return "u" + toString5(hash2, "base64url");
+  return "u" + toString2(hash2, "base64url");
 }
 __name(bytes2mb, "bytes2mb");
 function bytes2mh(buf) {
@@ -17120,7 +16694,7 @@ function bytes2mh(buf) {
   if (address.length !== size) {
     throw new Error("inconsistent lengths");
   }
-  return toString5(address, "base58btc");
+  return toString2(address, "base58btc");
 }
 __name(bytes2mh, "bytes2mh");
 function onion2bytes(str) {
@@ -17137,7 +16711,7 @@ function onion2bytes(str) {
     throw new Error("Port number is not in range(1, 65536)");
   }
   const portBuf = port2bytes(port);
-  return concat5([buf, portBuf], buf.length + portBuf.length);
+  return concat([buf, portBuf], buf.length + portBuf.length);
 }
 __name(onion2bytes, "onion2bytes");
 function onion32bytes(str) {
@@ -17154,19 +16728,19 @@ function onion32bytes(str) {
     throw new Error("Port number is not in range(1, 65536)");
   }
   const portBuf = port2bytes(port);
-  return concat5([buf, portBuf], buf.length + portBuf.length);
+  return concat([buf, portBuf], buf.length + portBuf.length);
 }
 __name(onion32bytes, "onion32bytes");
 function bytes2onion(buf) {
   const addrBytes = buf.slice(0, buf.length - 2);
   const portBytes = buf.slice(buf.length - 2);
-  const addr = toString5(addrBytes, "base32");
+  const addr = toString2(addrBytes, "base32");
   const port = bytes2port(portBytes);
   return `${addr}:${port}`;
 }
 __name(bytes2onion, "bytes2onion");
 
-// ../../node_modules/@multiformats/multiaddr/dist/src/codec.js
+// node_modules/@multiformats/multiaddr/dist/src/codec.js
 function stringToMultiaddrParts(str) {
   str = cleanPath(str);
   const tuples = [];
@@ -17232,7 +16806,7 @@ function bytesToMultiaddrParts(bytes3) {
     const addr = bytes3.slice(i + n, i + n + size);
     i += size + n;
     if (i > bytes3.length) {
-      throw ParseError("Invalid address Uint8Array: " + toString5(bytes3, "base16"));
+      throw ParseError("Invalid address Uint8Array: " + toString2(bytes3, "base16"));
     }
     tuples.push([code2, addr]);
     const stringAddr = convertToString(code2, addr);
@@ -17265,11 +16839,11 @@ function stringTuplesToString(tuples) {
 }
 __name(stringTuplesToString, "stringTuplesToString");
 function tuplesToBytes(tuples) {
-  return concat5(tuples.map((tup) => {
+  return concat(tuples.map((tup) => {
     const proto = getProtocol(tup[0]);
     let buf = Uint8Array.from(encode5(proto.code));
     if (tup.length > 1 && tup[1] != null) {
-      buf = concat5([buf, tup[1]]);
+      buf = concat([buf, tup[1]]);
     }
     return buf;
   }));
@@ -17295,7 +16869,7 @@ function ParseError(str) {
 }
 __name(ParseError, "ParseError");
 
-// ../../node_modules/@multiformats/multiaddr/dist/src/multiaddr.js
+// node_modules/@multiformats/multiaddr/dist/src/multiaddr.js
 var inspect2 = Symbol.for("nodejs.util.inspect.custom");
 var symbol2 = Symbol.for("@multiformats/js-multiaddr/multiaddr");
 var DNS_CODES = [
@@ -17438,9 +17012,9 @@ var Multiaddr = class _Multiaddr {
       if (tuple?.[1] != null) {
         const peerIdStr = tuple[1];
         if (peerIdStr[0] === "Q" || peerIdStr[0] === "1") {
-          return toString5(base58btc.decode(`z${peerIdStr}`), "base58btc");
+          return toString2(base58btc.decode(`z${peerIdStr}`), "base58btc");
         }
-        return toString5(CID.parse(peerIdStr).multihash.bytes, "base58btc");
+        return toString2(CID.parse(peerIdStr).multihash.bytes, "base58btc");
       }
       return null;
     } catch (e) {
@@ -17451,7 +17025,7 @@ var Multiaddr = class _Multiaddr {
     return this.#path;
   }
   equals(addr) {
-    return equals7(this.bytes, addr.bytes);
+    return equals3(this.bytes, addr.bytes);
   }
   async resolve(options) {
     const resolvableProto = this.protos().find((p) => p.resolvable);
@@ -17506,7 +17080,7 @@ var Multiaddr = class _Multiaddr {
   }
 };
 
-// ../../node_modules/@multiformats/multiaddr/dist/src/index.js
+// node_modules/@multiformats/multiaddr/dist/src/index.js
 var resolvers = /* @__PURE__ */ new Map();
 function isMultiaddr(value) {
   return Boolean(value?.[symbol2]);
@@ -17517,7 +17091,7 @@ function multiaddr(addr) {
 }
 __name(multiaddr, "multiaddr");
 
-// ../../node_modules/@multiformats/mafmt/dist/src/index.js
+// node_modules/@multiformats/mafmt/dist/src/index.js
 var DNS4 = base3("dns4");
 var DNS6 = base3("dns6");
 var DNSADDR = base3("dnsaddr");
@@ -17660,7 +17234,7 @@ function base3(n) {
 }
 __name(base3, "base");
 
-// ../../node_modules/@libp2p/bootstrap/dist/src/index.js
+// node_modules/@libp2p/bootstrap/dist/src/index.js
 var DEFAULT_BOOTSTRAP_TAG_NAME = "bootstrap";
 var DEFAULT_BOOTSTRAP_TAG_VALUE = 50;
 var DEFAULT_BOOTSTRAP_TAG_TTL = 12e4;
@@ -17763,93 +17337,12 @@ function bootstrap(init) {
 }
 __name(bootstrap, "bootstrap");
 
-// ../../node_modules/@libp2p/peer-record/node_modules/uint8arrays/dist/src/equals.js
-function equals8(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals8, "equals");
-
-// ../../node_modules/@libp2p/peer-record/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe9(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe9, "allocUnsafe");
-
-// ../../node_modules/@libp2p/peer-record/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec7(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec7, "createCodec");
-var string6 = createCodec7("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii6 = createCodec7("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe9(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES6 = {
-  utf8: string6,
-  "utf-8": string6,
-  hex: bases.base16,
-  latin1: ascii6,
-  ascii: ascii6,
-  binary: ascii6,
-  ...bases
-};
-var bases_default6 = BASES6;
-
-// ../../node_modules/@libp2p/peer-record/node_modules/uint8arrays/dist/src/from-string.js
-function fromString7(string14, encoding = "utf8") {
-  const base4 = bases_default6[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString7, "fromString");
-
-// ../../node_modules/@libp2p/peer-record/dist/src/errors.js
+// node_modules/@libp2p/peer-record/dist/src/errors.js
 var codes2 = {
   ERR_SIGNATURE_NOT_VALID: "ERR_SIGNATURE_NOT_VALID"
 };
 
-// ../../node_modules/@libp2p/peer-record/dist/src/envelope/envelope.js
+// node_modules/@libp2p/peer-record/dist/src/envelope/envelope.js
 var Envelope;
 (function(Envelope2) {
   let _codec;
@@ -17919,7 +17412,7 @@ var Envelope;
   };
 })(Envelope || (Envelope = {}));
 
-// ../../node_modules/@libp2p/peer-record/dist/src/envelope/index.js
+// node_modules/@libp2p/peer-record/dist/src/envelope/index.js
 var RecordEnvelope = class _RecordEnvelope {
   static {
     __name(this, "RecordEnvelope");
@@ -18007,7 +17500,7 @@ var RecordEnvelope = class _RecordEnvelope {
    * Verifies if the other Envelope is identical to this one
    */
   equals(other) {
-    return equals8(this.marshal(), other.marshal());
+    return equals3(this.marshal(), other.marshal());
   }
   /**
    * Validate envelope data signature for the given domain
@@ -18022,14 +17515,14 @@ var RecordEnvelope = class _RecordEnvelope {
   }
 };
 var formatSignaturePayload = /* @__PURE__ */ __name((domain, payloadType, payload) => {
-  const domainUint8Array = fromString7(domain);
+  const domainUint8Array = fromString2(domain);
   const domainLength = encode5(domainUint8Array.byteLength);
   const payloadTypeLength = encode5(payloadType.length);
   const payloadLength = encode5(payload.length);
   return new Uint8ArrayList(domainLength, domainUint8Array, payloadTypeLength, payloadType, payloadLength, payload);
 }, "formatSignaturePayload");
 
-// ../../node_modules/@libp2p/utils/dist/src/array-equals.js
+// node_modules/@libp2p/utils/dist/src/array-equals.js
 function arrayEquals(a, b) {
   const sort = /* @__PURE__ */ __name((a2, b2) => a2.toString().localeCompare(b2.toString()), "sort");
   if (a.length !== b.length) {
@@ -18040,11 +17533,11 @@ function arrayEquals(a, b) {
 }
 __name(arrayEquals, "arrayEquals");
 
-// ../../node_modules/@libp2p/peer-record/dist/src/peer-record/consts.js
+// node_modules/@libp2p/peer-record/dist/src/peer-record/consts.js
 var ENVELOPE_DOMAIN_PEER_RECORD = "libp2p-peer-record";
 var ENVELOPE_PAYLOAD_TYPE_PEER_RECORD = Uint8Array.from([3, 1]);
 
-// ../../node_modules/@libp2p/peer-record/dist/src/peer-record/peer-record.js
+// node_modules/@libp2p/peer-record/dist/src/peer-record/peer-record.js
 var PeerRecord;
 (function(PeerRecord3) {
   let AddressInfo;
@@ -18152,7 +17645,7 @@ var PeerRecord;
   };
 })(PeerRecord || (PeerRecord = {}));
 
-// ../../node_modules/@libp2p/peer-record/dist/src/peer-record/index.js
+// node_modules/@libp2p/peer-record/dist/src/peer-record/index.js
 var PeerRecord2 = class _PeerRecord {
   static {
     __name(this, "PeerRecord");
@@ -18216,7 +17709,7 @@ var PeerRecord2 = class _PeerRecord {
   }
 };
 
-// ../../node_modules/it-drain/dist/src/index.js
+// node_modules/it-drain/dist/src/index.js
 function isAsyncIterable5(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -18235,7 +17728,7 @@ function drain(source) {
 __name(drain, "drain");
 var src_default4 = drain;
 
-// ../../node_modules/it-parallel/dist/src/index.js
+// node_modules/it-parallel/dist/src/index.js
 var CustomEvent2 = globalThis.CustomEvent ?? Event;
 async function* parallel(source, options = {}) {
   let concurrency = options.concurrency ?? Infinity;
@@ -18347,7 +17840,7 @@ async function* parallel(source, options = {}) {
 }
 __name(parallel, "parallel");
 
-// ../../node_modules/it-protobuf-stream/dist/src/index.js
+// node_modules/it-protobuf-stream/dist/src/index.js
 function pbStream(duplex, opts) {
   const lp = lpStream(duplex, opts);
   const W = {
@@ -18377,78 +17870,14 @@ function pbStream(duplex, opts) {
 }
 __name(pbStream, "pbStream");
 
-// ../../node_modules/@libp2p/identify/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe10(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe10, "allocUnsafe");
-
-// ../../node_modules/@libp2p/identify/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec8(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec8, "createCodec");
-var string7 = createCodec8("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii7 = createCodec8("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe10(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES7 = {
-  utf8: string7,
-  "utf-8": string7,
-  hex: bases.base16,
-  latin1: ascii7,
-  ascii: ascii7,
-  binary: ascii7,
-  ...bases
-};
-var bases_default7 = BASES7;
-
-// ../../node_modules/@libp2p/identify/node_modules/uint8arrays/dist/src/from-string.js
-function fromString8(string14, encoding = "utf8") {
-  const base4 = bases_default7[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString8, "fromString");
-
-// ../../node_modules/@libp2p/identify/dist/src/consts.js
+// node_modules/@libp2p/identify/dist/src/consts.js
 var IDENTIFY_PROTOCOL_VERSION = "0.1.0";
 var MULTICODEC_IDENTIFY_PROTOCOL_NAME = "id";
 var MULTICODEC_IDENTIFY_PROTOCOL_VERSION = "1.0.0";
 var MAX_IDENTIFY_MESSAGE_SIZE = 1024 * 8;
 var MAX_PUSH_CONCURRENCY = 32;
 
-// ../../node_modules/@libp2p/identify/dist/src/pb/message.js
+// node_modules/@libp2p/identify/dist/src/pb/message.js
 var Identify;
 (function(Identify3) {
   let _codec;
@@ -18541,7 +17970,7 @@ var Identify;
   };
 })(Identify || (Identify = {}));
 
-// ../../node_modules/wherearewe/src/index.js
+// node_modules/wherearewe/src/index.js
 var import_is_electron = __toESM(require_is_electron(), 1);
 var isEnvWithDom = typeof window === "object" && typeof document === "object" && document.nodeType === 9;
 var isElectron = (0, import_is_electron.default)();
@@ -18553,7 +17982,7 @@ var isWebWorker = typeof importScripts === "function" && typeof self !== "undefi
 var isTest = typeof globalThis.process !== "undefined" && typeof globalThis.process.env !== "undefined" && globalThis.process.env["NODE" + /* @__PURE__ */ (() => "_")() + "ENV"] === "test";
 var isReactNative = typeof navigator !== "undefined" && navigator.product === "ReactNative";
 
-// ../../node_modules/@libp2p/identify/dist/src/utils.js
+// node_modules/@libp2p/identify/dist/src/utils.js
 var defaultValues = {
   protocolPrefix: "ipfs",
   timeout: 5e3,
@@ -18659,10 +18088,10 @@ async function consumeIdentifyMessage(peerStore, events, log3, connection, messa
   if (message2.agentVersion != null || message2.protocolVersion != null) {
     const metadata = {};
     if (message2.agentVersion != null) {
-      metadata.AgentVersion = fromString8(message2.agentVersion);
+      metadata.AgentVersion = fromString2(message2.agentVersion);
     }
     if (message2.protocolVersion != null) {
-      metadata.ProtocolVersion = fromString8(message2.protocolVersion);
+      metadata.ProtocolVersion = fromString2(message2.protocolVersion);
     }
     log3("merging %p metadata", connection.remotePeer, metadata);
     await peerStore.merge(connection.remotePeer, {
@@ -18732,8 +18161,8 @@ var AbstractIdentify = class {
     }
     await this.peerStore.merge(this.peerId, {
       metadata: {
-        AgentVersion: fromString8(this.host.agentVersion),
-        ProtocolVersion: fromString8(this.host.protocolVersion)
+        AgentVersion: fromString2(this.host.agentVersion),
+        ProtocolVersion: fromString2(this.host.protocolVersion)
       }
     });
     await this.registrar.handle(this.protocol, (data) => {
@@ -18753,7 +18182,7 @@ var AbstractIdentify = class {
   }
 };
 
-// ../../node_modules/@multiformats/multiaddr-matcher/dist/src/index.js
+// node_modules/@multiformats/multiaddr-matcher/dist/src/index.js
 var toParts = /* @__PURE__ */ __name((ma) => {
   return ma.toString().split("/").slice(1);
 }, "toParts");
@@ -18777,7 +18206,7 @@ var literal = /* @__PURE__ */ __name((str) => {
     pattern: str
   };
 }, "literal");
-var string8 = /* @__PURE__ */ __name(() => {
+var string2 = /* @__PURE__ */ __name(() => {
   return {
     match: /* @__PURE__ */ __name((vals) => func((val) => typeof val === "string").match(vals), "match"),
     pattern: "{string}"
@@ -18911,10 +18340,10 @@ function fmt(...matchers) {
   };
 }
 __name(fmt, "fmt");
-var _DNS4 = and2(literal("dns4"), string8());
-var _DNS6 = and2(literal("dns6"), string8());
-var _DNSADDR = and2(literal("dnsaddr"), string8());
-var _DNS = and2(literal("dns"), string8());
+var _DNS4 = and2(literal("dns4"), string2());
+var _DNS6 = and2(literal("dns6"), string2());
+var _DNSADDR = and2(literal("dnsaddr"), string2());
+var _DNS = and2(literal("dns"), string2());
 var DNS42 = fmt(_DNS4);
 var DNS62 = fmt(_DNS6);
 var DNSADDR2 = fmt(_DNSADDR);
@@ -18956,7 +18385,7 @@ var HTTP2 = fmt(_HTTP);
 var _HTTPS = or3(and2(_IP_OR_DOMAIN, literal("tcp"), or3(and2(literal("443"), literal("http")), and2(number3(), literal("https"))), optional(peerId())), and2(_IP_OR_DOMAIN, literal("tls"), literal("http"), optional(peerId())), and2(_IP_OR_DOMAIN, literal("https"), optional(peerId())));
 var HTTPS2 = fmt(_HTTPS);
 
-// ../../node_modules/@libp2p/identify/dist/src/identify.js
+// node_modules/@libp2p/identify/dist/src/identify.js
 var Identify2 = class extends AbstractIdentify {
   static {
     __name(this, "Identify");
@@ -19075,13 +18504,13 @@ var Identify2 = class extends AbstractIdentify {
   }
 };
 
-// ../../node_modules/@libp2p/identify/dist/src/index.js
+// node_modules/@libp2p/identify/dist/src/index.js
 function identify(init = {}) {
   return (components) => new Identify2(components, init);
 }
 __name(identify, "identify");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/constants.js
+// node_modules/@libp2p/kad-dht/dist/src/constants.js
 var second = 1e3;
 var minute = 60 * second;
 var hour = 60 * minute;
@@ -19102,13 +18531,7 @@ var TABLE_REFRESH_INTERVAL = 5 * minute;
 var TABLE_REFRESH_QUERY_TIMEOUT = 30 * second;
 var DEFAULT_QUERY_TIMEOUT = 180 * second;
 
-// ../../node_modules/@libp2p/record/node_modules/uint8arrays/dist/src/alloc.js
-function alloc4(size = 0) {
-  return new Uint8Array(size);
-}
-__name(alloc4, "alloc");
-
-// ../../node_modules/@libp2p/record/dist/src/record.js
+// node_modules/@libp2p/record/dist/src/record.js
 var Record;
 (function(Record3) {
   let _codec;
@@ -19135,8 +18558,8 @@ var Record;
         }
       }, (reader, length4, opts = {}) => {
         const obj = {
-          key: alloc4(0),
-          value: alloc4(0),
+          key: alloc(0),
+          value: alloc(0),
           timeReceived: ""
         };
         const end = length4 == null ? reader.len : reader.pos + length4;
@@ -19174,7 +18597,7 @@ var Record;
   };
 })(Record || (Record = {}));
 
-// ../../node_modules/@libp2p/record/dist/src/utils.js
+// node_modules/@libp2p/record/dist/src/utils.js
 function toRFC3339(time) {
   const year = time.getUTCFullYear();
   const month = String(time.getUTCMonth() + 1).padStart(2, "0");
@@ -19207,7 +18630,7 @@ function parseRFC3339(time) {
 }
 __name(parseRFC3339, "parseRFC3339");
 
-// ../../node_modules/@libp2p/record/dist/src/index.js
+// node_modules/@libp2p/record/dist/src/index.js
 var Libp2pRecord = class _Libp2pRecord {
   static {
     __name(this, "Libp2pRecord");
@@ -19262,7 +18685,7 @@ var Libp2pRecord = class _Libp2pRecord {
   }
 };
 
-// ../../node_modules/it-map/dist/src/index.js
+// node_modules/it-map/dist/src/index.js
 function isAsyncIterable6(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -19302,34 +18725,7 @@ function map(source, func2) {
 __name(map, "map");
 var src_default5 = map;
 
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/equals.js
-function equals9(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals9, "equals");
-
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/alloc.js
-function alloc5(size = 0) {
-  return new Uint8Array(size);
-}
-__name(alloc5, "alloc");
-function allocUnsafe11(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe11, "allocUnsafe");
-
-// ../../node_modules/@libp2p/kad-dht/dist/src/message/dht.js
+// node_modules/@libp2p/kad-dht/dist/src/message/dht.js
 var Record2;
 (function(Record3) {
   let _codec;
@@ -19476,7 +18872,7 @@ var PeerInfo;
         }
       }, (reader, length4) => {
         const obj = {
-          id: alloc5(0),
+          id: alloc(0),
           multiaddrs: []
         };
         const end = length4 == null ? reader.len : reader.pos + length4;
@@ -19606,7 +19002,7 @@ var Message;
   };
 })(Message || (Message = {}));
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/query/events.js
+// node_modules/@libp2p/kad-dht/dist/src/query/events.js
 function sendQueryEvent(fields, options = {}) {
   const event = {
     ...fields,
@@ -19683,71 +19079,13 @@ function dialPeerEvent(fields, options = {}) {
 }
 __name(dialPeerEvent, "dialPeerEvent");
 
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec9(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec9, "createCodec");
-var string9 = createCodec9("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii8 = createCodec9("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe11(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES8 = {
-  utf8: string9,
-  "utf-8": string9,
-  hex: bases.base16,
-  latin1: ascii8,
-  ascii: ascii8,
-  binary: ascii8,
-  ...bases
-};
-var bases_default8 = BASES8;
-
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/to-string.js
-function toString7(array, encoding = "utf8") {
-  const base4 = bases_default8[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.encoder.encode(array).substring(1);
-}
-__name(toString7, "toString");
-
-// ../../node_modules/@libp2p/kad-dht/dist/src/record/selectors.js
+// node_modules/@libp2p/kad-dht/dist/src/record/selectors.js
 function bestRecord(selectors2, k, records) {
   if (records.length === 0) {
     const errMsg = "No records given";
     throw new CodeError(errMsg, "ERR_NO_RECORDS_RECEIVED");
   }
-  const kStr = toString7(k);
+  const kStr = toString2(k);
   const parts = kStr.split("/");
   if (parts.length < 3) {
     const errMsg = "Record key does not have a selector function";
@@ -19772,10 +19110,10 @@ var selectors = {
   pk: publickKey
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/record/validators.js
+// node_modules/@libp2p/kad-dht/dist/src/record/validators.js
 async function verifyRecord(validators2, record) {
   const key = record.key;
-  const keyString = toString7(key);
+  const keyString = toString2(key);
   const parts = keyString.split("/");
   if (parts.length < 3) {
     return;
@@ -19795,13 +19133,13 @@ var validatePublicKeyRecord = /* @__PURE__ */ __name(async (key, publicKey) => {
   if (key.byteLength < 5) {
     throw new CodeError("invalid public key record", "ERR_INVALID_RECORD_KEY_TOO_SHORT");
   }
-  const prefix = toString7(key.subarray(0, 4));
+  const prefix = toString2(key.subarray(0, 4));
   if (prefix !== "/pk/") {
     throw new CodeError("key was not prefixed with /pk/", "ERR_INVALID_RECORD_KEY_BAD_PREFIX");
   }
   const keyhash = key.slice(4);
   const publicKeyHash = await sha256.digest(publicKey);
-  if (!equals9(keyhash, publicKeyHash.bytes)) {
+  if (!equals3(keyhash, publicKeyHash.bytes)) {
     throw new CodeError("public key does not match passed in key", "ERR_INVALID_RECORD_HASH_MISMATCH");
   }
 }, "validatePublicKeyRecord");
@@ -19809,7 +19147,7 @@ var validators = {
   pk: validatePublicKeyRecord
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/private-ip.js
+// node_modules/@libp2p/utils/dist/src/private-ip.js
 var import_netmask2 = __toESM(require_netmask(), 1);
 var PRIVATE_IP_RANGES = [
   "0.0.0.0/8",
@@ -19889,81 +19227,7 @@ function isPrivateIp(ip) {
 }
 __name(isPrivateIp, "isPrivateIp");
 
-// ../../node_modules/interface-datastore/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe12(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe12, "allocUnsafe");
-
-// ../../node_modules/interface-datastore/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec10(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec10, "createCodec");
-var string10 = createCodec10("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii9 = createCodec10("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe12(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES9 = {
-  utf8: string10,
-  "utf-8": string10,
-  hex: bases.base16,
-  latin1: ascii9,
-  ascii: ascii9,
-  binary: ascii9,
-  ...bases
-};
-var bases_default9 = BASES9;
-
-// ../../node_modules/interface-datastore/node_modules/uint8arrays/dist/src/from-string.js
-function fromString9(string14, encoding = "utf8") {
-  const base4 = bases_default9[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString9, "fromString");
-
-// ../../node_modules/interface-datastore/node_modules/uint8arrays/dist/src/to-string.js
-function toString8(array, encoding = "utf8") {
-  const base4 = bases_default9[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.encoder.encode(array).substring(1);
-}
-__name(toString8, "toString");
-
-// ../../node_modules/interface-datastore/dist/src/key.js
+// node_modules/interface-datastore/dist/src/key.js
 var pathSepS = "/";
 var pathSepB = new TextEncoder().encode(pathSepS);
 var pathSep = pathSepB[0];
@@ -19978,7 +19242,7 @@ var Key = class _Key {
    */
   constructor(s2, clean2) {
     if (typeof s2 === "string") {
-      this._buf = fromString9(s2);
+      this._buf = fromString2(s2);
     } else if (s2 instanceof Uint8Array) {
       this._buf = s2;
     } else {
@@ -20001,7 +19265,7 @@ var Key = class _Key {
    * @returns {string}
    */
   toString(encoding = "utf8") {
-    return toString8(this._buf, encoding);
+    return toString2(this._buf, encoding);
   }
   /**
    * Return the Uint8Array representation of the key
@@ -20324,39 +19588,8 @@ function flatten(arr) {
 }
 __name(flatten, "flatten");
 
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/util/as-uint8array.js
-function asUint8Array5(buf) {
-  return buf;
-}
-__name(asUint8Array5, "asUint8Array");
-
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/concat.js
-function concat6(arrays, length4) {
-  if (length4 == null) {
-    length4 = arrays.reduce((acc, curr) => acc + curr.length, 0);
-  }
-  const output3 = allocUnsafe11(length4);
-  let offset = 0;
-  for (const arr of arrays) {
-    output3.set(arr, offset);
-    offset += arr.length;
-  }
-  return asUint8Array5(output3);
-}
-__name(concat6, "concat");
-
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/from-string.js
-function fromString10(string14, encoding = "utf8") {
-  const base4 = bases_default8[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString10, "fromString");
-
-// ../../node_modules/@libp2p/kad-dht/dist/src/utils.js
-var PK_PREFIX = fromString10("/pk/");
+// node_modules/@libp2p/kad-dht/dist/src/utils.js
+var PK_PREFIX = fromString2("/pk/");
 function removePrivateAddressesMapper(peer) {
   return {
     ...peer,
@@ -20416,18 +19649,18 @@ async function convertPeerId(peerId2) {
 }
 __name(convertPeerId, "convertPeerId");
 function bufferToRecordKey(buf) {
-  return new Key(`${RECORD_KEY_PREFIX}/${toString7(buf, "base32")}`, false);
+  return new Key(`${RECORD_KEY_PREFIX}/${toString2(buf, "base32")}`, false);
 }
 __name(bufferToRecordKey, "bufferToRecordKey");
 function keyForPublicKey(peer) {
-  return concat6([
+  return concat([
     PK_PREFIX,
     peer.toBytes()
   ]);
 }
 __name(keyForPublicKey, "keyForPublicKey");
 function isPublicKeyKey(key) {
-  return toString7(key.subarray(0, 4)) === "/pk/";
+  return toString2(key.subarray(0, 4)) === "/pk/";
 }
 __name(isPublicKeyKey, "isPublicKeyKey");
 function fromPublicKeyKey(key) {
@@ -20475,7 +19708,7 @@ function multiaddrIsPublic(multiaddr2) {
 }
 __name(multiaddrIsPublic, "multiaddrIsPublic");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/content-fetching/index.js
+// node_modules/@libp2p/kad-dht/dist/src/content-fetching/index.js
 var ContentFetching = class {
   static {
     __name(this, "ContentFetching");
@@ -20518,7 +19751,7 @@ var ContentFetching = class {
     this.log("sendCorrection for %b", key);
     const fixupRec = createPutRecord(key, best);
     for (const { value, from: from3 } of vals) {
-      if (equals9(value, best)) {
+      if (equals3(value, best)) {
         this.log("record was ok");
         continue;
       }
@@ -20539,7 +19772,7 @@ var ContentFetching = class {
         record: fixupRec
       };
       for await (const event of this.network.sendRequest(from3, request, options)) {
-        if (event.name === "PEER_RESPONSE" && event.record != null && equals9(event.record.value, Libp2pRecord.deserialize(fixupRec).value)) {
+        if (event.name === "PEER_RESPONSE" && event.record != null && equals3(event.record.value, Libp2pRecord.deserialize(fixupRec).value)) {
           sentCorrection = true;
         }
         yield event;
@@ -20576,7 +19809,7 @@ var ContentFetching = class {
           if (putEvent.name !== "PEER_RESPONSE") {
             continue;
           }
-          if (!(putEvent.record != null && equals9(putEvent.record.value, Libp2pRecord.deserialize(record).value))) {
+          if (!(putEvent.record != null && equals3(putEvent.record.value, Libp2pRecord.deserialize(record).value))) {
             events.push(queryErrorEvent({ from: event.peer.id, error: new CodeError("value not put correctly", "ERR_PUT_VALUE_INVALID") }, options));
           }
         }
@@ -20650,7 +19883,7 @@ var ContentFetching = class {
   }
 };
 
-// ../../node_modules/@libp2p/peer-collections/dist/src/util.js
+// node_modules/@libp2p/peer-collections/dist/src/util.js
 function mapIterable(iter, map2) {
   const iterator = {
     [Symbol.iterator]: () => {
@@ -20676,7 +19909,7 @@ function mapIterable(iter, map2) {
 }
 __name(mapIterable, "mapIterable");
 
-// ../../node_modules/@libp2p/peer-collections/dist/src/map.js
+// node_modules/@libp2p/peer-collections/dist/src/map.js
 var PeerMap = class {
   static {
     __name(this, "PeerMap");
@@ -20731,7 +19964,7 @@ var PeerMap = class {
   }
 };
 
-// ../../node_modules/@libp2p/peer-collections/dist/src/set.js
+// node_modules/@libp2p/peer-collections/dist/src/set.js
 var PeerSet = class _PeerSet {
   static {
     __name(this, "PeerSet");
@@ -20810,78 +20043,8 @@ var PeerSet = class _PeerSet {
   }
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/filters/bloom-filter.js
+// node_modules/@libp2p/utils/dist/src/filters/bloom-filter.js
 var import_murmurhash3js_revisited = __toESM(require_murmurhash3js_revisited(), 1);
-
-// ../../node_modules/@libp2p/utils/node_modules/uint8arrays/dist/src/alloc.js
-function alloc6(size = 0) {
-  return new Uint8Array(size);
-}
-__name(alloc6, "alloc");
-function allocUnsafe13(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe13, "allocUnsafe");
-
-// ../../node_modules/@libp2p/utils/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec11(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec11, "createCodec");
-var string11 = createCodec11("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii10 = createCodec11("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe13(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES10 = {
-  utf8: string11,
-  "utf-8": string11,
-  hex: bases.base16,
-  latin1: ascii10,
-  ascii: ascii10,
-  binary: ascii10,
-  ...bases
-};
-var bases_default10 = BASES10;
-
-// ../../node_modules/@libp2p/utils/node_modules/uint8arrays/dist/src/from-string.js
-function fromString11(string14, encoding = "utf8") {
-  const base4 = bases_default10[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString11, "fromString");
-
-// ../../node_modules/@libp2p/utils/dist/src/filters/bloom-filter.js
 var LN2_SQUARED = Math.LN2 * Math.LN2;
 var BloomFilter = class {
   static {
@@ -20897,14 +20060,14 @@ var BloomFilter = class {
       this.seeds = generateSeeds(options.hashes ?? 8);
     }
     this.bits = options.bits ?? 1024;
-    this.buffer = alloc6(Math.ceil(this.bits / 8));
+    this.buffer = alloc(Math.ceil(this.bits / 8));
   }
   /**
    * Add an item to the filter
    */
   add(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     for (let i = 0; i < this.seeds.length; i++) {
       const hash2 = import_murmurhash3js_revisited.default.x86.hash32(item, this.seeds[i]);
@@ -20919,7 +20082,7 @@ var BloomFilter = class {
    */
   has(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     for (let i = 0; i < this.seeds.length; i++) {
       const hash2 = import_murmurhash3js_revisited.default.x86.hash32(item, this.seeds[i]);
@@ -20988,24 +20151,7 @@ function generateSeeds(count) {
 }
 __name(generateSeeds, "generateSeeds");
 
-// ../../node_modules/@libp2p/utils/node_modules/uint8arrays/dist/src/equals.js
-function equals10(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals10, "equals");
-
-// ../../node_modules/@libp2p/utils/dist/src/filters/fingerprint.js
+// node_modules/@libp2p/utils/dist/src/filters/fingerprint.js
 var MAX_FINGERPRINT_SIZE = 64;
 var Fingerprint = class {
   static {
@@ -21019,7 +20165,7 @@ var Fingerprint = class {
       throw new TypeError("Invalid Fingerprint Size");
     }
     const fnv = hash2.hashV(buf, seed);
-    const fp = alloc6(fingerprintSize);
+    const fp = alloc(fingerprintSize);
     for (let i = 0; i < fp.length; i++) {
       fp[i] = fnv[i];
     }
@@ -21037,17 +20183,17 @@ var Fingerprint = class {
     if (!(other?.fp instanceof Uint8Array)) {
       return false;
     }
-    return equals10(this.fp, other.fp);
+    return equals3(this.fp, other.fp);
   }
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/filters/utils.js
+// node_modules/@libp2p/utils/dist/src/filters/utils.js
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 __name(getRandomInt, "getRandomInt");
 
-// ../../node_modules/@libp2p/utils/dist/src/filters/bucket.js
+// node_modules/@libp2p/utils/dist/src/filters/bucket.js
 var Bucket = class {
   static {
     __name(this, "Bucket");
@@ -21101,7 +20247,7 @@ var Bucket = class {
   }
 };
 
-// ../../node_modules/@sindresorhus/fnv1a/index.js
+// node_modules/@sindresorhus/fnv1a/index.js
 var FNV_PRIMES = {
   32: 16777619n,
   64: 1099511628211n,
@@ -21129,13 +20275,13 @@ function fnv1aUint8Array(uint8Array, size) {
   return hash2;
 }
 __name(fnv1aUint8Array, "fnv1aUint8Array");
-function fnv1aEncodeInto(string14, size, utf8Buffer) {
+function fnv1aEncodeInto(string3, size, utf8Buffer) {
   if (utf8Buffer.length === 0) {
     throw new Error("The `utf8Buffer` option must have a length greater than zero");
   }
   const fnvPrime = FNV_PRIMES[size];
   let hash2 = FNV_OFFSETS[size];
-  let remaining = string14;
+  let remaining = string3;
   while (remaining.length > 0) {
     const result = cachedEncoder.encodeInto(remaining, utf8Buffer);
     remaining = remaining.slice(result.read);
@@ -21161,7 +20307,7 @@ function fnv1a(value, { size = 32, utf8Buffer } = {}) {
 }
 __name(fnv1a, "fnv1a");
 
-// ../../node_modules/@libp2p/utils/dist/src/filters/hashes.js
+// node_modules/@libp2p/utils/dist/src/filters/hashes.js
 var import_murmurhash3js_revisited2 = __toESM(require_murmurhash3js_revisited(), 1);
 var fnv1a2 = {
   hash: /* @__PURE__ */ __name((input) => {
@@ -21178,11 +20324,11 @@ function numberToBuffer(num) {
   if (hex.length % 2 === 1) {
     hex = `0${hex}`;
   }
-  return fromString11(hex, "base16");
+  return fromString2(hex, "base16");
 }
 __name(numberToBuffer, "numberToBuffer");
 
-// ../../node_modules/@libp2p/utils/dist/src/filters/cuckoo-filter.js
+// node_modules/@libp2p/utils/dist/src/filters/cuckoo-filter.js
 var maxCuckooCount = 500;
 var CuckooFilter = class {
   static {
@@ -21206,7 +20352,7 @@ var CuckooFilter = class {
   }
   add(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     const fingerprint = new Fingerprint(item, this.hash, this.seed, this.fingerprintSize);
     const j = this.hash.hash(item, this.seed) % this.filterSize;
@@ -21246,7 +20392,7 @@ var CuckooFilter = class {
   }
   has(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     const fingerprint = new Fingerprint(item, this.hash, this.seed, this.fingerprintSize);
     const j = this.hash.hash(item, this.seed) % this.filterSize;
@@ -21259,7 +20405,7 @@ var CuckooFilter = class {
   }
   remove(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     const fingerprint = new Fingerprint(item, this.hash, this.seed, this.fingerprintSize);
     const j = this.hash.hash(item, this.seed) % this.filterSize;
@@ -21308,7 +20454,7 @@ function optimize2(maxItems, errorRate = 1e-3) {
 }
 __name(optimize2, "optimize");
 
-// ../../node_modules/@libp2p/utils/dist/src/filters/scalable-cuckoo-filter.js
+// node_modules/@libp2p/utils/dist/src/filters/scalable-cuckoo-filter.js
 var ScalableCuckooFilter = class {
   static {
     __name(this, "ScalableCuckooFilter");
@@ -21339,7 +20485,7 @@ var ScalableCuckooFilter = class {
   }
   add(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     if (this.has(item)) {
       return true;
@@ -21362,7 +20508,7 @@ var ScalableCuckooFilter = class {
   }
   has(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     for (let i = 0; i < this.filterSeries.length; i++) {
       if (this.filterSeries[i].has(item)) {
@@ -21373,7 +20519,7 @@ var ScalableCuckooFilter = class {
   }
   remove(item) {
     if (typeof item === "string") {
-      item = fromString11(item);
+      item = fromString2(item);
     }
     for (let i = 0; i < this.filterSeries.length; i++) {
       if (this.filterSeries[i].remove(item)) {
@@ -21396,7 +20542,7 @@ function createScalableCuckooFilter(maxItems, errorRate = 1e-3, options) {
 }
 __name(createScalableCuckooFilter, "createScalableCuckooFilter");
 
-// ../../node_modules/@libp2p/peer-collections/dist/src/filter.js
+// node_modules/@libp2p/peer-collections/dist/src/filter.js
 var PeerFilter = class {
   static {
     __name(this, "PeerFilter");
@@ -21420,7 +20566,7 @@ function peerFilter(size, errorRate = 1e-3) {
 }
 __name(peerFilter, "peerFilter");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/message/utils.js
+// node_modules/@libp2p/kad-dht/dist/src/message/utils.js
 function toPbPeerInfo(peer, connection) {
   const output3 = {
     id: peer.id.toBytes(),
@@ -21441,7 +20587,7 @@ function fromPbPeerInfo(peer) {
 }
 __name(fromPbPeerInfo, "fromPbPeerInfo");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/content-routing/index.js
+// node_modules/@libp2p/kad-dht/dist/src/content-routing/index.js
 var ContentRouting = class {
   static {
     __name(this, "ContentRouting");
@@ -21583,7 +20729,7 @@ var ContentRouting = class {
   }
 };
 
-// ../../node_modules/any-signal/dist/src/index.js
+// node_modules/any-signal/dist/src/index.js
 function anySignal(signals) {
   const controller = new globalThis.AbortController();
   function onAbort() {
@@ -21618,7 +20764,7 @@ function anySignal(signals) {
 }
 __name(anySignal, "anySignal");
 
-// ../../node_modules/@libp2p/utils/dist/src/moving-average.js
+// node_modules/@libp2p/utils/dist/src/moving-average.js
 var MovingAverage = class {
   static {
     __name(this, "MovingAverage");
@@ -21655,7 +20801,7 @@ var MovingAverage = class {
   }
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/adaptive-timeout.js
+// node_modules/@libp2p/utils/dist/src/adaptive-timeout.js
 var DEFAULT_TIMEOUT_MULTIPLIER = 1.2;
 var DEFAULT_FAILURE_MULTIPLIER = 2;
 var DEFAULT_MIN_TIMEOUT = 2e3;
@@ -21716,7 +20862,7 @@ var AdaptiveTimeout = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/network.js
+// node_modules/@libp2p/kad-dht/dist/src/network.js
 var Network = class extends TypedEventEmitter {
   static {
     __name(this, "Network");
@@ -21874,20 +21020,7 @@ var Network = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/xor.js
-function xor2(a, b) {
-  if (a.length !== b.length) {
-    throw new Error("Inputs should have the same length");
-  }
-  const result = allocUnsafe11(a.length);
-  for (let i = 0; i < a.length; i++) {
-    result[i] = a[i] ^ b[i];
-  }
-  return asUint8Array5(result);
-}
-__name(xor2, "xor");
-
-// ../../node_modules/@libp2p/kad-dht/node_modules/uint8arrays/dist/src/xor-compare.js
+// node_modules/uint8arrays/dist/src/xor-compare.js
 function xorCompare(a, b) {
   if (a.byteLength !== b.byteLength) {
     throw new Error("Inputs should have the same length");
@@ -21902,7 +21035,7 @@ function xorCompare(a, b) {
 }
 __name(xorCompare, "xorCompare");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/peer-list/peer-distance-list.js
+// node_modules/@libp2p/kad-dht/dist/src/peer-list/peer-distance-list.js
 var PeerDistanceList = class {
   static {
     __name(this, "PeerDistanceList");
@@ -21949,7 +21082,7 @@ var PeerDistanceList = class {
     }
     const el = {
       peer,
-      distance: xor2(this.originDhtKey, kadId)
+      distance: xor(this.originDhtKey, kadId)
     };
     this.peerDistances.push(el);
     this.peerDistances.sort((a, b) => xorCompare(a.distance, b.distance));
@@ -21964,7 +21097,7 @@ var PeerDistanceList = class {
       return true;
     }
     const dhtKey = await convertPeerId(peerId2);
-    const dhtKeyXor = xor2(dhtKey, this.originDhtKey);
+    const dhtKeyXor = xor(dhtKey, this.originDhtKey);
     const furthestDistance = this.peerDistances[this.peerDistances.length - 1].distance;
     return xorCompare(dhtKeyXor, furthestDistance) === -1;
   }
@@ -21980,7 +21113,7 @@ var PeerDistanceList = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/peer-routing/index.js
+// node_modules/@libp2p/kad-dht/dist/src/peer-routing/index.js
 var PeerRouting = class {
   static {
     __name(this, "PeerRouting");
@@ -22129,7 +21262,7 @@ var PeerRouting = class {
       await peers.add({ id: peer, multiaddrs: [] });
     }));
     const getCloserPeersQuery = /* @__PURE__ */ __name(async function* ({ peer, signal }) {
-      self2.log("closerPeersSingle %s from %p", toString7(key, "base32"), peer);
+      self2.log("closerPeersSingle %s from %p", toString2(key, "base32"), peer);
       const request = {
         type: MessageType.FIND_NODE,
         key
@@ -22221,13 +21354,13 @@ var PeerRouting = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/providers.js
+// node_modules/@libp2p/kad-dht/dist/src/providers.js
 var import_hashlru = __toESM(require_hashlru(), 1);
 
-// ../../node_modules/p-queue/node_modules/eventemitter3/index.mjs
+// node_modules/p-queue/node_modules/eventemitter3/index.mjs
 var import_index4 = __toESM(require_eventemitter3(), 1);
 
-// ../../node_modules/p-timeout/index.js
+// node_modules/p-timeout/index.js
 var TimeoutError = class extends Error {
   static {
     __name(this, "TimeoutError");
@@ -22318,7 +21451,7 @@ function pTimeout(promise, options) {
 }
 __name(pTimeout, "pTimeout");
 
-// ../../node_modules/p-queue/dist/lower-bound.js
+// node_modules/p-queue/dist/lower-bound.js
 function lowerBound(array, value, comparator) {
   let first2 = 0;
   let count = array.length;
@@ -22336,7 +21469,7 @@ function lowerBound(array, value, comparator) {
 }
 __name(lowerBound, "lowerBound");
 
-// ../../node_modules/p-queue/dist/priority-queue.js
+// node_modules/p-queue/dist/priority-queue.js
 var PriorityQueue = class {
   static {
     __name(this, "PriorityQueue");
@@ -22370,7 +21503,7 @@ var PriorityQueue = class {
   }
 };
 
-// ../../node_modules/p-queue/dist/index.js
+// node_modules/p-queue/dist/index.js
 var PQueue = class extends import_index4.default {
   static {
     __name(this, "PQueue");
@@ -22666,7 +21799,7 @@ var PQueue = class extends import_index4.default {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/providers.js
+// node_modules/@libp2p/kad-dht/dist/src/providers.js
 var Providers = class {
   static {
     __name(this, "Providers");
@@ -22816,7 +21949,7 @@ var Providers = class {
   }
 };
 function makeProviderKey(cid) {
-  const cidStr = typeof cid === "string" ? cid : toString7(cid.multihash.bytes, "base32");
+  const cidStr = typeof cid === "string" ? cid : toString2(cid.multihash.bytes, "base32");
   return `${PROVIDER_KEY_PREFIX}/${cidStr}`;
 }
 __name(makeProviderKey, "makeProviderKey");
@@ -22857,7 +21990,7 @@ function readTime(buf) {
 }
 __name(readTime, "readTime");
 
-// ../../node_modules/race-event/dist/src/index.js
+// node_modules/race-event/dist/src/index.js
 var AbortError6 = class extends Error {
   static {
     __name(this, "AbortError");
@@ -22915,7 +22048,7 @@ async function raceEvent(emitter, eventName, signal, opts) {
 }
 __name(raceEvent, "raceEvent");
 
-// ../../node_modules/@libp2p/utils/dist/src/queue/recipient.js
+// node_modules/@libp2p/utils/dist/src/queue/recipient.js
 var JobRecipient = class {
   static {
     __name(this, "JobRecipient");
@@ -22936,7 +22069,7 @@ var JobRecipient = class {
   }
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/queue/job.js
+// node_modules/@libp2p/utils/dist/src/queue/job.js
 function randomId() {
   return `${parseInt(String(Math.random() * 1e9), 10).toString()}${Date.now()}`;
 }
@@ -23014,7 +22147,7 @@ var Job = class {
   }
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/queue/index.js
+// node_modules/@libp2p/utils/dist/src/queue/index.js
 var Queue = class extends TypedEventEmitter {
   static {
     __name(this, "Queue");
@@ -23244,7 +22377,7 @@ var Queue = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/query/query-path.js
+// node_modules/@libp2p/kad-dht/dist/src/query/query-path.js
 async function* queryPath(options) {
   const { key, startingPeer, ourPeerId, signal, query, alpha, pathIndex, numPaths, queryFuncTimeout, log: log3, peersSeen, connectionManager } = options;
   const queue = new Queue({
@@ -23257,7 +22390,7 @@ async function* queryPath(options) {
       return;
     }
     peersSeen.add(peer);
-    const peerXor = xor2(peerKadId, kadId);
+    const peerXor = xor(peerKadId, kadId);
     queue.add(async () => {
       const signals = [signal];
       if (queryFuncTimeout != null) {
@@ -23291,7 +22424,7 @@ async function* queryPath(options) {
                 continue;
               }
               const closerPeerKadId = await convertPeerId(closerPeer.id);
-              const closerPeerXor = xor2(closerPeerKadId, kadId);
+              const closerPeerXor = xor(closerPeerKadId, kadId);
               if (xorCompare(closerPeerXor, peerXor) !== -1) {
                 log3("skipping %p as they are not closer to %b than %p", closerPeer.id, key, peer);
                 continue;
@@ -23337,7 +22470,7 @@ async function* queryPath(options) {
 }
 __name(queryPath, "queryPath");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/query/manager.js
+// node_modules/@libp2p/kad-dht/dist/src/query/manager.js
 var QueryManager = class {
   static {
     __name(this, "QueryManager");
@@ -23413,7 +22546,7 @@ var QueryManager = class {
       options.signal
     ]);
     setMaxListeners2(Infinity, signal, queryEarlyExitController.signal);
-    const log3 = this.logger.forComponent(`${this.logPrefix}:query:` + toString7(key, "base58btc"));
+    const log3 = this.logger.forComponent(`${this.logPrefix}:query:` + toString2(key, "base58btc"));
     const startTime = Date.now();
     let queryFinished = false;
     try {
@@ -23486,7 +22619,7 @@ var QueryManager = class {
   }
 };
 
-// ../../node_modules/it-length/dist/src/index.js
+// node_modules/it-length/dist/src/index.js
 function isAsyncIterable7(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -23511,7 +22644,7 @@ function length3(source) {
 __name(length3, "length");
 var src_default6 = length3;
 
-// ../../node_modules/it-take/dist/src/index.js
+// node_modules/it-take/dist/src/index.js
 function isAsyncIterable8(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -23549,7 +22682,7 @@ function take(source, limit) {
 __name(take, "take");
 var src_default7 = take;
 
-// ../../node_modules/p-event/index.js
+// node_modules/p-event/index.js
 var normalizeEmitter = /* @__PURE__ */ __name((emitter) => {
   const addListener = emitter.addEventListener || emitter.on || emitter.addListener;
   const removeListener = emitter.removeEventListener || emitter.off || emitter.removeListener;
@@ -23640,7 +22773,7 @@ function pEvent(emitter, event, options) {
 }
 __name(pEvent, "pEvent");
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/query-self.js
+// node_modules/@libp2p/kad-dht/dist/src/query-self.js
 var QuerySelf = class {
   static {
     __name(this, "QuerySelf");
@@ -23747,7 +22880,7 @@ var QuerySelf = class {
   }
 };
 
-// ../../node_modules/@libp2p/utils/dist/src/peer-queue.js
+// node_modules/@libp2p/utils/dist/src/peer-queue.js
 var PeerQueue = class extends Queue {
   static {
     __name(this, "PeerQueue");
@@ -23762,7 +22895,7 @@ var PeerQueue = class extends Queue {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/routing-table/k-bucket.js
+// node_modules/@libp2p/kad-dht/dist/src/routing-table/k-bucket.js
 function arrayEquals2(array1, array2) {
   if (array1 === array2) {
     return true;
@@ -23936,7 +23069,7 @@ var KBucket = class extends TypedEventEmitter {
    * @returns {number} Integer The XOR distance between firstId and secondId.
    */
   distance(firstId, secondId) {
-    return BigInt("0x" + toString7(xor2(firstId, secondId), "base16"));
+    return BigInt("0x" + toString2(xor(firstId, secondId), "base16"));
   }
   /**
    * Determines whether the id at the bitIndex is 0 or 1
@@ -23946,7 +23079,7 @@ var KBucket = class extends TypedEventEmitter {
    * @returns {LeafBucket} left leaf if id at bitIndex is 0, right leaf otherwise.
    */
   _determineBucket(kadId) {
-    const bitString = toString7(kadId, "base2");
+    const bitString = toString2(kadId, "base2");
     const prefix = bitString.substring(0, this.prefixLength);
     function findBucket(bucket, bitIndex = 0) {
       if (isLeafBucket(bucket)) {
@@ -23990,7 +23123,7 @@ var KBucket = class extends TypedEventEmitter {
       peers: []
     };
     for (const peer of bucket.peers) {
-      const bitString = toString7(peer.kadId, "base2");
+      const bitString = toString2(peer.kadId, "base2");
       if (bitString[depth] === "0") {
         left.peers.push(peer);
       } else {
@@ -24003,7 +23136,7 @@ var KBucket = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/routing-table/index.js
+// node_modules/@libp2p/kad-dht/dist/src/routing-table/index.js
 var KAD_CLOSE_TAG_NAME = "kad-close";
 var KAD_CLOSE_TAG_VALUE = 50;
 var KBUCKET_SIZE = 20;
@@ -24284,7 +23417,7 @@ var RoutingTable = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/routing-table/generated-prefix-list-browser.js
+// node_modules/@libp2p/kad-dht/dist/src/routing-table/generated-prefix-list-browser.js
 var generated_prefix_list_browser_default = [
   77591,
   22417,
@@ -40672,7 +39805,7 @@ var generated_prefix_list_browser_default = [
   97782
 ];
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/routing-table/refresh.js
+// node_modules/@libp2p/kad-dht/dist/src/routing-table/refresh.js
 var MAX_COMMON_PREFIX_LENGTH = 15;
 var RoutingTableRefresh = class {
   static {
@@ -40827,7 +39960,7 @@ var RoutingTableRefresh = class {
       return;
     }
     for (const { kadId } of this.routingTable.kb.toIterable()) {
-      const distance = xor2(this.routingTable.kb.localPeer.kadId, kadId);
+      const distance = xor(this.routingTable.kb.localPeer.kadId, kadId);
       let leadingZeros = 0;
       for (const byte of distance) {
         if (byte === 0) {
@@ -40841,7 +39974,7 @@ var RoutingTableRefresh = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/add-provider.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/add-provider.js
 var AddProviderHandler = class {
   static {
     __name(this, "AddProviderHandler");
@@ -40882,7 +40015,7 @@ var AddProviderHandler = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/find-node.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/find-node.js
 var FindNodeHandler = class {
   static {
     __name(this, "FindNodeHandler");
@@ -40909,7 +40042,7 @@ var FindNodeHandler = class {
       throw new CodeError("Invalid FIND_NODE message received - key was missing", "ERR_INVALID_MESSAGE");
     }
     const closer = await this.peerRouting.getCloserPeersOffline(msg.key, peerId2);
-    if (equals9(this.peerId.toBytes(), msg.key)) {
+    if (equals3(this.peerId.toBytes(), msg.key)) {
       closer.push({
         id: this.peerId,
         multiaddrs: this.addressManager.getAddresses().map((ma) => ma.decapsulateCode(getProtocol("p2p").code))
@@ -40931,7 +40064,7 @@ var FindNodeHandler = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/get-providers.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/get-providers.js
 var GetProvidersHandler = class {
   static {
     __name(this, "GetProvidersHandler");
@@ -41007,7 +40140,7 @@ var GetProvidersHandler = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/get-value.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/get-value.js
 var GetValueHandler = class {
   static {
     __name(this, "GetValueHandler");
@@ -41103,7 +40236,7 @@ var GetValueHandler = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/ping.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/ping.js
 var PingHandler = class {
   static {
     __name(this, "PingHandler");
@@ -41118,7 +40251,7 @@ var PingHandler = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/put-value.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/handlers/put-value.js
 var PutValueHandler = class {
   static {
     __name(this, "PutValueHandler");
@@ -41154,7 +40287,7 @@ var PutValueHandler = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/rpc/index.js
+// node_modules/@libp2p/kad-dht/dist/src/rpc/index.js
 var RPC = class {
   static {
     __name(this, "RPC");
@@ -41220,7 +40353,7 @@ var RPC = class {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/topology-listener.js
+// node_modules/@libp2p/kad-dht/dist/src/topology-listener.js
 var TopologyListener = class extends TypedEventEmitter {
   static {
     __name(this, "TopologyListener");
@@ -41270,7 +40403,7 @@ var TopologyListener = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/kad-dht.js
+// node_modules/@libp2p/kad-dht/dist/src/kad-dht.js
 var DHTContentRouting = class {
   static {
     __name(this, "DHTContentRouting");
@@ -41611,7 +40744,7 @@ var KadDHT = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/kad-dht/dist/src/index.js
+// node_modules/@libp2p/kad-dht/dist/src/index.js
 var EventTypes;
 (function(EventTypes2) {
   EventTypes2[EventTypes2["SEND_QUERY"] = 0] = "SEND_QUERY";
@@ -41628,7 +40761,7 @@ function kadDHT(init = {}) {
 }
 __name(kadDHT, "kadDHT");
 
-// ../../node_modules/@libp2p/utils/node_modules/delay/index.js
+// node_modules/delay/index.js
 var createAbortError = /* @__PURE__ */ __name(() => {
   const error = new Error("Delay aborted");
   error.name = "AbortError";
@@ -41676,7 +40809,7 @@ __name(createDelay, "createDelay");
 var delay = createDelay();
 var delay_default = delay;
 
-// ../../node_modules/@libp2p/utils/dist/src/rate-limiter.js
+// node_modules/@libp2p/utils/dist/src/rate-limiter.js
 var RateLimiter = class {
   static {
     __name(this, "RateLimiter");
@@ -41856,81 +40989,7 @@ var MemoryStorage = class {
   }
 };
 
-// ../../node_modules/@libp2p/mplex/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe14(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe14, "allocUnsafe");
-
-// ../../node_modules/@libp2p/mplex/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec12(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec12, "createCodec");
-var string12 = createCodec12("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii11 = createCodec12("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe14(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES11 = {
-  utf8: string12,
-  "utf-8": string12,
-  hex: bases.base16,
-  latin1: ascii11,
-  ascii: ascii11,
-  binary: ascii11,
-  ...bases
-};
-var bases_default11 = BASES11;
-
-// ../../node_modules/@libp2p/mplex/node_modules/uint8arrays/dist/src/from-string.js
-function fromString12(string14, encoding = "utf8") {
-  const base4 = bases_default11[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.decoder.decode(`${base4.prefix}${string14}`);
-}
-__name(fromString12, "fromString");
-
-// ../../node_modules/@libp2p/mplex/node_modules/uint8arrays/dist/src/to-string.js
-function toString9(array, encoding = "utf8") {
-  const base4 = bases_default11[encoding];
-  if (base4 == null) {
-    throw new Error(`Unsupported encoding "${encoding}"`);
-  }
-  return base4.encoder.encode(array).substring(1);
-}
-__name(toString9, "toString");
-
-// ../../node_modules/@libp2p/mplex/dist/src/message-types.js
+// node_modules/@libp2p/mplex/dist/src/message-types.js
 var MessageTypes;
 (function(MessageTypes2) {
   MessageTypes2[MessageTypes2["NEW_STREAM"] = 0] = "NEW_STREAM";
@@ -41962,7 +41021,7 @@ var ReceiverMessageTypes = Object.freeze({
   RESET: MessageTypes.RESET_RECEIVER
 });
 
-// ../../node_modules/@libp2p/mplex/dist/src/decode.js
+// node_modules/@libp2p/mplex/dist/src/decode.js
 var MAX_MSG_SIZE = 1 << 20;
 var MAX_MSG_QUEUE_SIZE = 4 << 20;
 var Decoder3 = class {
@@ -42058,7 +41117,7 @@ function readVarInt(buf, offset = 0) {
 }
 __name(readVarInt, "readVarInt");
 
-// ../../node_modules/@libp2p/mplex/dist/src/encode.js
+// node_modules/@libp2p/mplex/dist/src/encode.js
 var POOL_SIZE = 10 * 1024;
 var Encoder2 = class {
   static {
@@ -42067,7 +41126,7 @@ var Encoder2 = class {
   _pool;
   _poolOffset;
   constructor() {
-    this._pool = allocUnsafe14(POOL_SIZE);
+    this._pool = allocUnsafe(POOL_SIZE);
     this._poolOffset = 0;
   }
   /**
@@ -42087,7 +41146,7 @@ var Encoder2 = class {
     }
     const header = pool2.subarray(this._poolOffset, offset);
     if (POOL_SIZE - offset < 100) {
-      this._pool = allocUnsafe14(POOL_SIZE);
+      this._pool = allocUnsafe(POOL_SIZE);
       this._poolOffset = 0;
     } else {
       this._poolOffset = offset;
@@ -42108,7 +41167,7 @@ async function* encode7(source) {
 }
 __name(encode7, "encode");
 
-// ../../node_modules/@libp2p/mplex/dist/src/stream.js
+// node_modules/@libp2p/mplex/dist/src/stream.js
 var MplexStream = class extends AbstractStream {
   static {
     __name(this, "MplexStream");
@@ -42127,7 +41186,7 @@ var MplexStream = class extends AbstractStream {
     this.maxDataSize = init.maxDataSize;
   }
   async sendNewStream() {
-    await this.send({ id: this.streamId, type: InitiatorMessageTypes.NEW_STREAM, data: new Uint8ArrayList(fromString12(this.name)) });
+    await this.send({ id: this.streamId, type: InitiatorMessageTypes.NEW_STREAM, data: new Uint8ArrayList(fromString2(this.name)) });
   }
   async sendData(data) {
     data = data.sublist();
@@ -42165,7 +41224,7 @@ function createStream(options) {
 }
 __name(createStream, "createStream");
 
-// ../../node_modules/@libp2p/mplex/dist/src/mplex.js
+// node_modules/@libp2p/mplex/dist/src/mplex.js
 var MAX_STREAMS_INBOUND_STREAMS_PER_CONNECTION = 1024;
 var MAX_STREAMS_OUTBOUND_STREAMS_PER_CONNECTION = 1024;
 var MAX_STREAM_BUFFER_SIZE = 1024 * 1024 * 4;
@@ -42177,10 +41236,10 @@ function printMessage(msg) {
     type: `${MessageTypeNames[msg.type]} (${msg.type})`
   };
   if (msg.type === MessageTypes.NEW_STREAM) {
-    output3.data = toString9(msg.data instanceof Uint8Array ? msg.data : msg.data.subarray());
+    output3.data = toString2(msg.data instanceof Uint8Array ? msg.data : msg.data.subarray());
   }
   if (msg.type === MessageTypes.MESSAGE_INITIATOR || msg.type === MessageTypes.MESSAGE_RECEIVER) {
-    output3.data = toString9(msg.data instanceof Uint8Array ? msg.data : msg.data.subarray(), "base16");
+    output3.data = toString2(msg.data instanceof Uint8Array ? msg.data : msg.data.subarray(), "base16");
   }
   return output3;
 }
@@ -42375,7 +41434,7 @@ var MplexStreamMuxer = class {
         }
         return;
       }
-      const stream2 = this._newReceiverStream({ id, name: toString9(message2.data instanceof Uint8Array ? message2.data : message2.data.subarray()) });
+      const stream2 = this._newReceiverStream({ id, name: toString2(message2.data instanceof Uint8Array ? message2.data : message2.data.subarray()) });
       if (this._init.onIncomingStream != null) {
         this._init.onIncomingStream(stream2);
       }
@@ -42426,7 +41485,7 @@ var MplexStreamMuxer = class {
   }
 };
 
-// ../../node_modules/@libp2p/mplex/dist/src/index.js
+// node_modules/@libp2p/mplex/dist/src/index.js
 var Mplex = class {
   static {
     __name(this, "Mplex");
@@ -42454,7 +41513,7 @@ function mplex(init = {}) {
 }
 __name(mplex, "mplex");
 
-// ../../node_modules/it-first/dist/src/index.js
+// node_modules/it-first/dist/src/index.js
 function isAsyncIterable9(thing) {
   return thing[Symbol.asyncIterator] != null;
 }
@@ -42476,7 +41535,7 @@ function first(source) {
 __name(first, "first");
 var src_default8 = first;
 
-// ../../node_modules/@libp2p/autonat/dist/src/constants.js
+// node_modules/@libp2p/autonat/dist/src/constants.js
 var PROTOCOL_PREFIX = "libp2p";
 var PROTOCOL_NAME = "autonat";
 var PROTOCOL_VERSION = "1.0.0";
@@ -42486,7 +41545,7 @@ var REFRESH_INTERVAL = 6e4;
 var MAX_INBOUND_STREAMS = 1;
 var MAX_OUTBOUND_STREAMS = 1;
 
-// ../../node_modules/@libp2p/autonat/dist/src/pb/index.js
+// node_modules/@libp2p/autonat/dist/src/pb/index.js
 var Message2;
 (function(Message3) {
   let MessageType2;
@@ -42731,7 +41790,7 @@ var Message2;
   };
 })(Message2 || (Message2 = {}));
 
-// ../../node_modules/@libp2p/autonat/dist/src/autonat.js
+// node_modules/@libp2p/autonat/dist/src/autonat.js
 var REQUIRED_SUCCESSFUL_DIALS = 4;
 var AutoNATService = class {
   static {
@@ -43095,7 +42154,7 @@ var AutoNATService = class {
   }
 };
 
-// ../../node_modules/@libp2p/autonat/dist/src/index.js
+// node_modules/@libp2p/autonat/dist/src/index.js
 function autoNAT(init = {}) {
   return (components) => {
     return new AutoNATService(components, init);
@@ -43103,7 +42162,7 @@ function autoNAT(init = {}) {
 }
 __name(autoNAT, "autoNAT");
 
-// ../../node_modules/@libp2p/interface-transport/dist/src/index.js
+// node_modules/@libp2p/interface-transport/dist/src/index.js
 var symbol3 = Symbol.for("@libp2p/transport");
 var FaultTolerance2;
 (function(FaultTolerance3) {
@@ -43111,7 +42170,7 @@ var FaultTolerance2;
   FaultTolerance3[FaultTolerance3["NO_FATAL"] = 1] = "NO_FATAL";
 })(FaultTolerance2 || (FaultTolerance2 = {}));
 
-// ../../node_modules/weald/node_modules/ms/dist/index.mjs
+// node_modules/weald/node_modules/ms/dist/index.mjs
 var s = 1e3;
 var m = s * 60;
 var h = m * 60;
@@ -43232,7 +42291,7 @@ function isError(error) {
 }
 __name(isError, "isError");
 
-// ../../node_modules/weald/dist/src/common.js
+// node_modules/weald/dist/src/common.js
 function setup(env) {
   createDebug.debug = createDebug;
   createDebug.default = createDebug;
@@ -43402,7 +42461,7 @@ function setup(env) {
 }
 __name(setup, "setup");
 
-// ../../node_modules/weald/dist/src/browser.js
+// node_modules/weald/dist/src/browser.js
 var storage = localstorage();
 var colors = [
   "#0000CC",
@@ -43562,10 +42621,10 @@ function setupFormatters(formatters) {
 __name(setupFormatters, "setupFormatters");
 var browser_default = setup({ formatArgs, save, load, useColors, setupFormatters, colors, storage, log });
 
-// ../../node_modules/weald/dist/src/index.js
+// node_modules/weald/dist/src/index.js
 var src_default9 = browser_default;
 
-// ../../node_modules/@libp2p/logger/dist/src/index.js
+// node_modules/@libp2p/logger/dist/src/index.js
 src_default9.formatters.b = (v) => {
   return v == null ? "undefined" : base58btc.baseEncode(v);
 };
@@ -43613,60 +42672,7 @@ function logger(name2) {
 }
 __name(logger, "logger");
 
-// ../../node_modules/@libp2p/peer-id-factory/node_modules/uint8arrays/dist/src/alloc.js
-function allocUnsafe15(size = 0) {
-  return new Uint8Array(size);
-}
-__name(allocUnsafe15, "allocUnsafe");
-
-// ../../node_modules/@libp2p/peer-id-factory/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec13(name2, prefix, encode8, decode8) {
-  return {
-    name: name2,
-    prefix,
-    encoder: {
-      name: name2,
-      prefix,
-      encode: encode8
-    },
-    decoder: {
-      decode: decode8
-    }
-  };
-}
-__name(createCodec13, "createCodec");
-var string13 = createCodec13("utf8", "u", (buf) => {
-  const decoder = new TextDecoder("utf8");
-  return "u" + decoder.decode(buf);
-}, (str) => {
-  const encoder2 = new TextEncoder();
-  return encoder2.encode(str.substring(1));
-});
-var ascii12 = createCodec13("ascii", "a", (buf) => {
-  let string14 = "a";
-  for (let i = 0; i < buf.length; i++) {
-    string14 += String.fromCharCode(buf[i]);
-  }
-  return string14;
-}, (str) => {
-  str = str.substring(1);
-  const buf = allocUnsafe15(str.length);
-  for (let i = 0; i < str.length; i++) {
-    buf[i] = str.charCodeAt(i);
-  }
-  return buf;
-});
-var BASES12 = {
-  utf8: string13,
-  "utf-8": string13,
-  hex: bases.base16,
-  latin1: ascii12,
-  ascii: ascii12,
-  binary: ascii12,
-  ...bases
-};
-
-// ../../node_modules/@libp2p/peer-id-factory/dist/src/proto.js
+// node_modules/@libp2p/peer-id-factory/dist/src/proto.js
 var PeerIdProto;
 (function(PeerIdProto2) {
   let _codec;
@@ -43724,7 +42730,7 @@ var PeerIdProto;
   };
 })(PeerIdProto || (PeerIdProto = {}));
 
-// ../../node_modules/@libp2p/peer-id-factory/dist/src/index.js
+// node_modules/@libp2p/peer-id-factory/dist/src/index.js
 var createEd25519PeerId = /* @__PURE__ */ __name(async () => {
   const key = await generateKeyPair4("Ed25519");
   const id = await createFromPrivKey(key);
@@ -43770,7 +42776,7 @@ async function createFromParts(multihash, privKey, pubKey) {
 }
 __name(createFromParts, "createFromParts");
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/constants.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/constants.js
 var second2 = 1e3;
 var minute2 = 60 * second2;
 var CIRCUIT_PROTO_CODE = 290;
@@ -43795,13 +42801,7 @@ var ERR_TRANSFER_LIMIT_EXCEEDED = "ERR_TRANSFER_LIMIT_EXCEEDED";
 var DEFAULT_DISCOVERY_FILTER_SIZE = 4096;
 var DEFAULT_DISCOVERY_FILTER_ERROR_RATE = 1e-3;
 
-// ../../node_modules/@libp2p/circuit-relay-v2/node_modules/uint8arrays/dist/src/alloc.js
-function alloc7(size = 0) {
-  return new Uint8Array(size);
-}
-__name(alloc7, "alloc");
-
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/pb/index.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/pb/index.js
 var HopMessage;
 (function(HopMessage2) {
   let Type;
@@ -44012,7 +43012,7 @@ var Peer;
         }
       }, (reader, length4, opts = {}) => {
         const obj = {
-          id: alloc7(0),
+          id: alloc(0),
           addrs: []
         };
         const end = length4 == null ? reader.len : reader.pos + length4;
@@ -44223,8 +43223,8 @@ var ReservationVoucher;
         }
       }, (reader, length4, opts = {}) => {
         const obj = {
-          relay: alloc7(0),
-          peer: alloc7(0),
+          relay: alloc(0),
+          peer: alloc(0),
           expiration: 0n
         };
         const end = length4 == null ? reader.len : reader.pos + length4;
@@ -44262,7 +43262,7 @@ var ReservationVoucher;
   };
 })(ReservationVoucher || (ReservationVoucher = {}));
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/utils.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/utils.js
 async function* countStreamBytes(source, limit, options) {
   const limitBytes = limit.remaining;
   for await (const buf of source) {
@@ -44344,7 +43344,7 @@ function getExpirationMilliseconds(expireTimeSeconds) {
 }
 __name(getExpirationMilliseconds, "getExpirationMilliseconds");
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/server/reservation-store.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/server/reservation-store.js
 var ReservationStore = class {
   static {
     __name(this, "ReservationStore");
@@ -44409,7 +43409,7 @@ var ReservationStore = class {
   }
 };
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/server/reservation-voucher.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/server/reservation-voucher.js
 var ReservationVoucherRecord = class _ReservationVoucherRecord {
   static {
     __name(this, "ReservationVoucherRecord");
@@ -44448,7 +43448,7 @@ var ReservationVoucherRecord = class _ReservationVoucherRecord {
   }
 };
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/server/index.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/server/index.js
 var isRelayAddr = /* @__PURE__ */ __name((ma) => ma.protoCodes().includes(CIRCUIT_PROTO_CODE), "isRelayAddr");
 var defaults = {
   maxOutboundStopStreams: MAX_CONNECTIONS
@@ -44739,7 +43739,7 @@ function circuitRelayServer(init = {}) {
 }
 __name(circuitRelayServer, "circuitRelayServer");
 
-// ../../node_modules/@libp2p/utils/dist/src/stream-to-ma-conn.js
+// node_modules/@libp2p/utils/dist/src/stream-to-ma-conn.js
 function streamToMaConnection(props) {
   const { stream, remoteAddr, logger: logger2 } = props;
   const log3 = logger2.forComponent("libp2p:stream:converter");
@@ -44804,7 +43804,7 @@ function streamToMaConnection(props) {
 }
 __name(streamToMaConnection, "streamToMaConnection");
 
-// ../../node_modules/progress-events/dist/src/index.js
+// node_modules/progress-events/dist/src/index.js
 var CustomProgressEvent = class extends Event {
   static {
     __name(this, "CustomProgressEvent");
@@ -44818,7 +43818,7 @@ var CustomProgressEvent = class extends Event {
   }
 };
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/transport/discovery.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/transport/discovery.js
 var RelayDiscovery = class extends TypedEventEmitter {
   static {
     __name(this, "RelayDiscovery");
@@ -44950,7 +43950,7 @@ var RelayDiscovery = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/transport/listener.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/transport/listener.js
 var CircuitRelayTransportListener = class extends TypedEventEmitter {
   static {
     __name(this, "CircuitRelayTransportListener");
@@ -45013,24 +44013,7 @@ function createListener(options) {
 }
 __name(createListener, "createListener");
 
-// ../../node_modules/@libp2p/circuit-relay-v2/node_modules/uint8arrays/dist/src/equals.js
-function equals12(a, b) {
-  if (a === b) {
-    return true;
-  }
-  if (a.byteLength !== b.byteLength) {
-    return false;
-  }
-  for (let i = 0; i < a.byteLength; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-  return true;
-}
-__name(equals12, "equals");
-
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/transport/reservation-store.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/transport/reservation-store.js
 var REFRESH_WINDOW = 60 * 1e3 * 10;
 var REFRESH_TIMEOUT = 60 * 1e3 * 5;
 var REFRESH_TIMEOUT_MIN = 30 * 1e3;
@@ -45220,7 +44203,7 @@ var ReservationStore2 = class extends TypedEventEmitter {
       let hasRelayAddress = false;
       const relayAddressBytes = connection.remoteAddr.bytes;
       for (const buf of response.reservation.addrs) {
-        if (equals12(relayAddressBytes, buf)) {
+        if (equals3(relayAddressBytes, buf)) {
           hasRelayAddress = true;
           break;
         }
@@ -45253,7 +44236,7 @@ var ReservationStore2 = class extends TypedEventEmitter {
   }
 };
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/transport/transport.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/transport/transport.js
 var isValidStop = /* @__PURE__ */ __name((request) => {
   if (request.peer == null) {
     return false;
@@ -45549,7 +44532,7 @@ var CircuitRelayTransport = class {
   }
 };
 
-// ../../node_modules/@libp2p/circuit-relay-v2/dist/src/transport/index.js
+// node_modules/@libp2p/circuit-relay-v2/dist/src/transport/index.js
 function circuitRelayTransport(init = {}) {
   return (components) => {
     return new CircuitRelayTransport(components, init);
