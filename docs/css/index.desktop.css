@@ -22,22 +22,22 @@ p {
     grid-template-rows: repeat(12, 1fr);
     /*grid-auto-flow: row;*/
     grid-template-areas:
-        "bb bb bb bb aa aa aa aa aa aa aa aa aa"
-        "bb bb bb bb aa aa aa aa aa aa aa aa aa"
-        "bb bb bb bb aa aa aa aa aa aa aa aa aa"
-        "bb bb bb bb aa aa aa aa aa aa aa aa aa"
-        "cc cc cc cc cc cc cc cc cc d1 d1 d1 d1"
-        "cc cc cc cc cc cc cc cc cc d1 d1 d1 d1"
-        "dd dd dd dd ee ee ee ee ee d1 d1 d1 d1"
-        "dd dd dd dd ee ee ee ee ee d1 d1 d1 d1"
-        "dd dd dd dd ee ee ee ee ee d1 d1 d1 d1"
+        "bb bb bb bb aa aa d2 d2 d2 d2 d2 d2 d2"
+        "bb bb bb bb aa aa d2 d2 d2 d2 d2 d2 d2"
+        "bb bb bb bb aa aa a2 a2 a2 a2 a2 a2 a2"
+        "bb bb bb bb aa aa a2 a2 a2 a2 a2 a2 a2"
+        "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
+        "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
+        "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
+        "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
+        "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
         "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
 }
 
-.peerInfo, .discovery, .chat {
+.peerInfo, .discovery, .chat, .security {
     display: flex;
     flex-direction: column;
     color: white;
@@ -50,6 +50,11 @@ p {
 .peerInfo {
     border-bottom-right-radius: 1vw;
     grid-area: bb;
+}
+
+.security {
+    border-bottom-left-radius: 1vw;
+    grid-area: d2;
 }
 
 .discovery {
