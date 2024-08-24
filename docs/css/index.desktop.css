@@ -79,7 +79,7 @@ p {
 .wrapper {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 0.63vw;
 }
 
 label {
@@ -100,7 +100,7 @@ label {
 ul {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.42vw;
     padding-left: 0.83vw;
     box-sizing: border-box;
     margin: 0;
@@ -118,7 +118,7 @@ li {
     word-break: break-all;
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 0.42vw;
 }
 
 li, span, p {
@@ -126,21 +126,21 @@ li, span, p {
 }
 
 li p {
-    min-width: 480px;
+    min-width: 25vw;
 }
 
 .header {
     display: flex;
     flex-direction: row;
     width: inherit;
-    gap: 8px;
+    gap: 0.42vw;
 }
 
 .header select {
     width: 100%;
-    font-size: 16px;
+    font-size: 0.83vw;
     box-sizing: border-box;
-    padding: 8px 0;
+    padding: 0.42vw 0;
     border-radius: 0.3vw;
     color: white;
     background: #3c344b;
@@ -176,7 +176,7 @@ textarea.output {
 }
 
 .chat-container textarea {
-    padding: 8px;
+    padding: 0.42vw;
     box-sizing: border-box;
 }
 
@@ -190,15 +190,15 @@ button.refresh {
     border-radius: 50%;
     background: rgba(90, 212, 90, 0.55);
     color: rgba(217, 106, 106, 0.85);
-    width: 24px;
-    height: 24px;
+    width: 1.25vw;
+    height: 1.25vw;
     align-self: center;
 }
 
 .discovery .title {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 0.83vw;
 }
 
 .title h2 {
@@ -208,14 +208,14 @@ button.refresh {
 .security-container {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 0.83vw;
 }
 
 .send {
     color: white;
     border-radius: 0.3vw;
     box-sizing: border-box;
-    padding: 8px;
+    padding: 0.42vw;
     background: #3c344b;
     cursor: pointer;
 }
