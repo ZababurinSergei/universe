@@ -23,10 +23,10 @@ p {
     /*grid-auto-rows: max-content;*/
     /*grid-auto-flow: row;*/
     grid-template-areas:
-        "bb bb bb bb aa aa d2 d2 d2 d2 d2 d2 d2"
-        "bb bb bb bb aa aa d2 d2 d2 d2 d2 d2 d2"
-        "bb bb bb bb aa aa a2 a2 a2 a2 a2 a2 a2"
-        "bb bb bb bb aa aa a2 a2 a2 a2 a2 a2 a2"
+        "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
+        "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
+        "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
+        "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
         "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
         "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
