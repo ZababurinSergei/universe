@@ -360,10 +360,13 @@ if (peerId.status === 200) {
         //     discovery.innerHTML = ''
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
+        DOM.discovery('refresh').click()
         console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:disconnect', (event) => {
+        peerList.delete(event.detail.toString())
+        DOM.discovery('refresh').click()
         // const peerId = event.detail?.toString()
         // if(peerList.has(peerId)) {
         //     peerList.delete(peerId);
@@ -516,6 +519,19 @@ if (peerId.status === 200) {
         count = 0
         refresh.click()
     })
+
+    window.addEventListener("beforeunload", (event) => {
+        // Отмените событие, как указано в стандарте.
+        event.preventDefault();
+        const connections = globalThis.node.libp2p.getConnections()
+        for(let connect of connections) {
+            connect.close()
+        }
+        // const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+
+        // Chrome требует установки возвратного значения.
+        event.returnValue = "";
+    });
 
     buttonSend.addEventListener('click', async (event) => {
         let peer = select.options[select.selectedIndex].value;
