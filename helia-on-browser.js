@@ -33,9 +33,9 @@ const DOM = {
         switch (type) {
             case 'refresh':
                 return root.querySelector('.refresh')
-            case 'button':
-                return root.querySelector('button')
-            case 'text':
+            case 'send':
+                return root.querySelector('button.send')
+            case 'input':
                 return root.querySelector('textarea')
             case 'select':
             default:
@@ -46,9 +46,14 @@ const DOM = {
     disconnect: () => {
         return document.querySelector('.disconnect')
     },
-    discovery: () => {
+    discovery: (type) => {
         const root = document.querySelector('.discovery')
-        return root.querySelector('ul')
+        switch (type) {
+            case 'refresh':
+                return root.querySelector('.refresh')
+            default:
+                return root.querySelector('ul')
+        }
     },
     planet: () => {
         const root = document.querySelector('.planet')
@@ -358,7 +363,9 @@ if (peerId.status === 200) {
         //     peerList.delete(peerId);
         // }
         // for (const item of peerList) {
-        //     const discovery = DOM.discovery()
+        //     const dis     request.then(data => {    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', bufs.slice().slice(), bufs)  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', bufs.slice().slice(), bufs)
+        //     console.log('@@@@@@@@@@@@@@@@@@', data)
+        //     const input  = DOM.chcovery = DOM.discovery()
         //     discovery.innerHTML = ''
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
@@ -402,12 +409,23 @@ if (peerId.status === 200) {
 
 
     const proto = "/my-echo/0.1";
-    const handler = ({connection, stream}) => {
-        stream.sink(async function* () {
-            for await (const bufs of stream.source) {
+    const handler = async ({connection, stream}) => {
+       stream.sink(async function* () {
+           for await (const bufs of stream.source) {
                 yield bufs.slice().slice();
             }
         }());
+
+       let request = {}
+        for await (const bufs of stream.source) {
+            request = new TextDecoder().decode(bufs.slice().slice());
+        }
+       console.log('sssssssssssssss',request)
+        // request.then(data => {
+        //     console.log('@@@@@@@@@@@@@@@@@@', data)
+        //     const input  = DOM.chat('input')
+        //     input.textContent = data
+        // }).catch(e => console.error(e))
     };
 
     await node.libp2p.handle(proto, handler);
@@ -424,37 +442,19 @@ if (peerId.status === 200) {
     };
 
     const discovery = DOM.discovery()
+    const discoveryRefresh  = DOM.discovery('refresh')
     const select  = DOM.chat('select')
     const refresh  = DOM.chat('refresh')
+    const buttonSend  = DOM.chat('send')
 
     globalThis.node = node
 
-    refresh.addEventListener('click', (event) => {
-        // console.log('##############################')
-        select.innerHTML = ''
-
-        for (const item of peerList) {
-            select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
-        }
-    })
-
-    // select.addEventListener('click', (event) => {
-    //     console.log('##############################')
-    //     select.innerHTML = ''
-    //
-    //     for (const item of peerList) {
-    //         select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
-    //     }
-    // })
-
-    let timerId = setInterval(() => {
+    discoveryRefresh.addEventListener('click', async (event) => {
         discovery.innerHTML = ''
 
         const peers = node.libp2p.getPeers()
         const connections = node.libp2p.getConnections()
         let count = 0
-        console.log('-------------------------------------', connections)
-
 
         for (let connect of connections) {
             peerList.add(connect.remotePeer.toString())
@@ -473,16 +473,70 @@ if (peerId.status === 200) {
                 </button>
             </li>`)
         }
+
         count = 0
-    }, 5000);
+        refresh.click()
+    })
+
+    buttonSend.addEventListener('click', async (event) => {
+        let peer = select.options[select.selectedIndex].value;
+
+        const connections = globalThis.node.libp2p.getConnections()
+        const connect = connections.find(item => item.remotePeer.toString() === peer)
+
+        console.log('--------------------------', peer)
+        if(connect) {
+            // globalThis.ctx.maStar(peer)
+            const res = await send(connect.remotePeer, 'hello')
+            console.log('select.value', connect.remotePeer,  res)
+        }
+    })
+
+    refresh.addEventListener('click', (event) => {
+        select.innerHTML = ''
+        for (const item of peerList) {
+            select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
+        }
+    })
+
+    // select.addEventListener('click', (event) => {
+    //     console.log('##############################')
+    //     select.innerHTML = ''
+    //
+    //     for (const item of peerList) {
+    //         select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
+    //     }
+    // })
+
+    // let timerId = setInterval(() => {
+    //     discovery.innerHTML = ''
+    //
+    //     const peers = node.libp2p.getPeers()
+    //     const connections = node.libp2p.getConnections()
+    //     let count = 0
+    //
+    //     for (let connect of connections) {
+    //         peerList.add(connect.remotePeer.toString())
+    //         count++
+    //     }
+    //
+    //     for (const item of peerList) {
+    //         discovery.insertAdjacentHTML('beforeend', `<li>
+    //             <p>${item}</p>
+    //             <button class="delete" data-peer-id="${item}" onclick="((button) => {
+    //                 const connections = globalThis.node.libp2p.getConnections()
+    //                 const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+    //                 connect.close()
+    //             })(this)">
+    //             R
+    //             </button>
+    //         </li>`)
+    //     }
+    //     count = 0
+    // }, 5000);
 
 // for web console
-    window.ctx = {
-        helia,
-        CID,
-        multiaddr,
-        node,
-        nodeFs,
+    globalThis.ctx = {
         maStar: localId => multiaddr(`${rtcStar}/p2p/${localId}`),
         maP2p: localId => multiaddr(`/p2p/${localId}`),
         cidHw: cid => CID.parse(cid), // served on helia-wrtc-star.mjs

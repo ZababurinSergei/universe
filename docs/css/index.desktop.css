@@ -168,3 +168,13 @@ button.refresh {
     background: rgba(90, 212, 90, 0.55);
     color: rgba(217, 106, 106, 0.85);
 }
+
+.discovery .title {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.title h2 {
+    margin: 0;
+}
