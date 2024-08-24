@@ -19,7 +19,12 @@ import {mplex} from '@libp2p/mplex'
 // import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
 // import { autoNAT } from '@libp2p/autonat'
 import {FaultTolerance} from '@libp2p/interface-transport'
+import {lpStream, decode, encode} from 'it-length-prefixed-stream'
+import { byteStream } from 'it-byte-stream'
+import * as varint from 'uint8-varint'
+import { Uint8ArrayList } from 'uint8arraylist'
 import init from './PixelPlanets/out.mjs'
+// import * as lp from 'it-length-prefixed-stream'
 
 const peerList = new Set();
 const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
@@ -38,6 +43,8 @@ const DOM = {
                 return root.querySelector('button.send')
             case 'input':
                 return root.querySelector('textarea')
+            case 'output':
+                return root.querySelector('.output')
             case 'select':
             default:
                 return root.querySelector('select')
@@ -315,7 +322,6 @@ if (peerId.status === 200) {
         }
     }); // tcp network, stored on memory (not use files)
 
-    console.log('dddddddddddddddddddddddddddddddddddddddd', node.libp2p.transportManager)
     const nodeFs = unixfs(node);
 
     while (node.libp2p.getMultiaddrs().length === 0) await new Promise(f => setTimeout(f, 500));
@@ -334,23 +340,22 @@ if (peerId.status === 200) {
     //---------------------------------------------------------------------------
     node.libp2p.addEventListener('connection:open', (event) => {
         // const peerInfo = evt.detail
-
-        console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', {
-            id: event.detail.id,
-            remotePeer: event.detail.remotePeer.toString(),
-            remoteAddr: event.detail.remoteAddr.toString(),
-            detail: event.detail
-        })
+        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', {
+        //     id: event.detail.id,
+        //     remotePeer: event.detail.remotePeer.toString(),
+        //     remoteAddr: event.detail.remoteAddr.toString(),
+        //     detail: event.detail.stat.status
+        // })
     })
 
     node.libp2p.addEventListener('connection:close', (event) => {
         // const peerInfo = evt.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] connection:close', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:close', event.detail)
     })
 
     node.libp2p.addEventListener('connection:prune', (event) => {
         // const peerInfo = evt.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] connection:prune', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:prune', event.detail)
     })
 
     node.libp2p.addEventListener('peer:connect', (event) => {
@@ -361,7 +366,7 @@ if (peerId.status === 200) {
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         DOM.discovery('refresh').click()
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:disconnect', (event) => {
@@ -379,108 +384,124 @@ if (peerId.status === 200) {
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         // const peerInfo = event.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', {
-            detail: event.detail,
-            string: event.detail.toString()
-        })
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', {
+        //     detail: event.detail,
+        //     string: event.detail.toString()
+        // })
     })
 
     node.libp2p.addEventListener('peer:discovery', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:discovery', {
-            id: event.detail.id.toString(),
-            detail: event.detail
-        })
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:discovery', {
+        //     id: event.detail.id.toString(),
+        //     detail: event.detail
+        // })
     })
 
     node.libp2p.addEventListener('peer:identify', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:identify', {
-            detail: event.detail,
-            observedAddr: event.detail.observedAddr,
-            listenAddrs: event.detail.listenAddrs
-        })
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:identify', {
+        //     peerId: event.detail.peerId.toString(),
+        //     observedAddr: event.detail.observedAddr.toString(),
+        //     listenAddrs: event.detail.listenAddrs.toString()
+        // })
     })
 
     node.libp2p.addEventListener('peer:update', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:update', {
-            peer: {
-                self: event.detail.peer,
-                protocols: event.detail.peer.protocols,
-                // protocols: event.detail.peer.protocols
-            },
-            previous: {
-                self: event.detail.previous,
-                protocols: event.detail.previous?.protocols
-                // protocols: event.detail.previous.protocols
-            }
-        })
+        // for(let item of event.detail.peer.addresses) {
+        //     console.log('[[[[[[[ LISTENER ]]]]]]] peer:update CURRENT isCertified', item.isCertified)
+        // }
+
+        // if(event.detail.previous?.addresses) {
+        //     for(let item of event.detail.previous.addresses) {
+        //         console.log('[[[[[[[ LISTENER ]]]]]]] peer:update PREVIOUSE isCertified', item.isCertified)
+        //     }
+        // }
+
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:update', {
+        //     peer: {
+        //         self: event.detail.peer.addresses,
+        //         protocols: event.detail.peer.protocols,
+        //         // protocols: event.detail.peer.protocols
+        //     },
+        //     previous: {
+        //         self: event.detail.previous,
+        //         protocols: event.detail.previous?.protocols
+        //         // protocols: event.detail.previous.protocols
+        //     }
+        // })
     })
 
     node.libp2p.addEventListener('self:peer:update', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update', event.detail)
     })
 
     node.libp2p.addEventListener('start', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] start', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] start', event.detail)
     })
 
     node.libp2p.addEventListener('stop', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
     })
 
     node.libp2p.addEventListener('transport:close', (event) => {
         // const peerInfo = evt.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
     })
 
     node.libp2p.addEventListener('transport:listening', (event) => {
         // const peerInfo = evt.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
     })
 
 
     const proto = "/my-echo/0.1";
 
-    const handler = async ({connection, stream}) => {
-        let request = {}
-        for await (const bufs of stream.source) {
-            request = new TextDecoder().decode(bufs.slice().slice());
+    const incoming = DOM.chat('input')
+    const outgoing = DOM.chat('output')
+
+    let p = 0
+    const printSmbl = () => {
+        let timeout = Math.round(Math.random() * 100);
+        incoming.textContent = incoming.textContent + globalThis.message[p]
+
+        p++;
+        if (p < globalThis.message.length) {
+            setTimeout(printSmbl, timeout);
+        } else {
+            p = 0
+            clearTimeout(timeout)
+            globalThis.message = ''
         }
+    }
 
-        console.log('------- RESPONSE -------', request)
+    const handler = async ({connection, stream}) => {
+        console.log('INCOMING PEER_ID ', connection.remotePeer.toString())
+        const lp = lpStream(stream)
 
-        // stream.sink(async function* () {
-        //     for await (const bufs of stream.source) {
-        //         yield bufs.slice().slice();
-        //     }
-        // }());
+        const res = await lp.read()
+
+        const output = new TextDecoder().decode(res.subarray())
+
+        globalThis.message = output
+
+        printSmbl()
     };
-
-    // const handler = async ({connection, stream}) => {
-    //    stream.sink(async function* () {
-    //        for await (const bufs of stream.source) {
-    //             yield bufs.slice().slice();
-    //         }
-    //     }());
-    //
-    //    let request = {}
-    //     for await (const bufs of stream.source) {
-    //         request = new TextDecoder().decode(bufs.slice().slice());
-    //     }
-    //    console.log('------- RESPONSE -------',request)
-    // };
 
     await node.libp2p.handle(proto, handler);
 
     const send = async (ma, msg) => {
         if (typeof ma === "string") ma = multiaddr(ma);
-        const stream = await node.libp2p.dialProtocol(ma, proto);
-        stream.sink(async function* () {
-            yield (new TextEncoder().encode(msg));
-        }());
 
-        for await (const bufs of stream.source) {
-            return new TextDecoder().decode(bufs.slice().slice());
-        }
+        const signal = AbortSignal.timeout(5000)
+
+        const stream = await node.libp2p.dialProtocol(ma, proto, {
+            signal
+        });
+
+        const lp = lpStream(stream)
+
+        await lp.write(new TextEncoder().encode(outgoing.value))
+
+        return msg
     };
 
     const discovery = DOM.discovery()
@@ -524,7 +545,7 @@ if (peerId.status === 200) {
         // Отмените событие, как указано в стандарте.
         event.preventDefault();
         const connections = globalThis.node.libp2p.getConnections()
-        for(let connect of connections) {
+        for (let connect of connections) {
             connect.close()
         }
         // const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
@@ -534,15 +555,15 @@ if (peerId.status === 200) {
     });
 
     buttonSend.addEventListener('click', async (event) => {
+        const output = DOM.chat('output')
         let peer = select.options[select.selectedIndex].value;
-
         const connections = globalThis.node.libp2p.getConnections()
         const connect = connections.find(item => item.remotePeer.toString() === peer)
 
-        // console.log('------------ connections --------------', connections)
+        console.log('------------ connections --------------', output.textContent)
         if (connect) {
             // globalThis.ctx.maStar(peer)
-            const res = await send(connect.remotePeer, 'hello')
+            const res = await send(connect.remotePeer, 'hsdfsdfsdfsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsello')
             console.log('---------- REQUEST ----------', connect.remotePeer.toString(), res)
         }
     })

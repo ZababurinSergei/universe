@@ -50148,8 +50148,10 @@ function ping(init = {}) {
 __name(ping, "ping");
 export {
   FaultTolerance2 as FaultTolerance,
+  Uint8ArrayList,
   autoNAT,
   bootstrap,
+  byteStream,
   circuitRelayServer,
   circuitRelayTransport,
   createEd25519PeerId,

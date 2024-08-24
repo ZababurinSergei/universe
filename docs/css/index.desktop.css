@@ -138,7 +138,12 @@ li p {
 
 .header select {
     width: 100%;
-    background: rgba(255, 255, 255, 0.51);
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 8px 0;
+    border-radius: 0.3vw;
+    color: white;
+    background: #3c344b;
 }
 
 .chat-container {
@@ -185,6 +190,9 @@ button.refresh {
     border-radius: 50%;
     background: rgba(90, 212, 90, 0.55);
     color: rgba(217, 106, 106, 0.85);
+    width: 24px;
+    height: 24px;
+    align-self: center;
 }
 
 .discovery .title {
@@ -201,4 +209,13 @@ button.refresh {
     display: flex;
     flex-direction: row;
     gap: 16px;
+}
+
+.send {
+    color: white;
+    border-radius: 0.3vw;
+    box-sizing: border-box;
+    padding: 8px;
+    background: #3c344b;
+    cursor: pointer;
 }

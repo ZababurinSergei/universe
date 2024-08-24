@@ -11,3 +11,5 @@ export { logger } from '@libp2p/logger'
 export { createEd25519PeerId, exportToProtobuf, createFromProtobuf } from '@libp2p/peer-id-factory';
 export { circuitRelayServer, circuitRelayTransport } from '@libp2p/circuit-relay-v2'
 export { ping } from '@libp2p/ping'
+export { byteStream } from 'it-byte-stream'
+export { Uint8ArrayList } from 'uint8arraylist'

@@ -41,14 +41,21 @@
     "gulp-postcss": "^10.0.0",
     "helia": "^4.2.5",
     "http-server": "^14.1.1",
+    "it-byte-stream": "^1.1.0",
+    "it-length-prefixed": "^9.1.0",
+    "it-length-prefixed-stream": "^1.2.0",
     "libp2p": "^1.9.2",
-    "multiformats": "^13.2.2"
+    "multiformats": "^13.2.2",
+    "uint8-varint": "^2.0.4",
+    "uint8arraylist": "^2.4.8"
   },
   "scripts": {
     "start": "node webRtcStar.mjs",
     "server": "nodemon ./server.mjs",
     "build:npm-package": "esbuild dep-npm-package.js --bundle --sourcemap --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-npm-package.js",
     "build:helia": "esbuild dep-helia.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-helia.js",
+    "build:uint8-varint": "esbuild dep-uint8-varint.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-uint8-varint.js",
+    "build:it-length-prefixed": "esbuild dep-it-length-prefixed.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-it-length-prefixed.js",
     "build:unixfs": "esbuild dep-helia-unixfs.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-helia-unixfs.js",
     "build:peer-factory": "esbuild dep-peer-factory.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-peerId-factory.js",
     "build:multiformats": "esbuild dep-multiformats.js --bundle --format=esm --target=chrome114 --define:global=window --outfile=lib-multiformats.js",
