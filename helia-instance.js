@@ -30,7 +30,7 @@ const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-export const createNode = async (DOM, type, peerId) => {
+export const createNode = async (DOM, type, peerId, privatePeerId) => {
     const peerList = new Set();
 
 // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/bootstrappers.ts
@@ -98,8 +98,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to prevent dialing the passed peer.
                  */
-                denyDialPeer: (peerId) => {
-                    console.log('ddddddddddd denyDialPeer dddddddddddddddd', peerId)
+                denyDialPeer: (currentPeerId) => {
+                    console.log('ddddddddddd denyDialPeer dddddddddddddddd', type, peerId, currentPeerId.toString())
                     return false
                 },
                 /**
@@ -111,8 +111,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to prevent dialing the passed peer on the passed multiaddr.
                  */
-                denyDialMultiaddr: async (peerId) => {
-                    console.log('------------------- peerId ----------------------', peerId.toString())
+                denyDialMultiaddr: async (currentPeerId) => {
+                    console.log('------------------- peerId ----------------------', currentPeerId.toString())
                     return false
                 },
                 /**
@@ -124,7 +124,7 @@ export const createNode = async (DOM, type, peerId) => {
                  * Return true to deny the incoming passed connection.
                  */
                 denyInboundConnection: (maConn) => {
-                    console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', maConn)
+                    console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', type, maConn)
                     return false
                 },
                 /**
@@ -135,8 +135,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to deny the incoming passed connection.
                  */
-                denyOutboundConnection: (peerId, maConn) => {
-                    console.log('------------------------ denyOutboundConnection --------------------------------', peerId)
+                denyOutboundConnection: (currentPeerId, maConn) => {
+                    console.log('------------------------ denyOutboundConnection --------------------------------',type, peerId, currentPeerId.toString())
                     return false
                 },
 
@@ -150,8 +150,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to deny the passed secured connection.
                  */
-                denyInboundEncryptedConnection: (peerId, maConn) => {
-                    console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@', peerId)
+                denyInboundEncryptedConnection: (currentPeerId, maConn) => {
+                    console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@',type,  peerId, currentPeerId.toString())
                     return false
                 },
 
@@ -165,8 +165,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to deny the passed secured connection.
                  */
-                denyOutboundEncryptedConnection: (peerId, maConn) => {
-                    console.log('############## denyOutboundEncryptedConnection #######################', peerId)
+                denyOutboundEncryptedConnection: (currentPeerId, maConn) => {
+                    console.log('############## denyOutboundEncryptedConnection #######################', peerId, currentPeerId.toString())
                     return false
                 },
 
@@ -178,8 +178,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to deny the passed upgraded connection.
                  */
-                denyInboundUpgradedConnection: (peerId, maConn) => {
-                    console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId)
+                denyInboundUpgradedConnection: (currentPeerId, maConn) => {
+                    console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId, currentPeerId.toString())
                     return false
                 },
 
@@ -191,8 +191,8 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to deny the passed upgraded connection.
                  */
-                denyOutboundUpgradedConnection: (peerId, maConn) => {
-                    console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId)
+                denyOutboundUpgradedConnection: (currentPeerId, maConn) => {
+                    console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId, currentPeerId.toString())
                     return false
                 },
 
@@ -201,10 +201,22 @@ export const createNode = async (DOM, type, peerId) => {
                  *
                  * Return true to allow storing the passed multiaddr for the passed peer.
                  */
-                filterMultiaddrForPeer: async (peerId, multiaddr) => {
-                    // const res = await send(`${multiaddr.toString()}/${peerId.toString()}`, '!!!!!!!!!!!!!!!')
-                    console.log('#################### filterMultiaddrForPeer #####################', peerId.toString(), multiaddr.toString())
-                    return true
+                filterMultiaddrForPeer: async (currentPeerId, multiaddr) => {
+                    if(type === 'private' && currentPeerId.toString() === peerId.toString() || type === 'public' && currentPeerId.toString() === privatePeerId.toString()) {
+                        return false
+                    } else {
+                        // if(peerId.toString() === currentPeerId.toString()) {
+                        console.log('#################### filterMultiaddrForPeer #####################',type, {
+                            privatePeerId: privatePeerId.toString(),
+                            publicPeerId: peerId.toString(),
+                            currentPeerId: currentPeerId.toString()
+                        })
+                        // return false
+                        // } else {
+                        return true
+                        // }
+                        // const res = await send(`${multiaddr.toString()}/${peerId.toString()}`, '!!!!!!!!!!!!!!!')
+                    }
                 }
             }
         }
@@ -212,6 +224,10 @@ export const createNode = async (DOM, type, peerId) => {
 
     if(type === 'public') {
         configNode.libp2p.peerId = peerId
+    }
+
+    if(type === 'private') {
+        configNode.libp2p.peerId = privatePeerId
     }
 
     const node = await helia.createHelia(configNode); // tcp network, stored on memory (not use files)
@@ -468,8 +484,6 @@ export const createNode = async (DOM, type, peerId) => {
     })
 
 
-    return {
-        node: node
-    }
+    return node
 }
 

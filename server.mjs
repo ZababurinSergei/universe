@@ -17,8 +17,8 @@ import { mplex } from '@libp2p/mplex';
 import { tcp } from '@libp2p/tcp';
 import { createLibp2p } from 'libp2p';
 import { bootstrappers } from './bootstrappers.mjs';
-import {webRTCStar} from "@libp2p/webrtc-star";
-import {createEd25519PeerId, exportToProtobuf, createFromProtobuf} from '@libp2p/peer-id-factory';
+import { webRTCStar } from "@libp2p/webrtc-star";
+import { createEd25519PeerId, exportToProtobuf, createFromProtobuf } from '@libp2p/peer-id-factory';
 import { autoNAT } from '@libp2p/autonat';
 
 const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"

@@ -1,4 +1,4 @@
-import {createFromProtobuf} from '@libp2p/peer-id-factory';
+import { createEd25519PeerId, createFromProtobuf} from '@libp2p/peer-id-factory';
 import init from './PixelPlanets/out.mjs'
 import {createNode} from './helia-instance.js'
 
@@ -126,14 +126,15 @@ let peerId = await fetch(namespace.PeerId)
 if (peerId.status === 200) {
     peerId = await peerId.blob()
     peerId = await createFromProtobuf(new Uint8Array(await peerId.arrayBuffer()))
+    const privatePeerId = await createEd25519PeerId()
 
     const node = {
         public: null,
         private: null
     }
 
-    node.private = await createNode(DOM, 'private', peerId)
-    node.public = await createNode(DOM, 'public', peerId)
+    node.private = await createNode(DOM, 'private', peerId, privatePeerId)
+    node.public = await createNode(DOM, 'public', peerId, privatePeerId)
 } else {
     console.error('Неизвестная ошибка')
 }
