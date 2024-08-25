@@ -28,17 +28,17 @@ p {
         "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
         "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
         "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
-        "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
-        "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
-        "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
-        "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
-        "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
-        "a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1 a1"
+        "a3 a3 a3 a3 ee ee ee ee d1 d1 d1 d1 d1"
+        "d3 d3 d3 d3 ee ee ee ee d1 d1 d1 d1 d1"
+        "d3 d3 d3 d3 a1 a1 a1 a1 a1 a1 a1 a1 a1"
+        "a4 a4 a4 a4 a1 a1 a1 a1 a1 a1 a1 a1 a1"
+        "a4 a4 a4 a4 a1 a1 a1 a1 a1 a1 a1 a1 a1"
+        "a4 a4 a4 a4 a1 a1 a1 a1 a1 a1 a1 a1 a1"
 }
 
-.peerInfo, .discovery, .chat, .security {
+.peerInfo, .discovery, .chat, .security, .private-self-discovery {
     display: flex;
     flex-direction: column;
     color: white;
@@ -62,6 +62,12 @@ p {
     border-bottom-right-radius: 1vw;
     border-top-right-radius: 1vw;
     grid-area: dd;
+}
+
+.private-self-discovery {
+    border-bottom-right-radius: 1vw;
+    border-top-right-radius: 1vw;
+    grid-area: d3;
 }
 
 .chat {
@@ -101,11 +107,11 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 0.42vw;
-    padding-left: 0.83vw;
     box-sizing: border-box;
     margin: 0;
     background: #3c344b;
     border-radius: 0.83vw;
+    padding: 0;
 }
 
 h2 {
@@ -122,7 +128,7 @@ li {
 }
 
 li, span, p {
-    font-size: 0.83vw;
+    font-size: 0.75vw;
 }
 
 li p {
@@ -193,9 +199,10 @@ button.refresh {
     width: 1.25vw;
     height: 1.25vw;
     align-self: center;
+    cursor: pointer;
 }
 
-.discovery .title {
+.discovery .title, .private-self-discovery .title {
     display: flex;
     flex-direction: row;
     gap: 0.83vw;

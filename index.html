@@ -27,12 +27,13 @@
             "uint8-varint": "./lib-uint8-varint.js",
             "it-length-prefixed-stream": "./lib-it-length-prefixed.js",
             "it-byte-stream": "./lib-npm-package.js",
-            "uint8arraylist": "./lib-npm-package.js"
+            "uint8arraylist": "./lib-npm-package.js",
+            "libp2p": "./lib-libp2p.js"
           }
         }
     </script>
 
-<!--    "it-length-prefixed-stream": "./lib-npm-package.js"-->
+    <!--    "it-length-prefixed-stream": "./lib-npm-package.js"-->
     <script type="module" src="./helia-on-browser.js"></script>
     <style>
         @import url('./docs/css/index.css');
@@ -48,17 +49,32 @@
         </div>
         <div class="item peerId">
             <p>ID Планеты</p>
-            <span></span>
+            <span class="self_peerId_p"></span>
+        </div>
+        <div class="item self">
+            <p>Приватный ID</p>
+            <span class="self_p"></span>
         </div>
         <div class="item ma">
-            <p>Связь с планетой</p>
-            <ul></ul>
+            <p>Каналы</p>
+            <ul class="ma_p"></ul>
         </div>
+        <div class="item private_ma">
+            <p>Закрытый Канал</p>
+            <ul class="ma_p"></ul>
+        </div>
+    </div>
+    <div class="private-self-discovery">
+        <div class="private-self title">
+            <h2>Приватный собственный канал</h2>
+            <button class="refresh">0</button>
+        </div>
+        <ul></ul>
     </div>
     <div class="discovery">
         <div class="title">
             <h2>Канал связи</h2>
-            <button class="refresh">O</button>
+            <button class="refresh">0</button>
         </div>
         <ul></ul>
     </div>
