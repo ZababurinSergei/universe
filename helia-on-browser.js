@@ -121,6 +121,8 @@ switch (obectName) {
         break
 }
 
+const publicPeerId = ['12D3KooWRso2mreG6EpMxh6u2Zfy9GM5A4hHBojBdyNmtJtdxuNB', '12D3KooWPc49XL2oRMVDMe1gvmhuR6hehEQhjQ65QQ94wHptwkKx']
+
 let peerId = await fetch(namespace.PeerId)
 
 if (peerId.status === 200) {
@@ -133,8 +135,8 @@ if (peerId.status === 200) {
         private: null
     }
 
-    node.private = await createNode(DOM, 'private', peerId, privatePeerId)
-    node.public = await createNode(DOM, 'public', peerId, privatePeerId)
+    node.private = await createNode(DOM, 'private', peerId, privatePeerId, undefined, publicPeerId)
+    node.public = await createNode(DOM, 'public', peerId, privatePeerId, node.private, publicPeerId)
 } else {
     console.error('Неизвестная ошибка')
 }
