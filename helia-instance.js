@@ -29,11 +29,11 @@ const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 // const rtcStar =  '/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star/'
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const dht = new Map()
+// const dht = new Map()
 export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, publicPeerId) => {
     const peerList = new Set();
 
-    dht.set(privatePeerId.toString(), peerId.toString())
+    // dht.set(privatePeerId.toString(), peerId.toString())
 // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/bootstrappers.ts
     const bootstrapConfig = {
         list: [

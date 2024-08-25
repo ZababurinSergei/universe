@@ -26,19 +26,19 @@ p {
         "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
         "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
         "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
-        "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
+        "bb bb bb bb aa aa aa a5 d1 d1 d1 d1 d1"
         "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
         "a3 a3 a3 a3 ee ee ee ee d1 d1 d1 d1 d1"
-        "d3 d3 d3 d3 ee ee ee ee d1 d1 d1 d1 d1"
-        "d3 d3 d3 d3 a1 a1 a1 a1 a1 a1 a1 a1 a1"
-        "a4 a4 a4 a4 a1 a1 a1 a1 a1 a1 a1 a1 a1"
-        "a4 a4 a4 a4 a1 a1 a1 a1 a1 a1 a1 a1 a1"
-        "a4 a4 a4 a4 a1 a1 a1 a1 a1 a1 a1 a1 a1"
+        "d3 d3 d3 d3 ee ee ee ee a6 a6 a6 a6 a6"
+        "d3 d3 d3 d3 a1 a1 a1 a7 a7 a7 a7 a7 a7"
+        "a4 a4 a4 a4 a1 a1 a1 a7 a7 a7 a7 a7 a7"
+        "a4 a4 a4 a4 a1 a1 a1 a7 a7 a7 a7 a7 a7"
+        "a4 a4 a4 a4 a1 a1 a1 a8 a8 a8 a8 a8 a8"
 }
 
-.peerInfo, .discovery, .chat, .security, .private-self-discovery {
+.peerInfo, .discovery, .chat, .security, .private-self-discovery, .pubsub {
     display: flex;
     flex-direction: column;
     color: white;
@@ -74,6 +74,12 @@ p {
     border-top-left-radius: 1vw;
     border-bottom-left-radius: 1vw;
     grid-area: d1;
+}
+
+.pubsub {
+    grid-area: a7;
+    border-top-left-radius: 1vw;
+    border-bottom-left-radius: 1vw;
 }
 
 .item {
