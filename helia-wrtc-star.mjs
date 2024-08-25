@@ -127,3 +127,61 @@ console.log(ret1);
 
 // await Promise.all([node.stop()]);
 
+
+
+
+
+
+
+
+// const maPeer = await window.ctx.maStar('12D3KooWH6yCNbjjEeJYEmSc2kpM7Tk4XnymdsDozFeBH5zwunRb')
+// console.log('MA PEER', maPeer)
+// const res = await send('/dns4/js-libp2p-webrtc-star-yeub.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWA2JENeezGZhKD3fwpHUSs5AUf1VjS7qvsHhd7EjAeGG9', 'hello')
+// console.log('window.ctx: ',  res)
+
+// example data
+// const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
+// console.log("[Blob]", blob);
+
+// publish blob as CID with addByteStream()
+// const cid = await ctx.nodefs.addByteStream(rsWithAi(blob.stream()));
+//const cid = await ctx.nodefs.addBytes(new Uint8Array(await blob.arrayBuffer()));
+// console.log("[unixfs.addByteStream]", cid);
+// const cidStr = cid.toString();
+// const cidAlt = CID.parse(cidStr);
+// const ret1 = await ctx.node.pins.add(cidAlt); //NOTE: pins not accept CID string
+// console.log("[pins.add]", ret1);
+
+
+/*
+// example data
+const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
+console.log("[Blob]", blob);
+
+// publish blob as CID with addByteStream()
+const cid = await ctx.nodefs.addByteStream(rsWithAi(blob.stream()));
+//const cid = await ctx.nodefs.addBytes(new Uint8Array(await blob.arrayBuffer()));
+console.log("[unixfs.addByteStream]", cid);
+const cidStr = cid.toString();
+const cidAlt = CID.parse(cidStr);
+const ret1 = await ctx.node.pins.add(cidAlt); //NOTE: pins not accept CID string
+console.log("[pins.add]", ret1);
+
+// NOTE: helia's pins needs stored blocks in blockstore (e.g. cannnot pin before stat()/ls()/cat())
+const stat = await ctx.nodefs.stat(cidStr);
+console.log("[unixfs.stat]", stat);
+
+// get CID object from CID string with ls() from @helia/unixfs
+for await (const entry of ctx.nodefs.ls(cidStr)) console.log("[unixfs.ls]", entry.cid);
+
+// retrieve data with cat(cid or cid-string)
+const u8as = [];
+for await (const u8a of ctx.nodefs.cat(cidStr)) {
+  console.log("[unixfs.cat]", u8a);
+  u8as.push(u8a.slice());
+}
+console.log("[Blob.text]", await (new Blob(u8as).text()));
+*/
+
+// stop only helia nodes; unixfs is just a wrapper
+//console.log("[helia.stop]", await node.stop());

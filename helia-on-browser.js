@@ -212,7 +212,7 @@ if (peerId.status === 200) {
                  * Return true to prevent dialing the passed peer.
                  */
                 denyDialPeer: (peerId) => {
-                    // console.log('ddddddddddd denyDialPeer dddddddddddddddd', peerId)
+                    console.log('ddddddddddd denyDialPeer dddddddddddddddd', peerId)
                     return false
                 },
                 /**
@@ -225,7 +225,7 @@ if (peerId.status === 200) {
                  * Return true to prevent dialing the passed peer on the passed multiaddr.
                  */
                 denyDialMultiaddr: async (peerId) => {
-
+                    console.log('------------------- peerId ----------------------', peerId.toString())
                     return false
                 },
                 /**
@@ -237,7 +237,7 @@ if (peerId.status === 200) {
                  * Return true to deny the incoming passed connection.
                  */
                 denyInboundConnection: (maConn) => {
-                    // console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', maConn)
+                    console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', maConn)
                     return false
                 },
                 /**
@@ -249,7 +249,7 @@ if (peerId.status === 200) {
                  * Return true to deny the incoming passed connection.
                  */
                 denyOutboundConnection: (peerId, maConn) => {
-                    // console.log('------------------------ denyOutboundConnection --------------------------------', peerId)
+                    console.log('------------------------ denyOutboundConnection --------------------------------', peerId)
                     return false
                 },
 
@@ -264,7 +264,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed secured connection.
                  */
                 denyInboundEncryptedConnection: (peerId, maConn) => {
-                    // console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@', peerId)
+                    console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@', peerId)
                     return false
                 },
 
@@ -279,7 +279,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed secured connection.
                  */
                 denyOutboundEncryptedConnection: (peerId, maConn) => {
-                    // console.log('############## denyOutboundEncryptedConnection #######################', peerId)
+                    console.log('############## denyOutboundEncryptedConnection #######################', peerId)
                     return false
                 },
 
@@ -292,7 +292,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed upgraded connection.
                  */
                 denyInboundUpgradedConnection: (peerId, maConn) => {
-                    // console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId)
+                    console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$', peerId)
                     return false
                 },
 
@@ -305,7 +305,7 @@ if (peerId.status === 200) {
                  * Return true to deny the passed upgraded connection.
                  */
                 denyOutboundUpgradedConnection: (peerId, maConn) => {
-                    // console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId)
+                    console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', peerId)
                     return false
                 },
 
@@ -314,8 +314,9 @@ if (peerId.status === 200) {
                  *
                  * Return true to allow storing the passed multiaddr for the passed peer.
                  */
-                filterMultiaddrForPeer: (peerId, multiaddr) => {
-                    // console.log('#################### filterMultiaddrForPeer #####################', peerId)
+                filterMultiaddrForPeer: async (peerId, multiaddr) => {
+                    // const res = await send(`${multiaddr.toString()}/${peerId.toString()}`, '!!!!!!!!!!!!!!!')
+                    console.log('#################### filterMultiaddrForPeer #####################', peerId.toString(), multiaddr.toString())
                     return true
                 }
             }
@@ -335,27 +336,27 @@ if (peerId.status === 200) {
         ma.insertAdjacentHTML('beforeend', `<li>${item}</li>`)
     }
     // console.log('--------------------------------', node.libp2p)
-    console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
+    // console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
 
     //---------------------------------------------------------------------------
     node.libp2p.addEventListener('connection:open', (event) => {
         // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', {
-        //     id: event.detail.id,
-        //     remotePeer: event.detail.remotePeer.toString(),
-        //     remoteAddr: event.detail.remoteAddr.toString(),
-        //     detail: event.detail.stat.status
-        // })
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', {
+            id: event.detail.id,
+            remotePeer: event.detail.remotePeer.toString(),
+            remoteAddr: event.detail.remoteAddr.toString(),
+            detail: event.detail.stat.status
+        })
     })
 
     node.libp2p.addEventListener('connection:close', (event) => {
         // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:close', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:close', event.detail)
     })
 
     node.libp2p.addEventListener('connection:prune', (event) => {
         // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:prune', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:prune', event.detail)
     })
 
     node.libp2p.addEventListener('peer:connect', (event) => {
@@ -366,7 +367,7 @@ if (peerId.status === 200) {
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         DOM.discovery('refresh').click()
-        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:disconnect', (event) => {
@@ -384,31 +385,31 @@ if (peerId.status === 200) {
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         // const peerInfo = event.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', {
-        //     detail: event.detail,
-        //     string: event.detail.toString()
-        // })
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', {
+            detail: event.detail,
+            string: event.detail.toString()
+        })
     })
 
     node.libp2p.addEventListener('peer:discovery', (evt) => {
-        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:discovery', {
-        //     id: event.detail.id.toString(),
-        //     detail: event.detail
-        // })
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:discovery', {
+            id: event.detail.id.toString(),
+            detail: event.detail
+        })
     })
 
     node.libp2p.addEventListener('peer:identify', (evt) => {
-        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:identify', {
-        //     peerId: event.detail.peerId.toString(),
-        //     observedAddr: event.detail.observedAddr.toString(),
-        //     listenAddrs: event.detail.listenAddrs.toString()
-        // })
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:identify', {
+            peerId: event.detail.peerId.toString(),
+            observedAddr: event.detail.observedAddr.toString(),
+            listenAddrs: event.detail.listenAddrs.toString()
+        })
     })
 
     node.libp2p.addEventListener('peer:update', (evt) => {
-        // for(let item of event.detail.peer.addresses) {
-        //     console.log('[[[[[[[ LISTENER ]]]]]]] peer:update CURRENT isCertified', item.isCertified)
-        // }
+        for(let item of event.detail.peer.addresses) {
+            console.log('[[[[[[[ LISTENER ]]]]]]] peer:update CURRENT isCertified', item.isCertified)
+        }
 
         // if(event.detail.previous?.addresses) {
         //     for(let item of event.detail.previous.addresses) {
@@ -430,33 +431,34 @@ if (peerId.status === 200) {
         // })
     })
 
-    node.libp2p.addEventListener('self:peer:update', (evt) => {
-        // console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update', event.detail)
+    node.libp2p.addEventListener('self:peer:update', (event) => {
+        if(event.detail.peer.addresses.length !== 0) {
+            console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update 2', event.detail.peer.id.toString(), event.detail.peer.addresses[0])
+        }
     })
 
     node.libp2p.addEventListener('start', (evt) => {
-        // console.log('[[[[[[[ LISTENER ]]]]]]] start', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] start', event.detail)
     })
 
     node.libp2p.addEventListener('stop', (evt) => {
-        // console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
     })
 
     node.libp2p.addEventListener('transport:close', (event) => {
         // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
     })
 
     node.libp2p.addEventListener('transport:listening', (event) => {
         // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
     })
 
 
     const proto = "/my-echo/0.1";
 
     const incoming = DOM.chat('input')
-    const outgoing = DOM.chat('output')
 
     let p = 0
     const printSmbl = () => {
@@ -499,7 +501,7 @@ if (peerId.status === 200) {
 
         const lp = lpStream(stream)
 
-        await lp.write(new TextEncoder().encode(outgoing.value))
+        await lp.write(new TextEncoder().encode(msg))
 
         return msg
     };
@@ -548,22 +550,18 @@ if (peerId.status === 200) {
         for (let connect of connections) {
             connect.close()
         }
-        // const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
-
-        // Chrome требует установки возвратного значения.
         event.returnValue = "";
     });
 
     buttonSend.addEventListener('click', async (event) => {
-        const output = DOM.chat('output')
+        const outgoing = DOM.chat('output')
         let peer = select.options[select.selectedIndex].value;
         const connections = globalThis.node.libp2p.getConnections()
         const connect = connections.find(item => item.remotePeer.toString() === peer)
 
-        console.log('------------ connections --------------', output.textContent)
+        console.log('------------ connections --------------', connections)
         if (connect) {
-            // globalThis.ctx.maStar(peer)
-            const res = await send(connect.remotePeer, 'hsdfsdfsdfsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsello')
+            const res = await send(connect.remotePeer, outgoing.value)
             console.log('---------- REQUEST ----------', connect.remotePeer.toString(), res)
         }
     })
@@ -575,43 +573,6 @@ if (peerId.status === 200) {
         }
     })
 
-    // select.addEventListener('click', (event) => {
-    //     console.log('##############################')
-    //     select.innerHTML = ''
-    //
-    //     for (const item of peerList) {
-    //         select.insertAdjacentHTML('beforeend', `<option value="${item}">${item}</option>`)
-    //     }
-    // })
-
-    // let timerId = setInterval(() => {
-    //     discovery.innerHTML = ''
-    //
-    //     const peers = node.libp2p.getPeers()
-    //     const connections = node.libp2p.getConnections()
-    //     let count = 0
-    //
-    //     for (let connect of connections) {
-    //         peerList.add(connect.remotePeer.toString())
-    //         count++
-    //     }
-    //
-    //     for (const item of peerList) {
-    //         discovery.insertAdjacentHTML('beforeend', `<li>
-    //             <p>${item}</p>
-    //             <button class="delete" data-peer-id="${item}" onclick="((button) => {
-    //                 const connections = globalThis.node.libp2p.getConnections()
-    //                 const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
-    //                 connect.close()
-    //             })(this)">
-    //             R
-    //             </button>
-    //         </li>`)
-    //     }
-    //     count = 0
-    // }, 5000);
-
-// for web console
     globalThis.ctx = {
         maStar: localId => multiaddr(`${rtcStar}/p2p/${localId}`),
         maP2p: localId => multiaddr(`/p2p/${localId}`),
@@ -619,58 +580,6 @@ if (peerId.status === 200) {
         send,
     };
 
-
-// const maPeer = await window.ctx.maStar('12D3KooWH6yCNbjjEeJYEmSc2kpM7Tk4XnymdsDozFeBH5zwunRb')
-// console.log('MA PEER', maPeer)
-// const res = await send('/dns4/js-libp2p-webrtc-star-yeub.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWA2JENeezGZhKD3fwpHUSs5AUf1VjS7qvsHhd7EjAeGG9', 'hello')
-// console.log('window.ctx: ',  res)
-
-// example data
-// const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
-// console.log("[Blob]", blob);
-
-// publish blob as CID with addByteStream()
-// const cid = await ctx.nodefs.addByteStream(rsWithAi(blob.stream()));
-//const cid = await ctx.nodefs.addBytes(new Uint8Array(await blob.arrayBuffer()));
-// console.log("[unixfs.addByteStream]", cid);
-// const cidStr = cid.toString();
-// const cidAlt = CID.parse(cidStr);
-// const ret1 = await ctx.node.pins.add(cidAlt); //NOTE: pins not accept CID string
-// console.log("[pins.add]", ret1);
-
-
-    /*
-    // example data
-    const blob = new Blob([new TextEncoder().encode("Hello World!")], {type: "text/plain;charset=utf-8"});
-    console.log("[Blob]", blob);
-
-    // publish blob as CID with addByteStream()
-    const cid = await ctx.nodefs.addByteStream(rsWithAi(blob.stream()));
-    //const cid = await ctx.nodefs.addBytes(new Uint8Array(await blob.arrayBuffer()));
-    console.log("[unixfs.addByteStream]", cid);
-    const cidStr = cid.toString();
-    const cidAlt = CID.parse(cidStr);
-    const ret1 = await ctx.node.pins.add(cidAlt); //NOTE: pins not accept CID string
-    console.log("[pins.add]", ret1);
-
-    // NOTE: helia's pins needs stored blocks in blockstore (e.g. cannnot pin before stat()/ls()/cat())
-    const stat = await ctx.nodefs.stat(cidStr);
-    console.log("[unixfs.stat]", stat);
-
-    // get CID object from CID string with ls() from @helia/unixfs
-    for await (const entry of ctx.nodefs.ls(cidStr)) console.log("[unixfs.ls]", entry.cid);
-
-    // retrieve data with cat(cid or cid-string)
-    const u8as = [];
-    for await (const u8a of ctx.nodefs.cat(cidStr)) {
-      console.log("[unixfs.cat]", u8a);
-      u8as.push(u8a.slice());
-    }
-    console.log("[Blob.text]", await (new Blob(u8as).text()));
-    */
-
-// stop only helia nodes; unixfs is just a wrapper
-//console.log("[helia.stop]", await node.stop());
 
 } else {
     console.error('Неизвестная ошибка')
