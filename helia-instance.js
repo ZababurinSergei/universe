@@ -202,7 +202,10 @@ export const createNode = async (DOM, type, peerId, privatePeerId) => {
                  * Return true to allow storing the passed multiaddr for the passed peer.
                  */
                 filterMultiaddrForPeer: async (currentPeerId, multiaddr) => {
-                    if(type === 'private' && currentPeerId.toString() === peerId.toString() || type === 'public' && currentPeerId.toString() === privatePeerId.toString()) {
+                    if(    type === 'private' && currentPeerId.toString() === peerId.toString()
+                        || type === 'private' && currentPeerId.toString() === privatePeerId.toString()
+                        || type === 'public' && currentPeerId.toString() === privatePeerId.toString()
+                        || type === 'public' && currentPeerId.toString() === peerId.toString()) {
                         return false
                     } else {
                         // if(peerId.toString() === currentPeerId.toString()) {
