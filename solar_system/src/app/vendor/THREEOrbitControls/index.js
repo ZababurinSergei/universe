@@ -707,6 +707,7 @@ module.exports = function(THREE) {
 
     };
 
+    debugger
     OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
     OrbitControls.prototype.constructor = OrbitControls;
     return OrbitControls;

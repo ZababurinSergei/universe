@@ -1,10 +1,10 @@
 import { createEd25519PeerId, createFromProtobuf} from '@libp2p/peer-id-factory';
-import init from './PixelPlanets/out.mjs'
+// import init from './PixelPlanets/out.mjs'
 import {createNode} from './helia-instance.js'
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const options = init()
+// const options = init()
 
 const DOM = {
     pubsub: (type) => {

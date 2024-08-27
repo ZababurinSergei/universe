@@ -718,7 +718,10 @@ return module.exports = function(THREE) {
 
     };
 
-    OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
+
+// console.log('THREE.EventDispatcher', window.THREE.EventDispatcher)
+//     debugger
+    OrbitControls.prototype = Object.create( window.THREE.EventDispatcher.prototype );
     OrbitControls.prototype.constructor = OrbitControls;
     return OrbitControls;
 }
