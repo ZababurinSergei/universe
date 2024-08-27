@@ -240,7 +240,7 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
         }
     }
     setInterval(async () => {
-        // observerPeer()
+        observerPeer()
     }, 500)
 
     const nodeFs = unixfs(node);
