@@ -131,13 +131,13 @@ switch (obectName) {
         break
 }
 
-const publicPeerId = ['12D3KooWRso2mreG6EpMxh6u2Zfy9GM5A4hHBojBdyNmtJtdxuNB', '12D3KooWPc49XL2oRMVDMe1gvmhuR6hehEQhjQ65QQ94wHptwkKx']
+const publicListPeerId = ['12D3KooWRso2mreG6EpMxh6u2Zfy9GM5A4hHBojBdyNmtJtdxuNB', '12D3KooWPc49XL2oRMVDMe1gvmhuR6hehEQhjQ65QQ94wHptwkKx']
 
-let peerId = await fetch(namespace.PeerId)
+let publicPeerId = await fetch(namespace.PeerId)
 
-if (peerId.status === 200) {
-    peerId = await peerId.blob()
-    peerId = await createFromProtobuf(new Uint8Array(await peerId.arrayBuffer()))
+if (publicPeerId.status === 200) {
+    publicPeerId = await publicPeerId.blob()
+    publicPeerId = await createFromProtobuf(new Uint8Array(await publicPeerId.arrayBuffer()))
     const privatePeerId = await createEd25519PeerId()
 
     const node = {
@@ -145,8 +145,8 @@ if (peerId.status === 200) {
         private: null
     }
 
-    node.private = await createNode(DOM, 'private', peerId, privatePeerId, undefined, publicPeerId)
-    node.public = await createNode(DOM, 'public', peerId, privatePeerId, node.private, publicPeerId)
+    node.private = await createNode(DOM, 'private', publicPeerId, privatePeerId)
+    node.public = await createNode(DOM, 'public', publicPeerId, privatePeerId)
 } else {
     console.error('Неизвестная ошибка')
 }

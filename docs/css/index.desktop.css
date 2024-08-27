@@ -80,6 +80,7 @@ p {
     grid-area: a7;
     border-top-left-radius: 1vw;
     border-bottom-left-radius: 1vw;
+    background: #3c344b;
 }
 
 .item {
@@ -212,6 +213,7 @@ button.refresh {
     display: flex;
     flex-direction: row;
     gap: 0.83vw;
+    align-items: center;
 }
 
 .title h2 {
@@ -224,7 +226,7 @@ button.refresh {
     gap: 0.83vw;
 }
 
-.send {
+.send, .detail {
     color: white;
     border-radius: 0.3vw;
     box-sizing: border-box;
@@ -241,10 +243,31 @@ button.refresh {
 .pubsub-item {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    /*gap: 16px;*/
+}
+
+.pubsub-item .title {
+    justify-content: space-between;
 }
 
 .pubsub-container {
     box-sizing: border-box;
     padding-left: 32px;
 }
+
+.peerId-info {
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    color: white;
+    align-items: center;
+}
+
+.pubsub-item-peerId {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+}
+

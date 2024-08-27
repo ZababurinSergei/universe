@@ -31,13 +31,11 @@ const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 // const rtcStar =  '/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star/'
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-// const dht = new Map()
-let pubsubPeerList = []
-export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, publicPeerId) => {
+globalThis.pubsubPeerList = []
+export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
     const peerList = new Set();
 
-    // dht.set(privatePeerId.toString(), peerId.toString())
-// https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/bootstrappers.ts
+    // https://github.com/ipfs/helia/blob/main/packages/helia/src/utils/bootstrappers.ts
     const bootstrapConfig = {
         list: [
             '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
@@ -73,106 +71,51 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
             connectionManager: {
                 autoDialInterval: 1000 //(default: 5000)
             },
-            // services: {
-            //     identify: identify()
-            // },
-            // addressManager: {
-            //     autoDial: true
-            // },
-            // connectionManager: {
-            // autoDial: true,
-            // dialTimeout: 1000,
-            // maxConnections: 20,
-            // minConnections: 0
-            // },
-            // connectionEncryption: [noise()],
-            // streamMuxers: [yamux(), mplex()],
-            // https://github.com/libp2p/js-libp2p/blob/master/doc/CONFIGURATION.md#configuring-connection-gater
             connectionGater: {
                 denyDialPeer: (currentPeerId) => {
-                    console.log('00000000000000 denyDialPeer 00000000000000',type, currentPeerId.toString())
-                    let connections = []
-
-                    // if (privateNode) {
-                    //     connections = privateNode.libp2p.getConnections()
-                    // }
-
-                    // for (let connect of connections) {
-                    //     if (connect.remotePeer.toString() === currentPeerId.toString()) {
-                    //         return true
-                    //     }
-                    // }
-
-                    // if (type === 'private' && publicPeerId.includes(currentPeerId.toString())) {
-                    //     return true
-                    // }
-
-                    // if (type === 'public' && !publicPeerId.includes(currentPeerId.toString())) {
-                    //     return true
-                    // }
+                    // console.log('00000000000000 denyDialPeer 00000000000000',type, currentPeerId.toString())
                     return false
                 },
                 denyDialMultiaddr: async (currentPeerId) => {
-                    console.log('111111111111 denyDialMultiaddr 111111111111',type, currentPeerId.toString())
+                    // console.log('111111111111 denyDialMultiaddr 111111111111',type, currentPeerId.toString())
                     return false
                 },
                 denyOutboundConnection: (currentPeerId, maConn) => {
-                    // let connections = []
-                    // if(privateNode) {
-                    //     connections = privateNode.libp2p.getConnections()
-                    // }
-                    // for(let connect of connections) {
-                    //     if(connect.remotePeer.toString() === currentPeerId.toString()) {
-                    //         return  true
-                    //     }
-                    // }
-
-                    if(type === 'public' && currentPeerId.toString() === peerId.toString()) {
+                    if(type === 'public' && currentPeerId.toString() === publicPeerId.toString()) {
                         return true
                     }
-                    console.log('####### 1 ####### denyOutboundConnection ##############',type, currentPeerId.toString())
+                    // console.log('####### 1 ####### denyOutboundConnection ##############',type, currentPeerId.toString())
                     return false
                 },
                 denyOutboundEncryptedConnection: (currentPeerId, maConn) => {
-                    console.log('####### 2 ####### denyOutboundEncryptedConnection ##############',type, currentPeerId.toString())
+                    // console.log('####### 2 ####### denyOutboundEncryptedConnection ##############',type, currentPeerId.toString())
                     return false
                 },
                 denyOutboundUpgradedConnection: (currentPeerId, maConn) => {
-                    console.log('####### 3 ####### denyOutboundUpgradedConnection ##############', type, currentPeerId.toString())
+                    // console.log('####### 3 ####### denyOutboundUpgradedConnection ##############', type, currentPeerId.toString())
                     return false
                 },
                 denyInboundConnection: (maConn) => {
-                    console.log('------- 1 ------- denyInboundConnection --------------', type, maConn.remoteAddr.toString())
+                    // console.log('------- 1 ------- denyInboundConnection --------------', type, maConn.remoteAddr.toString())
                     return false
                 },
                 denyInboundEncryptedConnection: (currentPeerId, maConn) => {
-                    console.log('------- 2 ------- denyInboundEncryptedConnection --------------', type, currentPeerId.toString())
-                    // if(type = 'private' && currentPeerId.toString() === peerId.toString()) {
-                    //     return true
-                    // } else {
+                    // console.log('------- 2 ------- denyInboundEncryptedConnection --------------', type, currentPeerId.toString())
                     return false
-                    // console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@',type,  peerId, currentPeerId.toString())
-                    // }
                 },
                 denyInboundUpgradedConnection: (currentPeerId, maConn) => {
-                    console.log('------- 3 ------- denyInboundUpgradedConnection --------------', type, currentPeerId.toString())
-                    // if(type === 'public' && !publicPeerId.includes(currentPeerId.toString())) {
-                    //     return  true
-                    // }
-
-                    // console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$',type, currentPeerId.toString())
+                    // console.log('------- 3 ------- denyInboundUpgradedConnection --------------', type, currentPeerId.toString())
                     return false
                 },
                 filterMultiaddrForPeer: async (currentPeerId, multiaddr) => {
                     if (
-                        type === 'private' && currentPeerId.toString() === peerId.toString() ||
+                        type === 'private' && currentPeerId.toString() === publicPeerId.toString() ||
                         type === 'private' && currentPeerId.toString() === privatePeerId.toString() ||
                         type === 'public' && currentPeerId.toString() === privatePeerId.toString()
-                    //     type === 'public' && currentPeerId.toString() === peerId.toString()
                     ) {
                         return false
                     } else {
-                        console.log('!!!!!!!!!!!!! filterMultiaddrForPeer !!!!!!!!!!!!!',type, currentPeerId.toString(), privatePeerId.toString())
+                        // console.log('!!!!!!!!!!!!! filterMultiaddrForPeer !!!!!!!!!!!!!',type, currentPeerId.toString(), privatePeerId.toString())
                         return true
                     }
                 }
@@ -181,7 +124,7 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     }
 
     if (type === 'public') {
-        configNode.libp2p.peerId = peerId
+        configNode.libp2p.peerId = publicPeerId
     }
 
     if (type === 'private') {
@@ -196,51 +139,41 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
         const topic = event.detail.topic
         const message = JSON.parse(toString(event.detail.data))
 
-        // console.log('===================== message =====================', message)
-
-        if (!(message['public'] in pubsubPeerList)) {
-            pubsubPeerList[message['public']] = []
+        if (!(message['public'] in globalThis.pubsubPeerList)) {
+            globalThis.pubsubPeerList[message['public']] = []
         }
 
         switch (message['type']) {
             case 'push':
-                if (!pubsubPeerList[message['public']].includes(message['private'])) {
-                    pubsubPeerList[message['public']].push(message['private'])
+                if (!globalThis.pubsubPeerList[message['public']].includes(message['private'])) {
+                    globalThis.pubsubPeerList[message['public']].push(message['private'])
                 }
+
+                // DOM.pubsub('refresh').click()
                 break
             default:
                 break
         }
     })
 
-    // if(type === 'private') {
-    //     DOM.dialMultiaddrButton().onclick = async () => {
-    //         const ma = multiaddr('/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWRso2mreG6EpMxh6u2Zfy9GM5A4hHBojBdyNmtJtdxuNB')
-    //
-    //         console.log('sssssssssssssssssss', ma)
-    //         appendOutput(`Dialing '${ma}'`)
-    // await node.libp2p.dial(ma)
-    // appendOutput(`Connected to '${ma}'`)
-    // }
-    // }
-
-    // if (type === 'public') {
     await node.libp2p.services.pubsub.subscribe(topic)
-    // }
-    //
-    const observerPeer = async () => {
+
+    async function observerPeer(props) {
         const peerListData = node.libp2p.services.pubsub.getSubscribers(topic)
 
         if (peerListData.length !== 0) {
             await node.libp2p.services.pubsub.publish(topic, fromString(JSON.stringify({
-                type: 'push',
-                public: peerId.toString(),
+                type: props.type,
+                public: publicPeerId.toString(),
                 private: privatePeerId.toString()
             })))
         }
     }
+
     setInterval(async () => {
-        observerPeer()
+        observerPeer({
+            type: 'push'
+        })
     }, 500)
 
     const nodeFs = unixfs(node);
@@ -253,8 +186,6 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     for (let item of node.libp2p.getMultiaddrs()) {
         ma.insertAdjacentHTML('beforeend', `<li>${item}</li>`)
     }
-    // console.log('--------------------------------', node.libp2p)
-    // console.log("MA: ", node.libp2p.getMultiaddrs().map(ma => `${ma}`));
 
     //---------------------------------------------------------------------------
     node.libp2p.addEventListener('connection:open', (event) => {
@@ -269,8 +200,20 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     })
 
     node.libp2p.addEventListener('connection:close', (event) => {
-        // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:close', event.detail)
+        const currentPeerId = publicPeerId.toString()
+        const peerInfo = event.detail.remotePeer.toString()
+        console.log('[[[[[[[ LISTENER ]]]]]]] connection:close',type, peerInfo)
+
+        if(globalThis.pubsubPeerList.hasOwnProperty(currentPeerId)) {
+           globalThis.pubsubPeerList[currentPeerId] = globalThis.pubsubPeerList[currentPeerId].filter(item => item !== peerInfo)
+        }
+
+        if(globalThis.pubsubPeerList[currentPeerId],length === 0) {
+           delete globalThis.pubsubPeerList[currentPeerId]
+        }
+
+        console.log('globalThis.pubsubPeerList[currentPeerId]', globalThis.pubsubPeerList[currentPeerId])
+        DOM.pubsub('refresh').click()
     })
 
     node.libp2p.addEventListener('connection:prune', (event) => {
@@ -337,7 +280,7 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
         //         console.log('[[[[[[[ LISTENER ]]]]]]] peer:update PREVIOUSE isCertified', item.isCertified)
         //     }
         // }
-
+        console.log('[[[[[[[ LISTENER ]]]]]]] peer:update')
         // console.log('[[[[[[[ LISTENER ]]]]]]] peer:update', {
         //     peer: {
         //         self: event.detail.peer.addresses,
@@ -350,6 +293,8 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
         //         // protocols: event.detail.previous.protocols
         //     }
         // })
+
+        DOM.pubsub('refresh').click()
     })
 
     node.libp2p.addEventListener('self:peer:update', (event) => {
@@ -364,7 +309,7 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     })
 
     node.libp2p.addEventListener('stop', (evt) => {
-        // console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
     })
 
     node.libp2p.addEventListener('transport:close', (event) => {
@@ -375,9 +320,8 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
 
     node.libp2p.addEventListener('transport:listening', (event) => {
         // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
+        console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
     })
-
 
     const proto = "/my-echo/0.1";
 
@@ -434,34 +378,61 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     const refresh = DOM.chat('refresh')
     const buttonSend = DOM.chat('send')
 
-    globalThis.node = node
+    if(type === 'public') {
+        globalThis.publicNode = node
+    }
+
+    if(type === 'private') {
+        globalThis.privateNode = node
+    }
 
     DOM.pubsub('refresh').addEventListener('click', async (event) => {
         if (type === 'public') {
             const root = DOM.pubsub()
             root.innerHTML = ''
-            for (let key in pubsubPeerList) {
-                const li = document.createElement('li')
-                const h3 = document.createElement('h3')
-                const container = document.createElement('ul')
 
-                li.className = 'pubsub-item'
-                container.className = 'pubsub-container'
-                h3.textContent = key
-
-                for (let item of pubsubPeerList[key]) {
-                    const itemLi = document.createElement('li')
-                    itemLi.className = 'pubsub-item-peerId'
-                    itemLi.textContent = item
-                    container.appendChild(itemLi)
+            const listItems = (key) => {
+                let items = ``
+                for (let item of globalThis.pubsubPeerList[key]) {
+                    items = items + `
+                        <div class="pubsub-item-peerId">
+                            <p>${item}</p>
+                            <button class="detail" data-peer-id="${item}" onclick="((button) => {
+                                console.log('INFORMATION')
+                                // const connections = globalThis.node.libp2p.getConnections()
+                                // const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+                                // connect.close()
+                            })(this)">
+                                Детали
+                            </button>
+                        </div>
+                    `
                 }
 
-                li.appendChild(h3)
-                li.appendChild(container)
-                root.appendChild(li)
+                return items
+            }
+            for (let key in globalThis.pubsubPeerList) {
+                root.insertAdjacentHTML('beforeend', `
+                    <li class="pubsub-item">
+                            <div class="title">
+                                <h3>${key}</h3>
+                                <button class="detail" data-peer-id="${key}" onclick="((button) => {
+                                    console.log('INFORMATION')
+                                    // const connections = globalThis.node.libp2p.getConnections()
+                                    // const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
+                                    // connect.close()
+                                })(this)">
+                                    Детали
+                                </button>
+                            </div>
+                            <div class="pubsub-container">
+                                ${listItems(key)}
+                            </div>
+                    </li>
+                
+                `)
             }
         }
-
     })
 
     discoveryRefresh.addEventListener('click', async (event) => {
@@ -478,18 +449,8 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
             count++
         }
 
-        /*
-
-                <button class="delete" data-peer-id="${item}" onclick="((button) => {
-                    const connections = globalThis.node.libp2p.getConnections()
-                    const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
-                    connect.close()
-                })(this)">
-                R
-                </button>
-         */
         for (const item of peerList) {
-            discovery.insertAdjacentHTML('beforeend', `<li>
+            discovery.insertAdjacentHTML('beforeend', `<li class="peerId-info">
                 <p>${item}</p>
             </li>`)
         }
@@ -501,10 +462,16 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     window.addEventListener("beforeunload", (event) => {
         // Отмените событие, как указано в стандарте.
         event.preventDefault();
-        const connections = globalThis.node.libp2p.getConnections()
-        for (let connect of connections) {
+        const publicConnections = globalThis.publicNode.libp2p.getConnections()
+        const privateConnections = globalThis.privateNode.libp2p.getConnections()
+        for (let connect of publicConnections) {
             connect.close()
         }
+
+        for (let connect of privateConnections) {
+            connect.close()
+        }
+
         event.returnValue = "";
     });
 
