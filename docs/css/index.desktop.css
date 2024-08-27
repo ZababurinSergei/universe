@@ -83,6 +83,14 @@ p {
     background: #3c344b;
 }
 
+.pubsub.left {
+    grid-area: dd;
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+}
+
 .item {
     display: flex;
     flex-direction: row;
@@ -238,12 +246,12 @@ button.refresh {
 .pubsub-item h3 {
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 .pubsub-item {
     display: flex;
     flex-direction: column;
-    /*gap: 16px;*/
 }
 
 .pubsub-item .title {
@@ -271,3 +279,6 @@ button.refresh {
     justify-content: space-between;
 }
 
+.invisible {
+    display: none;
+}
