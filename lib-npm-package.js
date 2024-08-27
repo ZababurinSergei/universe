@@ -50158,6 +50158,7 @@ export {
   createFromProtobuf,
   createLibp2p,
   exportToProtobuf,
+  fromString2 as fromString,
   identify,
   kadDHT,
   logger,
@@ -50165,6 +50166,7 @@ export {
   noise,
   ping,
   removePublicAddressesMapper,
+  toString2 as toString,
   yamux
 };
 /*! Bundled license information:

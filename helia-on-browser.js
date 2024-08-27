@@ -7,6 +7,16 @@ const urlParams = new URLSearchParams(queryString);
 const options = init()
 
 const DOM = {
+    pubsub: (type) => {
+        const root = document.querySelector('.pubsub')
+        switch (type) {
+            case 'refresh':
+                return root.querySelector('.refresh')
+            case 'ul':
+            default:
+                return root.querySelector('ul')
+        }
+    },
     private: {
         discovery: (type) => {
             const root = document.querySelector('.private-self-discovery')

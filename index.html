@@ -16,6 +16,7 @@
             "@libp2p/websockets": "./lib-websockets.js",
             "@libp2p/websockets/filters": "./lib-ws-filters.js",
             "@libp2p/webrtc-star": "./lib-webrtc-star.js",
+            "@libp2p/identify": "./lib-identify.js",
             "multiformats/cid": "./lib-multiformats.js",
             "@multiformats/multiaddr": "./lib-multiaddr.js",
             "@libp2p/peer-id-factory":"./lib-peerId-factory.js",
@@ -28,6 +29,7 @@
             "it-length-prefixed-stream": "./lib-it-length-prefixed.js",
             "it-byte-stream": "./lib-npm-package.js",
             "uint8arraylist": "./lib-npm-package.js",
+            "uint8arrays": "./lib-npm-package.js",
             "libp2p": "./lib-libp2p.js"
           }
         }
@@ -106,12 +108,11 @@
         </div>
     </div>
     <div class="pubsub">
-        <h2>фильтр</h2>
-        <ul class="public-list">
-            <li>
-                <ul class="private-list"></ul>
-            </li>
-        </ul>
+        <div class="title">
+            <h2>Фильтры</h2>
+            <button class="refresh">0</button>
+        </div>
+        <ul class="public-list"></ul>
     </div>
 </div>
 </body>

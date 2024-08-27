@@ -3,26 +3,28 @@ import {unixfs} from "@helia/unixfs";
 import {CID} from "multiformats/cid";
 import {multiaddr} from "@multiformats/multiaddr";
 // import { mdns } from '@libp2p/mdns'
-// import { createLibp2p } from 'libp2p'
+import {createLibp2p} from 'libp2p'
 // import {circuitRelayTransport} from "@libp2p/circuit-relay-v2";
 // import {webRTC, webRTCDirect} from "@libp2p/webrtc";
 // import {webTransport} from "@libp2p/webtransport";
 // import {webSockets} from "@libp2p/websockets";
 import {webRTCStar} from "@libp2p/webrtc-star";
+import {webRTC} from '@libp2p/webrtc'
 // import * as filters from "@libp2p/websockets/filters";
 import {createFromProtobuf} from '@libp2p/peer-id-factory';
 import {noise} from '@chainsafe/libp2p-noise'
 import {yamux} from '@chainsafe/libp2p-yamux'
 import {mplex} from '@libp2p/mplex'
 // import { bootstrap } from '@libp2p/bootstrap'
-// import { identify } from '@libp2p/identify'
+import {identify} from '@libp2p/identify'
 // import { kadDHT, removePublicAddressesMapper } from '@libp2p/kad-dht'
 // import { autoNAT } from '@libp2p/autonat'
 import {FaultTolerance} from '@libp2p/interface-transport'
 import {lpStream, decode, encode} from 'it-length-prefixed-stream'
-import { byteStream } from 'it-byte-stream'
+import {byteStream} from 'it-byte-stream'
 import * as varint from 'uint8-varint'
-import { Uint8ArrayList } from 'uint8arraylist'
+import {Uint8ArrayList} from 'uint8arraylist'
+import {fromString, toString} from 'uint8arrays'
 // import * as lp from 'it-length-prefixed-stream'
 
 const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
@@ -30,6 +32,7 @@ const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 // const dht = new Map()
+let pubsubPeerList = []
 export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, publicPeerId) => {
     const peerList = new Set();
 
@@ -55,20 +58,13 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
                     "/webrtc",
                     "/wss",
                     "/ws",
-                    rtcStar // see
+                    rtcStar
                 ],
             },
             transports: [
-                // webRTC(),
-                // webRTCDirect(),
-                // webTransport(),
-                // https://github.com/libp2p/js-libp2p-websockets#libp2p-usage-example
-                // webSockets({filter: filters.all}),
-                // circuitRelayTransport({discoverRelays: 1}),
                 star.transport,
             ],
             peerDiscovery: [
-                // bootstrap(bootstrapConfig),
                 star.discovery
             ],
             transportManager: {
@@ -77,6 +73,9 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
             connectionManager: {
                 autoDialInterval: 1000 //(default: 5000)
             },
+            // services: {
+            //     identify: identify()
+            // },
             // addressManager: {
             //     autoDial: true
             // },
@@ -90,76 +89,36 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
             // streamMuxers: [yamux(), mplex()],
             // https://github.com/libp2p/js-libp2p/blob/master/doc/CONFIGURATION.md#configuring-connection-gater
             connectionGater: {
-                /**
-                 * denyDialMultiaddr tests whether we're permitted to Dial the
-                 * specified peer.
-                 *
-                 * This is called by the dialer.connectToPeer implementation before
-                 * dialling a peer.
-                 *
-                 * Return true to prevent dialing the passed peer.
-                 */
                 denyDialPeer: (currentPeerId) => {
                     let connections = []
 
-                    if(privateNode) {
-                        connections = privateNode.libp2p.getConnections()
-                    }
+                    // if (privateNode) {
+                    //     connections = privateNode.libp2p.getConnections()
+                    // }
 
-                    for(let connect of connections) {
-                        if(connect.remotePeer.toString() === currentPeerId.toString()) {
-                            return  true
-                        }
-                    }
+                    // for (let connect of connections) {
+                    //     if (connect.remotePeer.toString() === currentPeerId.toString()) {
+                    //         return true
+                    //     }
+                    // }
 
-                    if(type === 'private' && publicPeerId.includes(currentPeerId.toString())) {
-                        return true
-                    }
-
-                    if(type === 'public' && !publicPeerId.includes(currentPeerId.toString())) {
-                        return true
-                    }
-
-                    // if(type === 'private' && !dht.has(currentPeerId.toString())) {
+                    // if (type === 'private' && publicPeerId.includes(currentPeerId.toString())) {
                     //     return true
                     // }
-                    // console.log('--------------------------------------------------------------------------------------', type, dht.has(currentPeerId.toString()))
-                    // console.log('ddddddddddd denyDialPeer dddddddddddddddd', type, currentPeerId.toString())
+
+                    // if (type === 'public' && !publicPeerId.includes(currentPeerId.toString())) {
+                    //     return true
+                    // }
                     return false
                 },
-                /**
-                 * denyDialMultiaddr tests whether we're permitted to dial the specified
-                 * multiaddr for the given peer.
-                 *
-                 * This is called by the dialer.connectToPeer implementation after it has
-                 * resolved the peer's addrs, and prior to dialling each.
-                 *
-                 * Return true to prevent dialing the passed peer on the passed multiaddr.
-                 */
                 denyDialMultiaddr: async (currentPeerId) => {
                     // console.log('------------------- peerId ----------------------', currentPeerId.toString())
                     return false
                 },
-                /**
-                 * denyInboundConnection tests whether an incipient inbound connection is allowed.
-                 *
-                 * This is called by the upgrader, or by the transport directly (e.g. QUIC,
-                 * Bluetooth), straight after it has accepted a connection from its socket.
-                 *
-                 * Return true to deny the incoming passed connection.
-                 */
                 denyInboundConnection: (maConn) => {
                     // console.log('dddddddddddddd denyInboundConnection dddddddddddddddddd', type, maConn)
                     return false
                 },
-                /**
-                 * denyOutboundConnection tests whether an incipient outbound connection is allowed.
-                 *
-                 * This is called by the upgrader, or by the transport directly (e.g. QUIC,
-                 * Bluetooth), straight after it has created a connection with its socket.
-                 *
-                 * Return true to deny the incoming passed connection.
-                 */
                 denyOutboundConnection: (currentPeerId, maConn) => {
                     // let connections = []
                     // if(privateNode) {
@@ -173,49 +132,18 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
                     // console.log('------------------------ denyOutboundConnection --------------------------------',type, connections, currentPeerId.toString())
                     return false
                 },
-
-                /**
-                 * denyInboundEncryptedConnection tests whether a given connection, now encrypted,
-                 * is allowed.
-                 *
-                 * This is called by the upgrader, after it has performed the security
-                 * handshake, and before it negotiates the muxer, or by the directly by the
-                 * transport, at the exact same checkpoint.
-                 *
-                 * Return true to deny the passed secured connection.
-                 */
                 denyInboundEncryptedConnection: (currentPeerId, maConn) => {
                     // if(type = 'private' && currentPeerId.toString() === peerId.toString()) {
                     //     return true
                     // } else {
-                        return false
-                        // console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@',type,  peerId, currentPeerId.toString())
+                    return false
+                    // console.log('@@@@@@@@@@@@@@@@@@ denyInboundEncryptedConnection @@@@@@@@@@@@@@@@@@@',type,  peerId, currentPeerId.toString())
                     // }
                 },
-
-                /**
-                 * denyOutboundEncryptedConnection tests whether a given connection, now encrypted,
-                 * is allowed.
-                 *
-                 * This is called by the upgrader, after it has performed the security
-                 * handshake, and before it negotiates the muxer, or by the directly by the
-                 * transport, at the exact same checkpoint.
-                 *
-                 * Return true to deny the passed secured connection.
-                 */
                 denyOutboundEncryptedConnection: (currentPeerId, maConn) => {
                     // console.log('############## denyOutboundEncryptedConnection #######################',type, currentPeerId.toString())
                     return false
                 },
-
-                /**
-                 * denyInboundUpgradedConnection tests whether a fully capable connection is allowed.
-                 *
-                 * This is called after encryption has been negotiated and the connection has been
-                 * multiplexed, if a multiplexer is configured.
-                 *
-                 * Return true to deny the passed upgraded connection.
-                 */
                 denyInboundUpgradedConnection: (currentPeerId, maConn) => {
                     // if(type === 'public' && !publicPeerId.includes(currentPeerId.toString())) {
                     //     return  true
@@ -224,32 +152,19 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
                     // console.log('$$$$$$$$$$$$$$$$$$$ denyInboundUpgradedConnection $$$$$$$$$$$$$$$$$$$$$$$$$$',type, currentPeerId.toString())
                     return false
                 },
-
-                /**
-                 * denyOutboundUpgradedConnection tests whether a fully capable connection is allowed.
-                 *
-                 * This is called after encryption has been negotiated and the connection has been
-                 * multiplexed, if a multiplexer is configured.
-                 *
-                 * Return true to deny the passed upgraded connection.
-                 */
                 denyOutboundUpgradedConnection: (currentPeerId, maConn) => {
                     // console.log('^^^^^^^^^^^^^^ denyOutboundUpgradedConnection ^^^^^^^^^^^^^^^^^^^^^', type, currentPeerId.toString())
                     return false
                 },
-
-                /**
-                 * Used by the address book to filter passed addresses.
-                 *
-                 * Return true to allow storing the passed multiaddr for the passed peer.
-                 */
                 filterMultiaddrForPeer: async (currentPeerId, multiaddr) => {
-                    if(    type === 'private' && currentPeerId.toString() === peerId.toString()
-                        || type === 'private' && currentPeerId.toString() === privatePeerId.toString()
-                        || type === 'public' && currentPeerId.toString() === privatePeerId.toString()
-                        || type === 'public' && currentPeerId.toString() === peerId.toString()) {
+                    if ( type === 'private' && currentPeerId.toString() === peerId.toString() ||
+                         type === 'private' && currentPeerId.toString() === privatePeerId.toString() ||
+                         type === 'public' && currentPeerId.toString() === privatePeerId.toString() ||
+                         type === 'public' && currentPeerId.toString() === peerId.toString()
+                        )
+                    {
                         return false
-                    } else {
+                        // }
                         // if(peerId.toString() === currentPeerId.toString()) {
                         // console.log('#################### filterMultiaddrForPeer #####################',type, {
                         //     privatePeerId: privatePeerId.toString(),
@@ -257,25 +172,72 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
                         //     currentPeerId: currentPeerId.toString()
                         // })
                         // return false
-                        // } else {
+                    } else {
                         return true
-                        // }
-                        // const res = await send(`${multiaddr.toString()}/${peerId.toString()}`, '!!!!!!!!!!!!!!!')
                     }
+                    // const res = await send(`${multiaddr.toString()}/${peerId.toString()}`, '!!!!!!!!!!!!!!!')
                 }
             }
         }
     }
 
-    if(type === 'public') {
+    if (type === 'public') {
         configNode.libp2p.peerId = peerId
     }
 
-    if(type === 'private') {
+    if (type === 'private') {
         configNode.libp2p.peerId = privatePeerId
     }
 
     const node = await helia.createHelia(configNode); // tcp network, stored on memory (not use files)
+
+    const topic = 'filter'
+
+    node.libp2p.services.pubsub.addEventListener('message', event => {
+        const topic = event.detail.topic
+        const message = JSON.parse(toString(event.detail.data))
+
+        // console.log('===================== message =====================', message)
+
+        if (!(message['public'] in pubsubPeerList)) {
+            pubsubPeerList[message['public']] = []
+        }
+
+        switch (message['type']) {
+            case 'push':
+                if (!pubsubPeerList[message['public']].includes(message['private'])) {
+                    pubsubPeerList[message['public']].push(message['private'])
+                }
+                break
+        }
+    })
+
+    // if(type === 'private') {
+    //     DOM.dialMultiaddrButton().onclick = async () => {
+    //         const ma = multiaddr('/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWRso2mreG6EpMxh6u2Zfy9GM5A4hHBojBdyNmtJtdxuNB')
+    //
+    //         console.log('sssssssssssssssssss', ma)
+    //         appendOutput(`Dialing '${ma}'`)
+    // await node.libp2p.dial(ma)
+    // appendOutput(`Connected to '${ma}'`)
+    // }
+    // }
+
+    // if (type === 'public') {
+    await node.libp2p.services.pubsub.subscribe(topic)
+    // }
+    //
+    setInterval(async () => {
+        const peerListData = node.libp2p.services.pubsub.getSubscribers(topic)
+
+        if (peerListData.length !== 0) {
+            await node.libp2p.services.pubsub.publish(topic, fromString(JSON.stringify({
+                type: 'push',
+                public: peerId.toString(),
+                private: privatePeerId.toString()
+            })))
+        }
+    }, 500)
 
     const nodeFs = unixfs(node);
 
@@ -283,8 +245,6 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
 
     DOM.info(type).textContent = node.libp2p.peerId.toString()
     let ma = DOM.ma(type)
-
-    // console.log('ssssssssssssssssssssss', node.libp2p.peerRouting)
 
     for (let item of node.libp2p.getMultiaddrs()) {
         ma.insertAdjacentHTML('beforeend', `<li>${item}</li>`)
@@ -294,6 +254,7 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
 
     //---------------------------------------------------------------------------
     node.libp2p.addEventListener('connection:open', (event) => {
+        // console.log('dddddddddddddddddddddddd', type, node.libp2p.services.identify)
         // const peerInfo = evt.detail
         // console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', {
         //     id: event.detail.id,
@@ -313,7 +274,10 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
         // console.log('[[[[[[[ LISTENER ]]]]]]] connection:prune', event.detail)
     })
 
-    node.libp2p.addEventListener('peer:connect', (event) => {
+    node.libp2p.addEventListener('peer:connect', async (event) => {
+        // const peerList = node.libp2p.services.pubsub.getSubscribers(topic)
+        // console.log('-----------------------------------', peerList)
+        // await node.libp2p.services.pubsub.publish(topic, fromString('test'))
         // peerList.add(peerId.toString())
         // for (const item of peerList) {
         //     const discovery = DOM.discovery()
@@ -321,12 +285,14 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         DOM[type].discovery('refresh').click()
+        DOM.pubsub('refresh').click()
         // console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:disconnect', (event) => {
         peerList.delete(event.detail.toString())
         DOM[type].discovery('refresh').click()
+        DOM.pubsub('refresh').click()
         // const peerId = event.detail?.toString()
         // if(peerList.has(peerId)) {
         //     peerList.delete(peerId);
@@ -386,9 +352,10 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
     })
 
     node.libp2p.addEventListener('self:peer:update', (event) => {
-        if(event.detail.peer.addresses.length !== 0) {
-            // console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update 2', event.detail.peer.id.toString(), event.detail.peer.addresses[0])
-        }
+        DOM.pubsub('refresh').click()
+        // if (event.detail.peer.addresses.length !== 0) {
+        console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update 2', event.detail)
+        // }
     })
 
     node.libp2p.addEventListener('start', (evt) => {
@@ -467,6 +434,34 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
 
     globalThis.node = node
 
+    DOM.pubsub('refresh').addEventListener('click', async (event) => {
+        if (type === 'public') {
+            const root = DOM.pubsub()
+            root.innerHTML = ''
+            for (let key in pubsubPeerList) {
+                const li = document.createElement('li')
+                const h3 = document.createElement('h3')
+                const container = document.createElement('ul')
+
+                li.className = 'pubsub-item'
+                container.className = 'pubsub-container'
+                h3.textContent = key
+
+                for (let item of pubsubPeerList[key]) {
+                    const itemLi = document.createElement('li')
+                    itemLi.className = 'pubsub-item-peerId'
+                    itemLi.textContent = item
+                    container.appendChild(itemLi)
+                }
+
+                li.appendChild(h3)
+                li.appendChild(container)
+                root.appendChild(li)
+            }
+        }
+
+    })
+
     discoveryRefresh.addEventListener('click', async (event) => {
         const discovery = DOM[type].discovery()
 
@@ -481,9 +476,8 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
             count++
         }
 
-        for (const item of peerList) {
-            discovery.insertAdjacentHTML('beforeend', `<li>
-                <p>${item}</p>
+        /*
+
                 <button class="delete" data-peer-id="${item}" onclick="((button) => {
                     const connections = globalThis.node.libp2p.getConnections()
                     const connect = connections.find(item => item.remotePeer.toString() === button.dataset.peerId)
@@ -491,6 +485,10 @@ export const createNode = async (DOM, type, peerId, privatePeerId, privateNode, 
                 })(this)">
                 R
                 </button>
+         */
+        for (const item of peerList) {
+            discovery.insertAdjacentHTML('beforeend', `<li>
+                <p>${item}</p>
             </li>`)
         }
 

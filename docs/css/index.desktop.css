@@ -208,7 +208,7 @@ button.refresh {
     cursor: pointer;
 }
 
-.discovery .title, .private-self-discovery .title {
+.title {
     display: flex;
     flex-direction: row;
     gap: 0.83vw;
@@ -231,4 +231,20 @@ button.refresh {
     padding: 0.42vw;
     background: #3c344b;
     cursor: pointer;
+}
+
+.pubsub-item h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.pubsub-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pubsub-container {
+    box-sizing: border-box;
+    padding-left: 32px;
 }

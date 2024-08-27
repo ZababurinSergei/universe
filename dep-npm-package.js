@@ -13,3 +13,4 @@ export { circuitRelayServer, circuitRelayTransport } from '@libp2p/circuit-relay
 export { ping } from '@libp2p/ping'
 export { byteStream } from 'it-byte-stream'
 export { Uint8ArrayList } from 'uint8arraylist'
+export { fromString, toString } from 'uint8arrays'
