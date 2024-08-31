@@ -4458,6 +4458,7 @@ jQuery.event = {
 			delegateCount = handlers.delegateCount,
 			cur = event.target;
 
+		console.log('############*************************')
 		// Find delegate handlers
 		// Black-hole SVG <use> instance trees (#13180)
 		// Avoid non-left-click bubbling in Firefox (#3861)

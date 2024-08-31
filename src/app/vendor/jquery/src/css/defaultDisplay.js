@@ -35,6 +35,7 @@ function actualDisplay( name, doc ) {
  * @param {String} nodeName
  */
 function defaultDisplay( nodeName ) {
+	console.log('$$$$$$$$$$$$$$$$$$$$$%%%%%%%%%%%%%%#######################')
 	var doc = document,
 		display = elemdisplay[ nodeName ];
 

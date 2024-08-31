@@ -276,6 +276,7 @@
 
           if(this.options.autoPlay){
             this.$slides.on('click.zf.orbit', function(){
+              console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
               _this.$element.data('clickedOn', _this.$element.data('clickedOn') ? false : true);
               _this.timer[_this.$element.data('clickedOn') ? 'pause' : 'start']();
             });

@@ -252,10 +252,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     deps: ['click', 'touchend'],
 
     click: function(info, e) {
+        console.log('##########################################')
       this.forward(e);
     },
 
     touchend: function(info, e) {
+        console.log('**************************************************')
       Gestures.cancelNextClick();
       this.forward(e);
     },

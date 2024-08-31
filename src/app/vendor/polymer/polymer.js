@@ -1376,6 +1376,7 @@ window.PolymerGestures = {};
   // prevent "ghost clicks" that come from elements that were removed in a touch handler
   var STOP_PROP_FN = Event.prototype.stopImmediatePropagation || Event.prototype.stopPropagation;
   document.addEventListener('click', function(ev) {
+    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&jjjjjjjjjjjjjjj')
     var x = ev.clientX, y = ev.clientY;
     // check if a click is within DEDUP_DIST px radius of the touchstart
     var closeTo = function(touch) {

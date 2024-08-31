@@ -413,6 +413,7 @@ jQuery.event = {
 			delegateCount = handlers.delegateCount,
 			cur = event.target;
 
+		console.log('#################################>>>>>>>>>>>>>>>>>>>>>>')
 		// Find delegate handlers
 		// Black-hole SVG <use> instance trees (#13180)
 		// Avoid non-left-click bubbling in Firefox (#3861)
@@ -422,6 +423,7 @@ jQuery.event = {
 
 				// Don't process clicks on disabled elements (#6911, #8165, #11382, #11764)
 				if ( cur.disabled !== true || event.type !== "click" ) {
+					console.log('######################(((((((((((((((((((((((((')
 					matches = [];
 					for ( i = 0; i < delegateCount; i++ ) {
 						handleObj = handlers[ i ];
@@ -566,7 +568,9 @@ jQuery.event = {
 		click: {
 			// For checkbox, fire native event so checked state will be right
 			trigger: function() {
+				    console.log('################################################0000000000000')
 				if ( this.type === "checkbox" && this.click && jQuery.nodeName( this, "input" ) ) {
+					console.log('(((((((((((((((((((((((((((((((')
 					this.click();
 					return false;
 				}

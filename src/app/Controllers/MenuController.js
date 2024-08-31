@@ -69,6 +69,7 @@ function(
     },
 
     onClick: function(e) {
+      console.log('################################################################ >>>>>>>>>>>>>>>>>>>>>>>>>>>>')
       var id = Number.parseInt(e.currentTarget.dataset.id);
       var target = this.matchTarget(id);
 

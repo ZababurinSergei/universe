@@ -1,7 +1,6 @@
 define(
 [
   'vendor/httprequest/httprequest',
-  'Modules/ThirdPartyScripts',
   'Modules/Detector',
   'Modules/TemplateLoader',
   'Factory/SolarSystemFactory',
@@ -9,7 +8,6 @@ define(
 ],
 function(
   HttpRequest,
-  ThirdPartyScripts,
   Detector,
   TemplateLoader,
   SolarSystemFactory,
@@ -34,19 +32,18 @@ function(
     });
   }
 
-  function notifyGa(category, action, label) {
-    ga('send', 'event', category, action, label);
-
-    console.log('Event:', category, '-', action, '-',label);
-  }
+  // function notifyGa(category, action, label) {
+    // ga('send', 'event', category, action, label);
+    // console.log('Event:', category, '-', action, '-',label);
+  // }
 
   if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
-    notifyGa('Compatibility Check', 'Fail', window.navigator.userAgent);
+    // notifyGa('Compatibility Check', 'Fail', window.navigator.userAgent);
     return;
   }
 
-  notifyGa('Compatibility Check', 'Pass', window.navigator.userAgent);
+  // notifyGa('Compatibility Check', 'Pass', window.navigator.userAgent);
 
   var solarSystemData = null;
   var templateLoader = new TemplateLoader();

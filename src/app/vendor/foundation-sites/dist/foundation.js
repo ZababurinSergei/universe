@@ -5721,6 +5721,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     if(this.options.deepLink){
       var hash = '#' + this.id;
 
+      console.log('********************************************************')
       if(window.history.pushState){
         window.history.pushState(null, null, hash);
       }else{
@@ -5895,6 +5896,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
           'width': ''
         });
       }
+      console.log('******************************####################&&&&&&&&&&&&&&&&&&&&&&')
       $('body').removeClass('is-reveal-open').attr({'aria-hidden': false, 'tabindex': ''});
       _this.$element.attr({'aria-hidden': true})
       /**
