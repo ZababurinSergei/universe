@@ -10,7 +10,6 @@ const urlParams = new URLSearchParams(queryString);
 export default async () => {
     try {
 
-        debugger
         const ships = []
         ships.push('cobra')
         ships.push('discovery')
