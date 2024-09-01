@@ -29,3 +29,10 @@
 .active-button {
     background: #566262b5!important;
 }
+
+.container-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 256px;
+}

@@ -126,9 +126,9 @@ export default async () => {
             options.change(options.planet[8])
             break
         default:
-            namespace.PeerId = './peerId_sun.proto'
+            namespace.PeerId = './peerId_solar_system.proto'
             namespace.planet = 'sun'
-            DOM.planet().textContent = 'Солнце'
+            DOM.planet().textContent = 'Солнечная система'
             break
     }
 

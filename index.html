@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Solar System</title>
+    <title>Солничная система</title>
     <meta name="description"
           content="This is a project powered by Three.js and WebGL. All objects have been modeled to scale based on real astronomical data. The scene currently renders the sun, all eight planets (nine if you side with Pluto being a planet), each planet's moons, the asteriod belt and thousands of stars.">
     <meta name="keywords"
@@ -48,11 +48,17 @@
 <template>
     <style> @import url('./docs/css/shadow/index.shadow.css'); </style>
     <div class="container">
+        <div class="system-modal">
+            <slot name="system-modal"></slot>
+        </div>
         <div class="container-slot">
             <slot name="solar-system"></slot>
         </div>
         <div class="container-info">
             <div class="peerInfo">
+                <div class="help-section">
+                    <slot name="help-section"></slot>
+                </div>
                 <div class="item planet">
                     <p>Планета</p>
                     <span></span>
@@ -72,6 +78,24 @@
                 <div class="item private_ma">
                     <p>Закрытый Канал</p>
                     <ul class="ma_p"></ul>
+                </div>
+                <div class="webrtc-direct">
+                    <div class="item">
+                        <p>Корабль-1</p>
+                        <span class="ship-1-name"></span>
+                        <div class="ship-id">
+                            <span class="ship-id-1_public"></span>
+                            <span class="ship-id-1_private"></span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Корабль-2</p>
+                        <span class="ship-2-name"></span>
+                        <div class="ship-id">
+                            <span class="ship-id-2_public"></span>
+                            <span class="ship-id-2_private"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="private-self-discovery invisible">
@@ -125,35 +149,44 @@
         </div>
     </div>
 </template>
-<!--<div id="info" class="reveal info-modal" data-reveal data-close-on-click="true">-->
-<!--    <div class="project-info row collapse">-->
-<!--        <h3>Project Info</h3>-->
-<!--        &lt;!&ndash;            <span class="small-3 columns">Universe Scale</span><span class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <span class="small-3 columns">Orbit Scale</span><span&ndash;&gt;-->
-<!--        &lt;!&ndash;                class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <span class="small-3 columns">Celestial Scale</span><span class="small-9 columns">1.2589254 &times; 10<sup>-4</sup></span>&ndash;&gt;-->
-<!--    </div>-->
+<div slot="help-section" class="help-section">
+    <i data-open="info" class="fi-info"></i>
+</div>
+<div id="info" slot="system-modal" class="reveal info-modal" data-reveal data-close-on-click="true">
+    <div class="project-info row collapse">
+        <h3>Project Info</h3>
+        <!--            <span class="small-3 columns">Universe Scale</span><span class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>-->
+        <!--            <span class="small-3 columns">Orbit Scale</span><span-->
+        <!--                class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>-->
+        <!--            <span class="small-3 columns">Celestial Scale</span><span class="small-9 columns">1.2589254 &times; 10<sup>-4</sup></span>-->
+    </div>
 
-<!--    <div class="project-info row collapse">-->
-<!--        <h3>Controls</h3>-->
-<!--        <menu class="project-info-menu">-->
-<!--            <a id="project-info-menu" class="button large network" data-change="admin">Network</a>-->
-<!--            <a id="project-info-planet" class="button large map active-button" data-change="map">Map</a>-->
-<!--            &lt;!&ndash;                <a id="project-info-system" class="button large" data-change="system">System</a>&ndash;&gt;-->
-<!--        </menu>-->
-<!--        &lt;!&ndash;            <span class="small-12 columns">Use your mouse or trackpad to navigate the scene. To zoom, use a scroll motion. When viewing a planet, you can move around a planet using a click + drag motion.</span>&ndash;&gt;-->
-<!--    </div>-->
+    <div class="project-info row collapse">
+        <h3>Controls</h3>
+        <menu class="project-info-menu">
+            <a id="project-info-menu" class="button large network" data-change="admin">Network</a>
+            <a id="project-info-planet" class="button large map active-button" data-change="map">Map</a>
+            <!--                <a id="project-info-system" class="button large" data-change="system">System</a>-->
+        </menu>
+        <!--            <span class="small-12 columns">Use your mouse or trackpad to navigate the scene. To zoom, use a scroll motion. When viewing a planet, you can move around a planet using a click + drag motion.</span>-->
+    </div>
 
-<!--    <div class="project-info-footer">-->
-<!--        <a id="info-got-it" class="button large" data-close="info">Close</a>-->
-<!--    </div>-->
-<!--    <button class="close-button" data-close aria-label="Close modal" type="button">-->
-<!--        <span aria-hidden="true">&times;</span>-->
-<!--    </button>-->
-<!--</div>-->
+    <div class="project-info-footer">
+        <a id="info-got-it" class="button large" data-close="info">Close</a>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <div slot="solar-system" class="solar-system">
     <div class="container-main">
-        <div id="menu" class="menu"></div>
+        <div class="container-menu">
+            <div id="menu" class="menu"></div>
+            <div class="help-section">
+                <i data-open="info" class="fi-info"></i>
+            </div>
+        </div>
+
         <div id="moons" class="moons"></div>
         <div id="current-target-title" class="current-target-title active">Solar System</div>
         <div id="toggle-effects" class="toggle-effects">
@@ -163,9 +196,6 @@
                     <span>Orbit Color Effects</span>
                 </label>
             </div>
-        </div>
-        <div class="help-section">
-            <i data-open="info" class="fi-info"></i>
         </div>
         <div class="intro-screen">
             <div class="intro-text">
@@ -236,38 +266,38 @@
         </button>
         <span>
                 <a id="browser-compatibility-got-it" class="button large" data-close="browser-compatibility-modal">Got It</a>
-            </span>
+        </span>
         <span>
                 <a href="https://kangax.github.io/compat-table/es6/" class="button large es6-feature-link">ES6 feature support</a>
-            </span>
+        </span>
     </div>
 
-    <div id="info" class="reveal info-modal" data-reveal data-close-on-click="true">
-        <div class="project-info row collapse">
-            <h3>Project Info</h3>
-            <!--            <span class="small-3 columns">Universe Scale</span><span class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>-->
-            <!--            <span class="small-3 columns">Orbit Scale</span><span-->
-            <!--                class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>-->
-            <!--            <span class="small-3 columns">Celestial Scale</span><span class="small-9 columns">1.2589254 &times; 10<sup>-4</sup></span>-->
-        </div>
+<!--    <div id="info" class="reveal info-modal" data-reveal data-close-on-click="true">-->
+<!--        <div class="project-info row collapse">-->
+<!--            <h3>Project Info</h3>-->
+<!--            &lt;!&ndash;            <span class="small-3 columns">Universe Scale</span><span class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <span class="small-3 columns">Orbit Scale</span><span&ndash;&gt;-->
+<!--            &lt;!&ndash;                class="small-9 columns">6.30957344 &times; 10<sup>-5</sup></span>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <span class="small-3 columns">Celestial Scale</span><span class="small-9 columns">1.2589254 &times; 10<sup>-4</sup></span>&ndash;&gt;-->
+<!--        </div>-->
 
-        <div class="project-info row collapse">
-            <h3>Controls</h3>
-            <menu class="project-info-menu">
-                <a id="project-info-menu" class="button large network" data-change="admin">Network</a>
-                <a id="project-info-planet" class="button large map active-button" data-change="map">Map</a>
-                <!--                <a id="project-info-system" class="button large" data-change="system">System</a>-->
-            </menu>
-            <!--            <span class="small-12 columns">Use your mouse or trackpad to navigate the scene. To zoom, use a scroll motion. When viewing a planet, you can move around a planet using a click + drag motion.</span>-->
-        </div>
+<!--        <div class="project-info row collapse">-->
+<!--            <h3>Controls</h3>-->
+<!--            <menu class="project-info-menu">-->
+<!--                <a id="project-info-menu" class="button large network" data-change="admin">Network</a>-->
+<!--                <a id="project-info-planet" class="button large map active-button" data-change="map">Map</a>-->
+<!--                &lt;!&ndash;                <a id="project-info-system" class="button large" data-change="system">System</a>&ndash;&gt;-->
+<!--            </menu>-->
+<!--            &lt;!&ndash;            <span class="small-12 columns">Use your mouse or trackpad to navigate the scene. To zoom, use a scroll motion. When viewing a planet, you can move around a planet using a click + drag motion.</span>&ndash;&gt;-->
+<!--        </div>-->
 
-        <div class="project-info-footer">
-            <a id="info-got-it" class="button large" data-close="info">Close</a>
-        </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+<!--        <div class="project-info-footer">-->
+<!--            <a id="info-got-it" class="button large" data-close="info">Close</a>-->
+<!--        </div>-->
+<!--        <button class="close-button" data-close aria-label="Close modal" type="button">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--    </div>-->
 
     <div id="tutorial" class="reveal tutorial-modal" data-reveal data-close-on-click="true">
         <h3>Controls</h3>
@@ -303,7 +333,11 @@
     <script type="text/javascript" src="src/app/vendor/three.js/three.min.js"></script>
     <script data-main="./src/app/app" src="src/app/vendor/requirejs/require.js"></script>
 </div>
+</body>
 <script type="module">
+    import ship from './helia-webrtc-direct-init.mjs'
+    import instance from './helia-on-browser.mjs'
+
     const DOM = {
         control: (type) => {
             const root = document.body.shadowRoot.querySelector('.container')
@@ -341,13 +375,10 @@
         DOM.menu('map').addEventListener('click', (event) => {
             DOM.menu('network').classList.remove('active-button')
             DOM.menu('map').classList.add('active-button')
-
             DOM.control('network').classList.add('active-button')
             DOM.control('map').classList.remove('active-button')
         })
     });
-
-    import instance from './helia-on-browser.mjs'
 
     const root = document.body
     const shadow = root.attachShadow({mode: 'open'});
@@ -355,5 +386,6 @@
     shadow.appendChild(template.content)
     template.remove()
     instance()
+    ship()
 </script>
 </html>

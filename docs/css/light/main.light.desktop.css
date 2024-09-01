@@ -6288,7 +6288,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     font-size: 1rem;
-    z-index: 3;
+    z-index: 103;
     background: black;
     padding-top: 20px;
 }
@@ -6449,10 +6449,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .help-section {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 256px;
-    z-index: 1;
+    right: -32px;
+    z-index: 100;
     cursor: pointer;
 }
 

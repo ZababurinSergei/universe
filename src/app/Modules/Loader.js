@@ -66,6 +66,33 @@ function(
 
     solarsystem.fadeOut();
 
+    $('.inner').slideUp(500, ()=> {
+      progressPrompt.addClass('active');
+
+      solarSystemFactory.build(solarSystemData).then(()=> {
+        introScreen.fadeOut(2000, ()=> {
+          introScreen.remove();
+          solarsystem.fadeIn(2000, ()=> {
+            var seenModal = false;
+
+            if (window.localStorage) {
+              seenModal = localStorage.getItem('seenModal');
+            }
+
+            if (!seenModal) {
+              $('#tutorial').foundation('open');
+
+              $('#tutorial-got-it').on('click', ()=> {
+                if (window.localStorage) {
+                  localStorage.setItem('seenModal', 'true');
+                }
+              });
+            }
+          });
+        });
+      });
+    })
+
     renderButton.one('click', ()=> {
       $('.inner').slideUp(500, ()=> {
         progressPrompt.addClass('active');

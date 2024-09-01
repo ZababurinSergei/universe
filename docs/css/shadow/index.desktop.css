@@ -20,6 +20,7 @@ p {
 
 .container-info {
     position: absolute;
+    visibility: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -32,7 +33,7 @@ p {
         "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
         "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
         "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
-        "bb bb bb bb aa aa aa a5 d1 d1 d1 d1 d1"
+        "c1 c1 c1 c1 aa aa aa a5 d1 d1 d1 d1 d1"
         "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
         "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
@@ -111,11 +112,11 @@ p {
 }
 
 label {
-    background: #3c344b;
+    /*background: #3c344b;*/
 }
 
 .item p {
-    background: #3c344b;
+    /*background: #3c344b;*/
     min-width: 6.25vw;
     border-radius: 0.83vw;
 }
@@ -308,4 +309,9 @@ button.refresh {
 
 .active-button {
     z-index: 100;
+    visibility: unset;
+}
+
+.ship-1-name, .ship-2-name {
+    min-width: 4vw;
 }
