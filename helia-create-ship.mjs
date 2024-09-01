@@ -1,4 +1,4 @@
-import createShip from './'
+import createShip from './helia-webrtc-create-node.mjs'
 
 import { createEd25519PeerId, createFromProtobuf} from './lib-peerId-factory.js';
 // import init from './PixelPlanets/out.mjs'
@@ -10,6 +10,7 @@ const urlParams = new URLSearchParams(queryString);
 export default async () => {
     try {
 
+        debugger
         const ships = []
         ships.push('cobra')
         ships.push('discovery')
