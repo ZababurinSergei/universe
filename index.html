@@ -80,22 +80,103 @@
                     <ul class="ma_p"></ul>
                 </div>
                 <div class="webrtc-direct">
-                    <div class="item">
-                        <p>Корабль-1</p>
-                        <span class="ship-1-name"></span>
-                        <div class="ship-id">
-                            <span class="ship-id-1_public"></span>
-                            <span class="ship-id-1_private"></span>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <p>Корабль-2</p>
-                        <span class="ship-2-name"></span>
-                        <div class="ship-id">
-                            <span class="ship-id-2_public"></span>
-                            <span class="ship-id-2_private"></span>
-                        </div>
-                    </div>
+                    <h2> Собственные корабли</h2>
+                    <ul class="group-ships">
+                        <li class="group-ships-item">
+                            <div class="command-group">
+                                <div class="command-group-title">
+                                    <p>M-1</p>
+                                    <span class="ship-id-1_private"></span>
+                                </div>
+                                <select class="command-group-select">
+                                    <option value=""></option>
+                                    <option value="Патрулировать">Патрулировать</option>
+                                    <option value="Следовать">Следовать</option>
+                                    <option value="Следить">Следить</option>
+                                    <option value="Сгруппироваться">Сгруппироваться</option>
+                                    <option value="Торговать">Торговать</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <span class="ship-1-name"></span>
+                                <div class="ship-id">
+                                    <span class="ship-id-1_public"></span>
+                                </div>
+                            </div>
+                        </li>
+                      <li class="group-ships-item">
+                          <div class="command-group">
+                              <div class="command-group-title">
+                                  <p>M-2</p>
+                                  <span class="ship-id-2_private"></span>
+                              </div>
+                              <select class="command-group-select">
+                                  <option value=""></option>
+                                  <option value="Патрулировать">Патрулировать</option>
+                                  <option value="Следовать">Следовать</option>
+                                  <option value="Следить">Следить</option>
+                                  <option value="Сгруппироваться">Сгруппироваться</option>
+                                  <option value="Торговать">Торговать</option>
+                              </select>
+                          </div>
+                          <div class="item">
+                              <span class="ship-2-name"></span>
+                              <div class="ship-id">
+                                  <span class="ship-id-2_public"></span>
+                              </div>
+                          </div>
+                      </li>
+                    </ul>
+                </div>
+
+                <div class="own-stations">
+                    <h2> Собственные станции</h2>
+                    <ul class="group-ships">
+                        <li class="group-ships-item">
+                            <div class="command-group">
+                                <div class="command-group-title">
+                                    <p>M-1</p>
+                                    <span class="ship-id-1_private"></span>
+                                </div>
+                                <select class="command-group-select">
+                                    <option value=""></option>
+                                    <option value="Патрулировать">Патрулировать</option>
+                                    <option value="Следовать">Следовать</option>
+                                    <option value="Следить">Следить</option>
+                                    <option value="Сгруппироваться">Сгруппироваться</option>
+                                    <option value="Торговать">Торговать</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <span class="ship-1-name"></span>
+                                <div class="ship-id">
+                                    <span class="ship-id-1_public"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="group-ships-item">
+                            <div class="command-group">
+                                <div class="command-group-title">
+                                    <p>M-2</p>
+                                    <span class="ship-id-2_private"></span>
+                                </div>
+                                <select class="command-group-select">
+                                    <option value=""></option>
+                                    <option value="Патрулировать">Патрулировать</option>
+                                    <option value="Следовать">Следовать</option>
+                                    <option value="Следить">Следить</option>
+                                    <option value="Сгруппироваться">Сгруппироваться</option>
+                                    <option value="Торговать">Торговать</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <span class="ship-2-name"></span>
+                                <div class="ship-id">
+                                    <span class="ship-id-2_public"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="private-self-discovery invisible">
@@ -335,7 +416,7 @@
 </div>
 </body>
 <script type="module">
-    import ship from './helia-create-ship.mjs'
+    import interfaceShip from './helia-webrtc-create-interface-ship.mjs'
     import instance from './helia-on-browser.mjs'
 
     const DOM = {
@@ -386,6 +467,6 @@
     shadow.appendChild(template.content)
     template.remove()
     instance()
-    ship()
+   const interfaceShips = await interfaceShip()
 </script>
 </html>

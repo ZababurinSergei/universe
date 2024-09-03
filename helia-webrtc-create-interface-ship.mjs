@@ -1,4 +1,4 @@
-import createShip from './helia-webrtc-create-node.mjs'
+import createShip from './helia-webrtc-create-ship.mjs'
 
 import { createEd25519PeerId, createFromProtobuf} from './lib-peerId-factory.js';
 // import init from './PixelPlanets/out.mjs'

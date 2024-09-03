@@ -1,6 +1,6 @@
 import { createEd25519PeerId, createFromProtobuf} from './lib-peerId-factory.js';
 // import init from './PixelPlanets/out.mjs'
-import {createNode} from './helia-instance-webrtc.js'
+import {createNode} from './helia-webrtc-create-node-station.js'
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -8,7 +8,7 @@ const urlParams = new URLSearchParams(queryString);
 export default async (typeShip) => {
     const DOM = {
         webrtcDirect: (type) => {
-            const root = document.body.shadowRoot.querySelector('.webrtc-direct')
+            const root = document.body.shadowRoot.querySelector('.own-stations')
             switch (type) {
                 case 'ship-1_name':
                     return root.querySelector('.ship-1-name')
@@ -78,8 +78,13 @@ export default async (typeShip) => {
             private: null
         }
 
-        node.private = await createNode(DOM, 'private', publicPeerId, privatePeerId)
-        node.public = await createNode(DOM, 'public', publicPeerId, privatePeerId)
+        console.log('==============',typeShip, {
+            private: privatePeerId,
+            public: publicPeerId
+        })
+
+        node.private = await createNode(DOM, 'private', publicPeerId, privatePeerId, typeShip)
+        node.public = await createNode(DOM, 'public', publicPeerId, privatePeerId, typeShip)
 
         return node
     } else {

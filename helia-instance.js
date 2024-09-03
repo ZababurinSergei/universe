@@ -300,7 +300,7 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
     node.libp2p.addEventListener('self:peer:update', (event) => {
         // DOM.pubsub('refresh').click()
         // if (event.detail.peer.addresses.length !== 0) {
-        console.log('[[[[[[[ LISTENER ]]]]]]] self:peer:update', event.detail)
+        console.log(`Advertising with a relay address of ${node.libp2p.getMultiaddrs()[0].toString()}`)
         // }
     })
 

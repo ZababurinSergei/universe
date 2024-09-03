@@ -121,6 +121,11 @@ label {
     border-radius: 0.83vw;
 }
 
+.webrtc-direct .item p {
+    /*background: #3c344b;*/
+    min-width: 3vw;
+}
+
 .item span {
     /*background: #3c344b;*/
     border-radius: 0.83vw;
@@ -314,4 +319,46 @@ button.refresh {
 
 .ship-1-name, .ship-2-name {
     min-width: 4vw;
+}
+
+.group-ships {
+    gap: 24px;
+}
+
+.group-ships-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+    padding: 8px;
+    background: #00000061;
+    border-radius: 8px;
+}
+
+.command-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.command-group-select {
+    width: 100%;
+    font-size: 0.83vw;
+    box-sizing: border-box;
+    padding: 0.42vw 0;
+    border-radius: 0.3vw;
+    color: white;
+    background: #3c344b;
+}
+
+.command-group-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.command-group-title p {
+    width: min-content;
+    min-width: max-content;
 }
