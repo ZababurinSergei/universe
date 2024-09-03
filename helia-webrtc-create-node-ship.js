@@ -31,7 +31,7 @@ const rtcStar = "/dns4/webrtc-star.onrender.com/tcp/443/wss/p2p-webrtc-star"
 // const rtcStar =  '/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star/'
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-globalThis.pubsubPeerList = []
+
 export const createNode = async (DOM, type, publicPeerId, privatePeerId, typeShip) => {
     const shipList = new Set();
 

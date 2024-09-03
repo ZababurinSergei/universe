@@ -21,8 +21,6 @@ export default async () => {
 
         ship.discovery = await createShip('discovery')
         ship.cobra = await createShip('cobra')
-
-        console.log('================== ship ==================', ship)
     } catch (e) {
 
         console.error('================== ship ==================', e)

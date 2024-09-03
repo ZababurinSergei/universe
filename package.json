@@ -56,7 +56,7 @@
   },
   "scripts": {
     "start": "node webRtcStar.mjs",
-    "server": "nodemon ./server.mjs",
+    "server": "node ./server.mjs",
     "test:relay": "node ./test/relay.mjs",
     "build:npm-package": "esbuild dep-npm-package.js --bundle --sourcemap --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-npm-package.js",
     "build:helia": "esbuild dep-helia.js --bundle --format=esm --target=chrome114 --define:global=window --keep-names --outfile=lib-helia.js",

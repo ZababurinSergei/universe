@@ -189,14 +189,6 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
 
     //---------------------------------------------------------------------------
     node.libp2p.addEventListener('connection:open', (event) => {
-        // console.log('dddddddddddddddddddddddd', type, node.libp2p.services.identify)
-        // const peerInfo = evt.detail
-        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:open', {
-        //     id: event.detail.id,
-        //     remotePeer: event.detail.remotePeer.toString(),
-        //     remoteAddr: event.detail.remoteAddr.toString(),
-        //     detail: event.detail.stat.status
-        // })
     })
 
     node.libp2p.addEventListener('connection:close', (event) => {
@@ -411,6 +403,7 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
 
                 return items
             }
+
             for (let key in globalThis.pubsubPeerList) {
                 root.insertAdjacentHTML('beforeend', `
                     <li class="pubsub-item">
