@@ -202,7 +202,7 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
     node.libp2p.addEventListener('connection:close', (event) => {
         const currentPeerId = publicPeerId.toString()
         const peerInfo = event.detail.remotePeer.toString()
-        console.log('[[[[[[[ LISTENER ]]]]]]] connection:close',type, peerInfo)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] connection:close',type, peerInfo)
 
         if(globalThis.pubsubPeerList.hasOwnProperty(currentPeerId)) {
            globalThis.pubsubPeerList[currentPeerId] = globalThis.pubsubPeerList[currentPeerId].filter(item => item !== peerInfo)
@@ -233,7 +233,7 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
         // }
         DOM[type].discovery('refresh').click()
         // DOM.pubsub('refresh').click()
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:connect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:disconnect', (event) => {
@@ -252,7 +252,7 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
         //     discovery.insertAdjacentHTML('beforeend', `<li>${peerId.toString()}</li>`)
         // }
         // const peerInfo = event.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', event.detail.toString())
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:disconnect', event.detail.toString())
     })
 
     node.libp2p.addEventListener('peer:discovery', (evt) => {
@@ -280,7 +280,7 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
         //         console.log('[[[[[[[ LISTENER ]]]]]]] peer:update PREVIOUSE isCertified', item.isCertified)
         //     }
         // }
-        console.log('[[[[[[[ LISTENER ]]]]]]] peer:update')
+        // console.log('[[[[[[[ LISTENER ]]]]]]] peer:update')
         // console.log('[[[[[[[ LISTENER ]]]]]]] peer:update', {
         //     peer: {
         //         self: event.detail.peer.addresses,
@@ -309,18 +309,18 @@ export const createNode = async (DOM, type, publicPeerId, privatePeerId) => {
     })
 
     node.libp2p.addEventListener('stop', (evt) => {
-        console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] stop', event.detail)
     })
 
     node.libp2p.addEventListener('transport:close', (event) => {
         // DOM.pubsub('refresh').click()
         // const peerInfo = evt.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:close', event.detail)
     })
 
     node.libp2p.addEventListener('transport:listening', (event) => {
         // const peerInfo = evt.detail
-        console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
+        // console.log('[[[[[[[ LISTENER ]]]]]]] transport:listening', event.detail)
     })
 
     const proto = "/my-echo/0.1";

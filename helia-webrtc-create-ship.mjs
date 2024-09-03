@@ -1,6 +1,6 @@
 import { createEd25519PeerId, createFromProtobuf} from './lib-peerId-factory.js';
 // import init from './PixelPlanets/out.mjs'
-import {createNode} from './helia-webrtc-create-node.js'
+import {createNode} from './helia-webrtc-create-node-ship.js'
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

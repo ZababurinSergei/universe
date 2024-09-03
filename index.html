@@ -89,7 +89,7 @@
                                     <span class="ship-id-1_private"></span>
                                 </div>
                                 <select class="command-group-select">
-                                    <option value=""></option>
+                                    <option value="">Выберите действие</option>
                                     <option value="Патрулировать">Патрулировать</option>
                                     <option value="Следовать">Следовать</option>
                                     <option value="Следить">Следить</option>
@@ -111,7 +111,7 @@
                                   <span class="ship-id-2_private"></span>
                               </div>
                               <select class="command-group-select">
-                                  <option value=""></option>
+                                  <option value="">Выберите действие</option>
                                   <option value="Патрулировать">Патрулировать</option>
                                   <option value="Следовать">Следовать</option>
                                   <option value="Следить">Следить</option>
@@ -135,16 +135,16 @@
                         <li class="group-ships-item">
                             <div class="command-group">
                                 <div class="command-group-title">
-                                    <p>M-1</p>
+                                    <p>Торговые станции</p>
                                     <span class="ship-id-1_private"></span>
                                 </div>
                                 <select class="command-group-select">
-                                    <option value=""></option>
-                                    <option value="Патрулировать">Патрулировать</option>
-                                    <option value="Следовать">Следовать</option>
-                                    <option value="Следить">Следить</option>
-                                    <option value="Сгруппироваться">Сгруппироваться</option>
-                                    <option value="Торговать">Торговать</option>
+                                    <option value="">Выберите действие</option>
+                                    <option value="Патрулировать">Прекратить торговлю</option>
+                                    <option value="Следовать">Начать торговлю</option>
+                                    <option value="Следить">Запретить посадку</option>
+                                    <option value="Сгруппироваться">Разрешить посадку</option>
+                                    <option value="Торговать">Согласовать цены</option>
                                 </select>
                             </div>
                             <div class="item">
@@ -157,16 +157,16 @@
                         <li class="group-ships-item">
                             <div class="command-group">
                                 <div class="command-group-title">
-                                    <p>M-2</p>
+                                    <p>Добывающие станции</p>
                                     <span class="ship-id-2_private"></span>
                                 </div>
                                 <select class="command-group-select">
-                                    <option value=""></option>
-                                    <option value="Патрулировать">Патрулировать</option>
-                                    <option value="Следовать">Следовать</option>
-                                    <option value="Следить">Следить</option>
-                                    <option value="Сгруппироваться">Сгруппироваться</option>
-                                    <option value="Торговать">Торговать</option>
+                                    <option value="">Выберите действие</option>
+                                    <option value="Патрулировать">Прекратить торговлю</option>
+                                    <option value="Следовать">Начать торговлю</option>
+                                    <option value="Следить">Запретить посадку</option>
+                                    <option value="Сгруппироваться">Разрешить посадку</option>
+                                    <option value="Торговать">Согласовать цены</option>
                                 </select>
                             </div>
                             <div class="item">
@@ -220,7 +220,7 @@
                     <button class="send">Отправить</button>
                 </div>
             </div>
-            <div class="pubsub left">
+            <div class="pubsub">
                 <div class="title">
                     <h2>Канал связи</h2>
                     <button class="refresh">0</button>
@@ -417,7 +417,8 @@
 </body>
 <script type="module">
     import interfaceShip from './helia-webrtc-create-interface-ship.mjs'
-    import instance from './helia-on-browser.mjs'
+    import interfaceStation from './helia-webrtc-create-interface-station.mjs'
+    import instance from './helia-webrtc-create-planet.mjs'
 
     const DOM = {
         control: (type) => {
@@ -468,5 +469,6 @@
     template.remove()
     instance()
    const interfaceShips = await interfaceShip()
+   const interfaceStations = await interfaceStation()
 </script>
 </html>

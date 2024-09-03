@@ -16,9 +16,7 @@ export default async () => {
         }
 
         ship.discovery = await createStation('solar_plant')
-        ship.cobra = await createStation('Crystal_production_factory')
-
-        console.log('================== ship ==================', ship)
+        ship.cobra = await createStation('crystal_plant')
     } catch (e) {
 
         console.error('================== ship ==================', e)

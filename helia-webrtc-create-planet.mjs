@@ -1,6 +1,6 @@
 import { createEd25519PeerId, createFromProtobuf} from './lib-peerId-factory.js';
 // import init from './PixelPlanets/out.mjs'
-import {createNode} from './helia-instance.js'
+import {createNode} from './helia-webrtc-create-node-planet.js'
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -131,8 +131,6 @@ export default async () => {
             DOM.planet().textContent = 'Солнечная система'
             break
     }
-
-    const publicListPeerId = ['12D3KooWRso2mreG6EpMxh6u2Zfy9GM5A4hHBojBdyNmtJtdxuNB', '12D3KooWPc49XL2oRMVDMe1gvmhuR6hehEQhjQ65QQ94wHptwkKx']
 
     let publicPeerId = await fetch(namespace.PeerId)
 

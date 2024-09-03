@@ -31,18 +31,18 @@ p {
     grid-template-rows: repeat(12, max(max-content, 1fr));
     grid-template-areas:
         "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
-        "bb bb bb bb aa aa aa d2 d2 d2 d2 d2 d2"
-        "bb bb bb bb aa aa aa a2 a2 a2 a2 a2 a2"
-        "c1 c1 c1 c1 aa aa aa a5 d1 d1 d1 d1 d1"
-        "cc cc cc cc cc cc cc cc d1 d1 d1 d1 d1"
-        "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
-        "dd dd dd dd ee ee ee ee d1 d1 d1 d1 d1"
-        "a3 a3 a3 a3 ee ee ee ee d1 d1 d1 d1 d1"
-        "d3 d3 d3 d3 ee ee ee ee a6 a6 a6 a6 a6"
-        "d3 d3 d3 d3 a1 a1 a1 a7 a7 a7 a7 a7 a7"
-        "a4 a4 a4 a4 a1 a1 a1 a7 a7 a7 a7 a7 a7"
-        "a4 a4 a4 a4 a1 a1 a1 a7 a7 a7 a7 a7 a7"
-        "a4 a4 a4 a4 a1 a1 a1 a8 a8 a8 a8 a8 a8"
+        "bb bb bb bb aa aa aa hh hh hh hh hh hh"
+        "bb bb bb bb aa aa aa a7 a7 a7 a7 a7 a7"
+        "bb bb bb bb aa aa aa a7 a7 a7 a7 a7 a7"
+        "bb bb bb bb cc cc cc a7 a7 a7 a7 a7 a7"
+        "bb bb bb bb ee ee ee a7 a7 a7 a7 a7 a7"
+        "bb bb bb bb ee ee ee a7 a7 a7 a7 a7 a7"
+        "bb bb bb bb ee ee ee ii ii ii ii ii ii"
+        "bb bb bb bb ee ee ee d1 d1 d1 d1 d1 d1"
+        "bb bb bb bb a1 a1 a1 d1 d1 d1 d1 d1 d1"
+        "bb bb bb bb a1 a1 a1 d1 d1 d1 d1 d1 d1"
+        "bb bb bb bb a1 a1 a1 d1 d1 d1 d1 d1 d1"
+        "a9 a9 a9 a9 a1 a1 a1 a8 a8 a8 a8 a8 a8"
 }
 
 .peerInfo, .discovery, .chat, .security, .private-self-discovery, .pubsub {

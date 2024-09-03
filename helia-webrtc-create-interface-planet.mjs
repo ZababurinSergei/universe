@@ -1,8 +1,6 @@
-import createShip from './helia-webrtc-create-ship.mjs'
+//TODO Надо подключить потом
 
-import { createEd25519PeerId, createFromProtobuf} from './lib-peerId-factory.js';
-// import init from './PixelPlanets/out.mjs'
-import {createNode} from './helia-webrtc-create-node-planet.js'
+import createPlanet from './helia-webrtc-create-planet.mjs'
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -19,10 +17,8 @@ export default async () => {
             cobra: null
         }
 
-        ship.discovery = await createShip('discovery')
-        ship.cobra = await createShip('cobra')
-
-        console.log('================== ship ==================', ship)
+        ship.discovery = await createPlanet('earth')
+        ship.cobra = await createPlanet('moon')
     } catch (e) {
 
         console.error('================== ship ==================', e)

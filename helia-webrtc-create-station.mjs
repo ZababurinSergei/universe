@@ -33,22 +33,22 @@ export default async (typeShip) => {
         ship: []
     }
     switch (typeShip) {
-        case 'discovery':
+        case 'solar_plant':
             namespace.ship.push({
-                PeerId: './peerId_ship_discovery.proto',
+                PeerId: './peerId_station_solar_plant.proto',
                 name: typeShip
             })
 
-            DOM.webrtcDirect('ship-2_name').textContent = 'Дискавери'
+            DOM.webrtcDirect('ship-2_name').textContent = "Солничная станция"
             break
-        case 'cobra':
+        case 'crystal_plant':
         default:
             namespace.ship.push({
-                PeerId: './peerId_ship_cobra.proto',
+                PeerId: './peerId_station_crystal_plant.proto',
                 name: typeShip
             })
 
-            DOM.webrtcDirect('ship-1_name').textContent = 'Кобра'
+            DOM.webrtcDirect('ship-1_name').textContent = 'Фабрика кристалов'
             break
     }
 
@@ -62,11 +62,11 @@ export default async (typeShip) => {
         const privatePeerId = await createEd25519PeerId()
 
         switch (typeShip) {
-            case 'discovery':
+            case 'solar_plant':
                 DOM.webrtcDirect('ship-id-2_public').textContent = publicPeerId.toString()
                 DOM.webrtcDirect('ship-id-2_private').textContent = privatePeerId.toString()
                 break
-            case 'cobra':
+            case 'crystal_plant':
             default:
                 DOM.webrtcDirect('ship-id-1_public').textContent = publicPeerId.toString()
                 DOM.webrtcDirect('ship-id-1_private').textContent = privatePeerId.toString()
@@ -77,11 +77,6 @@ export default async (typeShip) => {
             public: null,
             private: null
         }
-
-        console.log('==============',typeShip, {
-            private: privatePeerId,
-            public: publicPeerId
-        })
 
         node.private = await createNode(DOM, 'private', publicPeerId, privatePeerId, typeShip)
         node.public = await createNode(DOM, 'public', publicPeerId, privatePeerId, typeShip)
