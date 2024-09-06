@@ -51,7 +51,7 @@
         <div class="system-modal">
             <slot name="system-modal"></slot>
         </div>
-        <div class="container-slot">
+        <div class="solar-system">
             <slot name="solar-system"></slot>
         </div>
         <div class="container-info">
@@ -425,7 +425,7 @@
             const root = document.body.shadowRoot.querySelector('.container')
             switch (type) {
                 case 'network':
-                    return root.querySelector('.container-slot')
+                    return root.querySelector('.solar-system')
                 case 'map':
                     return root.querySelector('.container-info')
                 default:
