@@ -78,10 +78,10 @@ export default async (typeShip) => {
             private: null
         }
 
-        console.log('==============',typeShip, {
-            private: privatePeerId,
-            public: publicPeerId
-        })
+        // console.log('==============',typeShip, {
+        //     private: privatePeerId,
+        //     public: publicPeerId
+        // })
 
         node.private = await createNode(DOM, 'private', publicPeerId, privatePeerId, typeShip)
         node.public = await createNode(DOM, 'public', publicPeerId, privatePeerId, typeShip)
